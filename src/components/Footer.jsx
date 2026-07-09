@@ -6,7 +6,7 @@ export default function Footer() {
 
   const links = [
     { label: t.footer.email, href: "mailto:hello@elliechoi.com" },
-    { label: t.footer.linkedin, href: "https://www.linkedin.com/" },
+    { label: t.footer.linkedin, href: "https://www.linkedin.com/in/worldstar0722/" },
     { label: t.footer.github, href: "https://github.com/" },
     {
       label: t.footer.coffeeChat,

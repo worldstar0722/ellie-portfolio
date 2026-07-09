@@ -59,7 +59,7 @@ export default function Hero() {
             {t.hero.resume} <span aria-hidden="true">↗</span>
           </a>
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/worldstar0722/"
             target="_blank"
             rel="noopener noreferrer"
             className="link-underline text-[12px] font-medium uppercase tracking-label"
