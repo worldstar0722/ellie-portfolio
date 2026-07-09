@@ -5,7 +5,6 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const links = [
-    { label: t.contact.email, href: "mailto:gaeunc0722@gmail.com" },
     {
       label: t.contact.linkedin,
       href: "https://www.linkedin.com/in/worldstar0722/",
@@ -15,6 +14,7 @@ export default function Footer() {
       label: t.contact.chat,
       href: "https://calendly.com/worldstar0722/30min",
     },
+    { label: t.contact.email, href: "mailto:gaeunc0722@gmail.com" },
   ];
 
   return (
@@ -50,6 +50,39 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+        </Reveal>
+
+        {/* Document hierarchy: Resume stays primary; Academic CV is the
+            secondary option for research-facing readers. */}
+        <Reveal delay={0.12}>
+          <div className="mt-10 flex flex-col gap-2 text-[11px] font-medium uppercase tracking-label sm:flex-row sm:items-center sm:gap-10">
+            <p>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline !text-white hover:!text-white/70"
+              >
+                {t.contact.resume} <span aria-hidden="true">↗</span>
+              </a>
+              <span className="ml-2 normal-case text-white/40">
+                — {t.contact.resumeNote}
+              </span>
+            </p>
+            <p>
+              <a
+                href="/academic-cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="link-underline !text-white/70 hover:!text-white/50"
+              >
+                {t.contact.academicCv} <span aria-hidden="true">↗</span>
+              </a>
+              <span className="ml-2 normal-case text-white/40">
+                — {t.contact.academicCvNote}
+              </span>
+            </p>
+          </div>
         </Reveal>
 
         <Reveal delay={0.15}>

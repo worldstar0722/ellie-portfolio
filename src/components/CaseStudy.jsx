@@ -283,6 +283,16 @@ export default function CaseStudy({ project }) {
                 <ComingSoon label={L.dashboard} soon={L.comingSoon} />
                 <ComingSoon label={L.report} soon={L.comingSoon} />
                 <ComingSoon label={L.presentation} soon={L.comingSoon} />
+                {project.researchBacked ? (
+                  <a
+                    href="/academic-cv.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline text-[12px] font-medium uppercase tracking-label text-ink/60"
+                  >
+                    {L.academicCv} <span aria-hidden="true">↗</span>
+                  </a>
+                ) : null}
                 <Link
                   to="/"
                   className="link-underline text-[12px] font-medium uppercase tracking-label"

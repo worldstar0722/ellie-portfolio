@@ -67,8 +67,9 @@ export const translations = {
     research: {
       heading: "Research Highlights",
       evidenceLabel: "Key evidence",
-      readMore: "Read More",
-      viewProject: "View Related Project",
+      viewCase: "View Related Case Study",
+      academicCv: "Academic CV",
+      academicCvNote: "For research and academic opportunities",
       entries: [
         {
           id: "super-bowl-framework",
@@ -241,6 +242,10 @@ export const translations = {
       linkedin: "LINKEDIN",
       github: "GITHUB",
       chat: "SCHEDULE A CHAT",
+      resume: "RESUME",
+      resumeNote: "for industry roles",
+      academicCv: "ACADEMIC CV",
+      academicCvNote: "for research and academic opportunities",
       note: "Made with data and 매화 · Salt Lake City",
       copyright: "© 2026 Ellie (Gaeun) Choi",
     },
@@ -273,6 +278,7 @@ export const translations = {
       dashboard: "Dashboard",
       report: "Report",
       presentation: "Presentation",
+      academicCv: "Academic CV",
       comingSoon: "coming soon",
       backToWork: "Back to Work",
       nextProject: "Next Project",
@@ -348,8 +354,9 @@ export const translations = {
     research: {
       heading: "연구 하이라이트",
       evidenceLabel: "핵심 근거",
-      readMore: "자세히 보기",
-      viewProject: "관련 프로젝트",
+      viewCase: "관련 케이스 스터디 보기",
+      academicCv: "학술 CV",
+      academicCvNote: "연구·학술 기회를 위한 문서",
       entries: [
         {
           id: "super-bowl-framework",
@@ -519,6 +526,10 @@ export const translations = {
       linkedin: "링크드인",
       github: "깃허브",
       chat: "커피챗 예약",
+      resume: "이력서",
+      resumeNote: "실무 포지션용",
+      academicCv: "학술 CV",
+      academicCvNote: "연구·학술 기회용",
       note: "데이터와 매화로 만들었습니다 · 솔트레이크시티",
       copyright: "© 2026 Ellie (Gaeun) Choi",
     },
@@ -551,6 +562,7 @@ export const translations = {
       dashboard: "대시보드",
       report: "리포트",
       presentation: "프레젠테이션",
+      academicCv: "학술 CV",
       comingSoon: "준비 중",
       backToWork: "프로젝트로 돌아가기",
       nextProject: "다음 프로젝트",

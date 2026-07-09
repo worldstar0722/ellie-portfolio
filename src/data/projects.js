@@ -5,6 +5,7 @@ export const projects = [
   {
     slug: "super-bowl-advertising-analytics",
     number: "01",
+    researchBacked: true,
     tools: ["Python", "Twitter/X API", "Tableau", "NLP", "Data Visualization"],
     cover: { name: "project01_cover", hint: "cover image", ratio: "16:9" },
     links: { github: "https://github.com/worldstar0722" },
@@ -179,6 +180,7 @@ export const projects = [
   {
     slug: "stock-price-prediction-finbert",
     number: "02",
+    researchBacked: true,
     tools: ["Python", "FinBERT", "scikit-learn", "Random Forest", "LightGBM", "XGBoost"],
     cover: { name: "project02_cover", hint: "cover image", ratio: "16:9" },
     links: { github: "https://github.com/worldstar0722" },

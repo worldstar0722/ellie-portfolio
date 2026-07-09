@@ -29,8 +29,8 @@ function Home() {
     <main>
       <Hero />
       <FeaturedWork />
-      <Approach />
       <ResearchHighlights />
+      <Approach />
       <Skills />
       <Experience />
       <Testimonial />
