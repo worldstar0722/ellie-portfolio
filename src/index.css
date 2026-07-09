@@ -95,3 +95,15 @@
     }
   }
 }
+
+/* Print / save-as-PDF: scroll-triggered animations leave content at
+   opacity 0 until it enters the viewport, which prints as blank pages.
+   Force everything visible (important beats framer-motion's inline styles). */
+@media print {
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}

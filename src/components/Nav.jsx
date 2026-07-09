@@ -14,11 +14,11 @@ export default function Nav() {
   }, []);
 
   const links = [
-    { href: "#journey", label: t.nav.journey },
-    { href: "#research", label: t.nav.research },
     { href: "#work", label: t.nav.work },
     { href: "#skills", label: t.nav.skills },
     { href: "#experience", label: t.nav.experience },
+    { href: "#journey", label: t.nav.journey },
+    { href: "#recognition", label: t.nav.recognition },
     { href: "#contact", label: t.nav.contact },
   ];
 

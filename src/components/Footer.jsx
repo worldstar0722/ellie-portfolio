@@ -5,13 +5,12 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const links = [
-    { label: t.footer.email, href: "mailto:hello@elliechoi.com" },
-    { label: t.footer.linkedin, href: "https://www.linkedin.com/in/worldstar0722/" },
-    { label: t.footer.github, href: "https://github.com/" },
+    { label: t.footer.email, href: "mailto:gaeunc0722@gmail.com" },
     {
-      label: t.footer.coffeeChat,
-      href: "https://calendly.com/worldstar0722/30min",
+      label: t.footer.linkedin,
+      href: "https://www.linkedin.com/in/worldstar0722/",
     },
+    { label: t.footer.resume, href: "/resume.pdf" },
   ];
 
   return (
@@ -27,18 +26,30 @@ export default function Footer() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <ul className="mt-14 flex flex-wrap items-center gap-8">
+          {/* Primary CTA */}
+          <a
+            href="https://calendly.com/worldstar0722/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline mt-14 inline-flex text-base font-semibold uppercase tracking-label !text-white hover:!text-white/70"
+          >
+            {t.footer.coffeeChat} <span aria-hidden="true">↗</span>
+          </a>
+
+          <ul className="mt-8 flex flex-wrap items-center gap-8">
             {links.map((link) => (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  target={link.href.startsWith("mailto:") ? undefined : "_blank"}
+                  target={
+                    link.href.startsWith("mailto:") ? undefined : "_blank"
+                  }
                   rel={
                     link.href.startsWith("mailto:")
                       ? undefined
                       : "noopener noreferrer"
                   }
-                  className="link-underline text-[12px] font-medium uppercase tracking-label !text-white hover:!text-white/70"
+                  className="link-underline text-[12px] font-medium uppercase tracking-label !text-white/80 hover:!text-white/60"
                 >
                   {link.label} <span aria-hidden="true">↗</span>
                 </a>
