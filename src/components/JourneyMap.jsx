@@ -121,6 +121,17 @@ function prefersReducedMotion() {
   );
 }
 
+// Haversine distance in km, to scale flight duration with the hop length
+function distanceKm(from, to) {
+  const toRad = (d) => (d * Math.PI) / 180;
+  const dLat = toRad(to[1] - from[1]);
+  const dLon = toRad(to[0] - from[0]);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(from[1])) * Math.cos(toRad(to[1])) * Math.sin(dLon / 2) ** 2;
+  return 6371 * 2 * Math.asin(Math.sqrt(a));
+}
+
 function JourneyMap({ cityNames, activeId, onSelect }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
@@ -207,13 +218,17 @@ function JourneyMap({ cityNames, activeId, onSelect }) {
     if (prefersReducedMotion()) {
       map.jumpTo({ center: city.coordinates, zoom: city.zoom });
     } else {
+      // Explicit duration: MapLibre skips (rather than clamps) flights
+      // whose computed duration exceeds maxDuration, which froze the
+      // trans-Pacific hop. Short Korean hops stay quick; the ocean
+      // crossing gets a longer cinematic arc.
+      const from = map.getCenter();
+      const km = distanceKm([from.lng, from.lat], city.coordinates);
       map.flyTo({
         center: city.coordinates,
         zoom: city.zoom,
-        speed: 1.1,
-        curve: 1.5,
-        maxDuration: 4000,
-        essential: false,
+        curve: 1.4,
+        duration: km > 3000 ? 2800 : 1200,
       });
     }
   }, [activeId]);
