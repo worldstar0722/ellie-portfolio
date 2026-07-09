@@ -60,6 +60,18 @@
     transform: translateY(0);
   }
 
+  /* Journey map route: draws in when the section scrolls into view.
+     Normalized via pathLength=1 on the SVG path. */
+  .journey-arc {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+  }
+
+  .is-visible .journey-arc {
+    stroke-dashoffset: 0;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -67,6 +79,10 @@
     .fade-section {
       opacity: 1;
       transform: none;
+      transition: none;
+    }
+    .journey-arc {
+      stroke-dashoffset: 0;
       transition: none;
     }
   }

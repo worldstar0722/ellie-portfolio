@@ -128,24 +128,28 @@ export const translations = {
         {
           id: "ta",
           title: "Teaching Assistant — IS 2010 & IS 3060",
+          period: "Aug 2024 – Present",
           detail:
             "Supported 100+ students across information systems courses; led labs, graded projects, and held office hours.",
         },
         {
           id: "finance",
           title: "Student Finance Operations Assistant",
+          period: "May 2024 – Present",
           detail:
             "Assisted daily finance operations — reconciliation, reporting, and process documentation.",
         },
         {
           id: "ambassador",
           title: "IS Department Ambassador",
+          period: "Jan 2025 – Present",
           detail:
             "Represented the Information Systems department at recruiting and outreach events.",
         },
         {
           id: "isb",
           title: "ISB Club Executive Director",
+          period: "Aug 2025 – Present",
           detail:
             "Led club operations and programming, connecting students with industry speakers and workshops.",
         },
@@ -181,7 +185,7 @@ export const translations = {
     },
     hero: {
       tagline: "데이터 · 비즈니스 · 도시 · 크리에이티브",
-      headlineLine1: "데이터를",
+      headlineLine1: "데이터에서",
       headlineLine2: "결정으로.",
       subline:
         "정보시스템 · 비즈니스 애널리틱스 · 도시계획 — 유타대학교",
@@ -191,35 +195,36 @@ export const translations = {
     },
     journey: {
       heading: "여정",
-      subheading: "네 도시, 하나의 흐름: 사람과 장소가 움직이는 방식을 이해하기.",
+      subheading:
+        "네 도시를 거쳐 온 하나의 질문 — 사람과 장소는 어떻게 움직이는가.",
       stops: [
         {
           id: "gwangyang",
           city: "광양",
           period: "시작",
           story:
-            "대한민국 남해안의 작은 산업 도시. 제철소와 산 사이에서 자라며 인프라가 일상을 조용히 만들어가는 방식을 배웠습니다.",
+            "남해안의 작은 제철 도시에서 자랐습니다. 제철소와 산 사이에서, 인프라가 일상의 풍경을 조용히 바꿔 놓는다는 걸 처음 배웠습니다.",
         },
         {
           id: "seoul",
           city: "서울",
           period: "발견",
           story:
-            "서울의 밀도와 속도는 호기심을 질문으로 바꾸었습니다 — 교통, 주거, 그리고 천만 도시 뒤에 숨은 데이터에 대한 질문으로.",
+            "서울의 밀도와 속도 속에서 호기심은 질문이 되었습니다. 천만 명의 도시를 움직이는 교통과 주거, 그리고 그 뒤에 숨은 데이터가 궁금해졌습니다.",
         },
         {
           id: "incheon",
           city: "인천",
           period: "전환",
           story:
-            "간척과 재창조 위에 세워진 도시. 인천에서 유학을 결심했고, 비즈니스·데이터·도시의 교차점을 공부하기로 했습니다.",
+            "간척과 재창조 위에 세워진 도시, 인천. 이곳에서 유학을 결심했고, 비즈니스와 데이터와 도시가 만나는 지점을 공부하기로 마음먹었습니다.",
         },
         {
           id: "slc",
           city: "솔트레이크시티",
           period: "현재",
           story:
-            "유타대학교에서 정보시스템을 전공하고 비즈니스 애널리틱스와 도시생태계획을 부전공하며, 데이터가 관심·시장·도시 건강을 어떻게 설명하는지 연구하고 있습니다.",
+            "유타대학교에서 정보시스템을 전공하고 비즈니스 애널리틱스와 도시생태·계획을 부전공하며, 데이터가 관심과 시장, 도시의 건강을 어떻게 설명하는지 연구하고 있습니다.",
         },
       ],
     },
@@ -227,28 +232,28 @@ export const translations = {
       heading: "연구",
       tag: "RESEARCH",
       roleLabel: "역할",
-      findingsLabel: "주요 결과",
+      findingsLabel: "핵심 결과",
       entries: [
         {
           id: "super-bowl-framework",
-          title: "슈퍼볼 광고 성공을 위한 다차원 프레임워크",
-          role: "제1저자 · 지도교수: Chong Oh",
+          title: "슈퍼볼 광고의 성공을 측정하는 다차원 프레임워크",
+          role: "제1저자 · 지도교수 Chong Oh",
           findings: [
-            "슈퍼볼 LX 59개 브랜드의 트윗 64,230건 분석",
-            "6개 지표를 결합한 Winning Score 모델 설계",
-            "Ad Meter 순위 대비 R² < 0.05 확인",
-            "높은 노출이 긍정적 반응을 보장하지 않음을 규명",
+            "슈퍼볼 LX에 참여한 59개 브랜드, 트윗 64,230건 분석",
+            "6개 지표를 하나의 Winning Score 모델로 통합 설계",
+            "Ad Meter 순위와의 상관은 R² < 0.05에 그침",
+            "많이 보인다고 좋게 기억되는 것은 아니라는 사실을 확인",
           ],
         },
         {
           id: "stock-sentiment",
-          title: "과거 시장 데이터와 투자자 심리를 활용한 주가 변동 예측",
-          role: "공동저자 · 멘토: Emre Ertan & Chong Oh",
+          title: "시장 데이터와 투자자 심리를 결합한 주가 방향 예측",
+          role: "공동저자 · 멘토 Emre Ertan & Chong Oh",
           findings: [
-            "FinBERT 감성 분석 + S&P 500 데이터",
-            "Random Forest / LightGBM / XGBoost 비교",
-            "감성 피처가 정확도를 높이고 오탐을 감소",
-            "약형 효율적 시장 가설(EMH)에 대한 반증 제시",
+            "FinBERT 감성 지표와 S&P 500 데이터를 결합",
+            "Random Forest · LightGBM · XGBoost 세 모델 비교",
+            "감성 피처를 더하자 정확도는 오르고 오탐은 줄어듦",
+            "약형 효율적 시장 가설에 반하는 실증 결과",
           ],
         },
       ],
@@ -293,37 +298,43 @@ export const translations = {
       entries: [
         {
           id: "ta",
-          title: "조교 — IS 2010 & IS 3060",
+          title: "조교 — IS 2010 · IS 3060",
+          period: "2024년 8월 – 현재",
           detail:
-            "정보시스템 과목에서 100명 이상의 학생을 지원 — 실습 진행, 프로젝트 채점, 오피스아워 운영.",
+            "정보시스템 두 과목에서 100여 명의 학생을 지원했습니다. 실습 수업을 이끌고, 프로젝트를 채점하고, 오피스아워를 운영했습니다.",
         },
         {
           id: "finance",
           title: "학생 재무 운영 어시스턴트",
-          detail: "일일 재무 운영 지원 — 정산, 리포팅, 프로세스 문서화.",
+          period: "2024년 5월 – 현재",
+          detail:
+            "대학의 일상적인 재무 운영을 지원했습니다 — 정산과 리포팅, 프로세스 문서화까지.",
         },
         {
           id: "ambassador",
           title: "IS 학과 앰배서더",
-          detail: "리크루팅 및 대외 행사에서 정보시스템 학과를 대표.",
+          period: "2025년 1월 – 현재",
+          detail:
+            "입학 설명회와 대외 행사에서 정보시스템 학과의 얼굴로 활동했습니다.",
         },
         {
           id: "isb",
           title: "ISB 클럽 총괄 디렉터",
+          period: "2025년 8월 – 현재",
           detail:
-            "클럽 운영과 프로그램을 총괄하며 학생과 업계 연사·워크숍을 연결.",
+            "클럽 운영과 프로그램 기획을 총괄하며, 학생들과 업계 연사·워크숍을 연결했습니다.",
         },
       ],
     },
     testimonial: {
       quote:
-        "Ellie는 분석적 엄밀함과 진정한 호기심을 겸비한 보기 드문 학생입니다. 대부분이 지나치는 질문을 던지고, 그 답을 찾기 위한 모델을 직접 만듭니다.",
+        "Ellie는 분석의 엄밀함과 순수한 호기심을 함께 지닌 보기 드문 학생입니다. 남들이 지나치는 질문을 던지고, 그 답을 찾기 위해 직접 모델을 만듭니다.",
       attribution: "Chong Oh · 유타대학교 정보시스템 교수",
     },
     footer: {
-      heading: "함께 이야기해요.",
+      heading: "이야기 나눠요.",
       subline:
-        "비즈니스/데이터 애널리스트, 핀테크, 프롭테크 포지션에 열려 있습니다.",
+        "비즈니스·데이터 애널리스트, 핀테크, 프롭테크 포지션이라면 언제든 환영입니다.",
       email: "이메일",
       linkedin: "링크드인",
       github: "깃허브",

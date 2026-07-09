@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import Section from "./Section.jsx";
+import JourneyMap from "./JourneyMap.jsx";
 
 export default function Journey() {
   const { t } = useLanguage();
@@ -8,58 +9,70 @@ export default function Journey() {
   const [activeId, setActiveId] = useState(stops[0].id);
   const active = stops.find((s) => s.id === activeId) ?? stops[0];
 
+  const cityNames = Object.fromEntries(stops.map((s) => [s.id, s.city]));
+
   return (
     <Section id="journey" heading={t.journey.heading}>
-      <p className="mb-14 max-w-2xl text-2xl font-medium leading-snug tracking-headline text-ink md:text-3xl">
+      <p className="mb-10 max-w-2xl text-2xl font-medium leading-snug tracking-headline text-ink md:mb-14 md:text-3xl">
         {t.journey.subheading}
       </p>
 
-      {/* Desktop: horizontal timeline */}
+      {/* Geographic route map — the arc draws itself on scroll into view */}
       <div className="hidden md:block">
-        <div className="relative">
-          <div
-            className="absolute left-0 right-0 top-[5px] h-px bg-hairline"
-            aria-hidden="true"
-          />
-          <ol className="relative flex justify-between">
-            {stops.map((stop) => {
-              const isActive = stop.id === activeId;
-              return (
-                <li key={stop.id}>
-                  <button
-                    type="button"
-                    onClick={() => setActiveId(stop.id)}
-                    aria-expanded={isActive}
-                    className="group flex flex-col items-start gap-4 pr-4 text-left"
-                  >
+        <JourneyMap
+          variant="desktop"
+          cityNames={cityNames}
+          activeId={activeId}
+          onSelect={setActiveId}
+        />
+      </div>
+      <div className="md:hidden">
+        <JourneyMap
+          variant="mobile"
+          cityNames={cityNames}
+          activeId={activeId}
+          onSelect={setActiveId}
+        />
+      </div>
+
+      {/* Desktop: city tabs + story panel, synced with the map */}
+      <div className="mt-10 hidden md:block">
+        <ol className="flex border-t-hairline">
+          {stops.map((stop) => {
+            const isActive = stop.id === activeId;
+            return (
+              <li key={stop.id} className="flex-1">
+                <button
+                  type="button"
+                  onClick={() => setActiveId(stop.id)}
+                  aria-expanded={isActive}
+                  className="group flex w-full flex-col gap-1 py-5 pr-4 text-left"
+                >
+                  <span className="flex items-center gap-2.5">
                     <span
                       aria-hidden="true"
-                      className={`block h-[11px] w-[11px] rounded-full transition-colors duration-300 ${
-                        isActive
-                          ? "bg-clay"
-                          : "bg-hairline group-hover:bg-ink/30"
+                      className={`block h-[9px] w-[9px] rounded-full transition-colors duration-300 ${
+                        isActive ? "bg-clay" : "bg-hairline group-hover:bg-ink/30"
                       }`}
                     />
-                    <span className="flex flex-col gap-1">
-                      <span
-                        className={`text-sm font-medium tracking-headline transition-colors duration-200 ${
-                          isActive ? "text-ink" : "text-ink/45 group-hover:text-navy"
-                        }`}
-                      >
-                        {stop.city}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-label text-ink/35">
-                        {stop.period}
-                      </span>
+                    <span
+                      className={`text-sm font-medium tracking-headline transition-colors duration-200 ${
+                        isActive ? "text-ink" : "text-ink/45 group-hover:text-navy"
+                      }`}
+                    >
+                      {stop.city}
                     </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ol>
-        </div>
+                  </span>
+                  <span className="pl-[19px] text-[10px] uppercase tracking-label text-ink/35">
+                    {stop.period}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ol>
 
-        <div className="mt-12 border-t-hairline pt-8" aria-live="polite">
+        <div className="border-t-hairline pt-8" aria-live="polite">
           <p
             key={active.id}
             className="fade-section is-visible max-w-2xl text-base leading-relaxed text-ink/70"
@@ -69,15 +82,12 @@ export default function Journey() {
         </div>
       </div>
 
-      {/* Mobile: vertical stacked timeline */}
-      <ol className="md:hidden">
-        {stops.map((stop, i) => {
+      {/* Mobile: vertical stacked timeline, synced with the map */}
+      <ol className="mt-8 md:hidden">
+        {stops.map((stop) => {
           const isActive = stop.id === activeId;
           return (
-            <li
-              key={stop.id}
-              className={i > 0 ? "border-t-hairline" : undefined}
-            >
+            <li key={stop.id} className="border-t-hairline">
               <button
                 type="button"
                 onClick={() => setActiveId(stop.id)}
