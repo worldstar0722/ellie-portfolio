@@ -160,6 +160,23 @@ export const translations = {
         "Ellie brings a rare combination of analytical rigor and genuine curiosity. She asks the questions most students overlook — and then builds the model to answer them.",
       attribution: "Chong Oh · Professor of Information Systems, University of Utah",
     },
+    brand: {
+      heading: "Identity",
+      markLabel: "THE MARK",
+      markStory:
+        "Three bars of increasing length form an E — for Ellie. The rhythm echoes a ledger and a bar chart, the visual language of data and finance. The clay dot at the end reads like a decimal point: the moment data resolves into a decision.",
+      paletteLabel: "THE PALETTE",
+      colors: [
+        { name: "Ledger navy", hex: "#1B3A5C" },
+        { name: "Cinema ink", hex: "#23272F" },
+        { name: "Field paper", hex: "#F7F4EE" },
+        { name: "Canyon clay", hex: "#C05B3C" },
+        { name: "Maehwa blush", hex: "#E4A3B4" },
+      ],
+      storyLabel: "THE STORY",
+      story:
+        "The palette follows a journey — navy for the discipline finance demands, ink from the short films I scored in high school, paper as the warm white of spreadsheets and planning maps, clay for the red rock of Utah where I rebuilt myself, and blush, used only once, named for the plum blossoms of Gwangyang where the story began.",
+    },
     footer: {
       heading: "Let's talk.",
       subline: "Open to Business/Data Analyst, FinTech, and PropTech roles.",
@@ -330,6 +347,23 @@ export const translations = {
       quote:
         "Ellie는 분석의 엄밀함과 순수한 호기심을 함께 지닌 보기 드문 학생입니다. 남들이 지나치는 질문을 던지고, 그 답을 찾기 위해 직접 모델을 만듭니다.",
       attribution: "Chong Oh · 유타대학교 정보시스템 교수",
+    },
+    brand: {
+      heading: "아이덴티티",
+      markLabel: "마크",
+      markStory:
+        "길이가 다른 세 개의 막대가 모여 Ellie의 E가 됩니다. 장부의 행과 막대그래프를 닮은 리듬 — 데이터와 금융의 시각 언어입니다. 그리고 끝에 찍힌 클레이 점 하나. 소수점처럼, 데이터가 하나의 결정으로 맺히는 순간입니다.",
+      paletteLabel: "팔레트",
+      colors: [
+        { name: "레저 네이비", hex: "#1B3A5C" },
+        { name: "시네마 잉크", hex: "#23272F" },
+        { name: "필드 페이퍼", hex: "#F7F4EE" },
+        { name: "캐니언 클레이", hex: "#C05B3C" },
+        { name: "매화 블러시", hex: "#E4A3B4" },
+      ],
+      storyLabel: "이야기",
+      story:
+        "팔레트는 여정을 따라갑니다. 네이비는 금융이 요구하는 절제에서, 잉크는 고등학교 시절 음악을 입힌 단편영화의 어둠에서, 페이퍼는 스프레드시트와 계획 지도의 따뜻한 흰빛에서, 클레이는 나를 다시 일으켜 세운 유타의 붉은 바위에서 왔습니다. 그리고 단 한 번만 쓰인 블러시 — 이 모든 이야기가 시작된 광양, 그 매화의 빛깔입니다.",
     },
     footer: {
       heading: "이야기 나눠요.",

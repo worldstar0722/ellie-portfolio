@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../hooks/useLanguage.jsx";
+import Logo from "./Logo.jsx";
 
 export default function Nav() {
   const { lang, setLang, t } = useLanguage();
@@ -30,9 +31,13 @@ export default function Nav() {
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6 sm:px-8">
         <a
           href="#top"
-          className="text-[13px] font-semibold uppercase tracking-wide2 text-ink transition-colors duration-200 hover:text-navy"
+          className="group flex items-center gap-3 transition-opacity duration-200 hover:opacity-70"
         >
-          {t.nav.name}
+          <Logo className="h-[26px] w-auto" />
+          <span className="hidden text-[13px] font-semibold uppercase tracking-wide2 text-ink sm:block">
+            {t.nav.name}
+          </span>
+          <span className="sr-only sm:hidden">{t.nav.name}</span>
         </a>
 
         <div className="flex items-center gap-5 md:gap-7">

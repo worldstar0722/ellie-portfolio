@@ -7,6 +7,7 @@ import SelectedWork from "./components/SelectedWork.jsx";
 import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
 import Testimonial from "./components/Testimonial.jsx";
+import Brand from "./components/Brand.jsx";
 import Footer from "./components/Footer.jsx";
 
 export default function App() {
@@ -22,6 +23,7 @@ export default function App() {
           <Skills />
           <Experience />
           <Testimonial />
+          <Brand />
         </main>
         <Footer />
       </div>
