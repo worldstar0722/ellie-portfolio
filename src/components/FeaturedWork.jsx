@@ -17,9 +17,14 @@ function ProjectCard({ project, flip }) {
     >
       <div className="grid gap-10 md:grid-cols-2 md:gap-12">
         <div className={`flex flex-col ${flip ? "md:order-2" : ""}`}>
-          <span className="text-[11px] font-medium tracking-wide2 text-clay">
-            {project.number}
-          </span>
+          <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="text-[11px] font-medium tracking-wide2 text-clay">
+              {project.number}
+            </span>
+            <span className="text-[10px] font-medium uppercase tracking-label text-ink/40">
+              {copy.category}
+            </span>
+          </p>
           <h3 className="mt-3 text-2xl font-bold leading-snug tracking-headline text-ink md:text-3xl">
             {copy.title}
           </h3>
