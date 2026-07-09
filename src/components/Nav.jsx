@@ -16,7 +16,6 @@ export default function Nav({ onCasePage = false }) {
 
   const sectionLinks = [
     { href: "#work", label: t.nav.work },
-    { href: "#research", label: t.nav.research },
     { href: "#skills", label: t.nav.skills },
     { href: "#experience", label: t.nav.experience },
     { href: "#contact", label: t.nav.contact },

@@ -30,7 +30,7 @@ export const translations = {
       portraitHint: "formal portrait",
     },
     work: {
-      heading: "Featured Work",
+      heading: "Featured Case Studies",
       roleLabel: "Role",
       toolsLabel: "Tools",
       proofLabel: "Proof points",
@@ -61,40 +61,6 @@ export const translations = {
         {
           title: "Translate findings into action",
           text: "End with a recommendation, not a statistic.",
-        },
-      ],
-    },
-    research: {
-      heading: "Research Highlights",
-      evidenceLabel: "Key evidence",
-      viewCase: "View Related Case Study",
-      academicCv: "Academic CV",
-      academicCvNote: "For research and academic opportunities",
-      entries: [
-        {
-          id: "super-bowl-framework",
-          projectId: "super-bowl-advertising-analytics",
-          title: "A Multidimensional Framework for Winning Super Bowl Advertising",
-          role: "First Author · Advisor: Chong Oh",
-          evidence: [
-            "64,230 tweets",
-            "59 brands",
-            "6-metric Winning Score Model",
-            "R² < 0.05 vs. Ad Meter rankings",
-          ],
-        },
-        {
-          id: "stock-sentiment",
-          projectId: "stock-price-prediction-finbert",
-          title:
-            "Predicting Future Stock Price Movements Using Historical Market Data and Investor Sentiment",
-          role: "Co-Author · Mentors: Emre Ertan & Chong Oh",
-          evidence: [
-            "FinBERT sentiment",
-            "S&P 500 data",
-            "Random Forest / LightGBM / XGBoost comparison",
-            "Sentiment features improved accuracy and reduced false positives",
-          ],
         },
       ],
     },
@@ -251,6 +217,7 @@ export const translations = {
     },
     caseStudy: {
       overview: "Overview",
+      researchContext: "Research Context",
       snapshot: "Project Snapshot",
       roleLabel: "Role",
       toolsLabel: "Tools",
@@ -317,7 +284,7 @@ export const translations = {
       portraitHint: "프로필 사진",
     },
     work: {
-      heading: "프로젝트",
+      heading: "케이스 스터디",
       roleLabel: "역할",
       toolsLabel: "도구",
       proofLabel: "핵심 성과",
@@ -348,39 +315,6 @@ export const translations = {
         {
           title: "발견을 행동으로",
           text: "통계가 아니라 권고안으로 마무리합니다.",
-        },
-      ],
-    },
-    research: {
-      heading: "연구 하이라이트",
-      evidenceLabel: "핵심 근거",
-      viewCase: "관련 케이스 스터디 보기",
-      academicCv: "학술 CV",
-      academicCvNote: "연구·학술 기회를 위한 문서",
-      entries: [
-        {
-          id: "super-bowl-framework",
-          projectId: "super-bowl-advertising-analytics",
-          title: "슈퍼볼 광고의 성공을 측정하는 다차원 프레임워크",
-          role: "제1저자 · 지도교수 Chong Oh",
-          evidence: [
-            "트윗 64,230건",
-            "브랜드 59개",
-            "6개 지표의 Winning Score 모델",
-            "Ad Meter 순위 대비 R² < 0.05",
-          ],
-        },
-        {
-          id: "stock-sentiment",
-          projectId: "stock-price-prediction-finbert",
-          title: "과거 시장 데이터와 투자자 심리를 활용한 주가 변동 예측",
-          role: "공동저자 · 멘토 Emre Ertan & Chong Oh",
-          evidence: [
-            "FinBERT 감성 분석",
-            "S&P 500 데이터",
-            "Random Forest · LightGBM · XGBoost 비교",
-            "감성 피처로 정확도 상승, 오탐 감소",
-          ],
         },
       ],
     },
@@ -535,6 +469,7 @@ export const translations = {
     },
     caseStudy: {
       overview: "개요",
+      researchContext: "연구 배경",
       snapshot: "프로젝트 스냅샷",
       roleLabel: "역할",
       toolsLabel: "도구",

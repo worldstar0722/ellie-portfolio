@@ -7,7 +7,6 @@ import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import FeaturedWork from "./components/FeaturedWork.jsx";
 import Approach from "./components/Approach.jsx";
-import ResearchHighlights from "./components/ResearchHighlights.jsx";
 import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
 import Testimonial from "./components/Testimonial.jsx";
@@ -29,7 +28,6 @@ function Home() {
     <main>
       <Hero />
       <FeaturedWork />
-      <ResearchHighlights />
       <Approach />
       <Skills />
       <Experience />

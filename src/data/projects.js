@@ -6,11 +6,12 @@ export const projects = [
     slug: "super-bowl-advertising-analytics",
     number: "01",
     researchBacked: true,
-    tools: ["Python", "Twitter/X API", "Tableau", "NLP", "Data Visualization"],
+    tools: ["Python", "Twitter/X API", "Tableau", "NLP"],
     cover: { name: "project01_cover", hint: "cover image", ratio: "16:9" },
     links: { github: "https://github.com/worldstar0722" },
     en: {
       title: "Super Bowl Advertising Analytics",
+      category: "RESEARCH · MARKETING ANALYTICS · NLP",
       subtitle: "Measuring what a $7M spot actually earns on social media.",
       role: "First Author · Researcher · Data Analyst",
       projectType: "Marketing Analytics · Research · Social Media Analytics",
@@ -30,6 +31,11 @@ export const projects = [
         { label: "Key result", value: "R² < 0.05 vs. Ad Meter" },
         { label: "Status", value: "Research completed · visuals to be uploaded" },
       ],
+      researchContext: {
+        paper: "A Multidimensional Framework for Winning Super Bowl Advertising",
+        credit: "First Author · Advisor: Chong Oh",
+        text: "This project began as a research study on Super Bowl advertising performance. It tested whether social-media visibility aligned with audience reception by analyzing 64,230 tweets from 59 Super Bowl LX brands and comparing a 6-metric Winning Score Model against Ad Meter rankings.",
+      },
       overview:
         "This project analyzed how Super Bowl brands performed on social media and whether online visibility aligned with audience reception. I built a multidimensional framework using tweet volume, engagement, sentiment, and brand-level metrics. The project compared social-media performance against Ad Meter rankings to test whether popular ads were also positively received.",
       problem:
@@ -96,6 +102,7 @@ export const projects = [
     },
     ko: {
       title: "슈퍼볼 광고 애널리틱스",
+      category: "리서치 · 마케팅 애널리틱스 · NLP",
       subtitle: "700만 달러짜리 광고가 소셜에서 실제로 얻는 것을 측정합니다.",
       role: "제1저자 · 연구원 · 데이터 애널리스트",
       projectType: "마케팅 애널리틱스 · 연구 · 소셜미디어 분석",
@@ -114,6 +121,11 @@ export const projects = [
         { label: "핵심 결과", value: "Ad Meter 대비 R² < 0.05" },
         { label: "상태", value: "연구 완료 · 비주얼 업로드 예정" },
       ],
+      researchContext: {
+        paper: "슈퍼볼 광고의 성공을 측정하는 다차원 프레임워크",
+        credit: "제1저자 · 지도교수 Chong Oh",
+        text: "이 프로젝트는 슈퍼볼 광고 성과에 대한 연구에서 출발했습니다. 슈퍼볼 LX 59개 브랜드의 트윗 64,230건을 분석하고 6개 지표의 Winning Score 모델을 Ad Meter 순위와 비교해, 소셜미디어 노출이 실제 시청자 반응과 일치하는지 검증했습니다.",
+      },
       overview:
         "슈퍼볼 브랜드들이 소셜미디어에서 어떤 성과를 냈는지, 온라인 노출이 실제 반응과 일치하는지 분석한 프로젝트입니다. 트윗 볼륨, 참여, 감성, 브랜드 지표를 결합한 다차원 프레임워크를 만들고, 소셜 성과를 Ad Meter 순위와 비교해 인기 있는 광고가 정말 좋게 받아들여졌는지 검증했습니다.",
       problem:
@@ -186,6 +198,7 @@ export const projects = [
     links: { github: "https://github.com/worldstar0722" },
     en: {
       title: "Stock Price Prediction with FinBERT",
+      category: "RESEARCH · FINANCIAL MACHINE LEARNING · NLP",
       subtitle: "Does investor sentiment add signal beyond price history?",
       role: "Co-Author · ML Researcher · Data Analyst",
       projectType: "Financial Analytics · Machine Learning · NLP",
@@ -204,6 +217,11 @@ export const projects = [
         { label: "Models", value: "Random Forest · LightGBM · XGBoost" },
         { label: "Status", value: "Research completed · visuals to be uploaded" },
       ],
+      researchContext: {
+        paper: "Predicting Future Stock Price Movements Using Historical Market Data and Investor Sentiment",
+        credit: "Co-Author · Mentors: Emre Ertan & Chong Oh",
+        text: "This project tested whether FinBERT-based investor sentiment features improved stock movement prediction beyond historical S&P 500 market data. It compared Random Forest, LightGBM, and XGBoost models and evaluated whether sentiment features improved accuracy and reduced false positives.",
+      },
       overview:
         "This project tested whether investor sentiment can improve stock movement prediction beyond historical market data. FinBERT was used to extract financial sentiment features, which were combined with market variables and evaluated across multiple machine learning models.",
       problem:
@@ -268,6 +286,7 @@ export const projects = [
     },
     ko: {
       title: "FinBERT 기반 주가 예측",
+      category: "리서치 · 금융 머신러닝 · NLP",
       subtitle: "투자자 심리는 가격 이력 너머의 신호를 줄 수 있을까?",
       role: "공동저자 · ML 연구원 · 데이터 애널리스트",
       projectType: "금융 애널리틱스 · 머신러닝 · NLP",
@@ -286,6 +305,11 @@ export const projects = [
         { label: "모델", value: "Random Forest · LightGBM · XGBoost" },
         { label: "상태", value: "연구 완료 · 비주얼 업로드 예정" },
       ],
+      researchContext: {
+        paper: "과거 시장 데이터와 투자자 심리를 활용한 주가 변동 예측",
+        credit: "공동저자 · 멘토 Emre Ertan & Chong Oh",
+        text: "FinBERT 기반 투자자 감성 피처가 S&P 500 과거 시장 데이터를 넘어 주가 변동 예측을 개선하는지 검증한 프로젝트입니다. Random Forest, LightGBM, XGBoost 모델을 비교하고, 감성 피처가 정확도를 높이고 오탐을 줄이는지 평가했습니다.",
+      },
       overview:
         "투자자 심리가 과거 시장 데이터를 넘어 주가 변동 예측을 개선할 수 있는지 검증한 프로젝트입니다. FinBERT로 금융 감성 피처를 추출해 시장 변수와 결합하고, 여러 머신러닝 모델에서 평가했습니다.",
       problem:
@@ -356,6 +380,7 @@ export const projects = [
     links: {},
     en: {
       title: "SLC Civic Center Healthy Urban Planning",
+      category: "URBAN ANALYTICS · PLANNING",
       subtitle: "Applying health-first planning to a downtown civic block.",
       role: "Urban Planning Analyst · Researcher",
       projectType: "Urban Analytics · Planning · Spatial Analysis",
@@ -436,6 +461,7 @@ export const projects = [
     },
     ko: {
       title: "SLC 시빅센터 건강 도시계획",
+      category: "어반 애널리틱스 · 도시계획",
       subtitle: "도심 시빅 블록에 건강 우선 계획을 적용합니다.",
       role: "도시계획 애널리스트 · 연구원",
       projectType: "어반 애널리틱스 · 계획 · 공간 분석",
@@ -518,6 +544,7 @@ export const projects = [
     links: {},
     en: {
       title: "Urban Transect Field Study",
+      category: "URBAN ANALYTICS · FIELD RESEARCH",
       subtitle: "Reading a city section by section, on foot and in ArcGIS.",
       role: "Field Researcher · Spatial Analyst",
       projectType: "Urban Analytics · Field Research · Spatial Analysis",
@@ -598,6 +625,7 @@ export const projects = [
     },
     ko: {
       title: "도시 트랜섹트 현장 연구",
+      category: "어반 애널리틱스 · 현장 연구",
       subtitle: "걸어서, 그리고 ArcGIS로 도시를 단면별로 읽습니다.",
       role: "현장 연구원 · 공간 분석가",
       projectType: "어반 애널리틱스 · 현장 연구 · 공간 분석",

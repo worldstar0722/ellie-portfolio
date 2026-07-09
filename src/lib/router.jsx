@@ -11,7 +11,9 @@ export function navigate(to) {
 
 export function usePath() {
   const [path, setPath] = useState(() =>
-    typeof window === "undefined" ? "/" : window.location.pathname
+    typeof window === "undefined"
+      ? globalThis.__SSR_PATH__ ?? "/"
+      : window.location.pathname
   );
 
   useEffect(() => {

@@ -53,6 +53,9 @@ export default function CaseStudy({ project }) {
 
   const anchors = [
     { id: "cs-overview", label: L.overview },
+    ...(copy.researchContext
+      ? [{ id: "cs-research", label: L.researchContext }]
+      : []),
     { id: "cs-problem", label: L.problem },
     { id: "cs-data", label: L.data },
     { id: "cs-method", label: L.method },
@@ -158,6 +161,22 @@ export default function CaseStudy({ project }) {
                 {copy.overview}
               </p>
             </SectionBlock>
+
+            {copy.researchContext ? (
+              <SectionBlock id="cs-research" title={L.researchContext}>
+                <div className="max-w-2xl rounded-2xl border-hairline border-solid bg-[#F7F4EE]/40 p-6 md:p-8">
+                  <p className="text-sm font-semibold leading-snug text-ink md:text-base">
+                    {copy.researchContext.paper}
+                  </p>
+                  <p className="mt-2 text-xs text-ink/45">
+                    {copy.researchContext.credit}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-ink/75">
+                    {copy.researchContext.text}
+                  </p>
+                </div>
+              </SectionBlock>
+            ) : null}
 
             <SectionBlock id="cs-problem" title={L.problem}>
               <p className="max-w-2xl text-base leading-relaxed text-ink/75">
