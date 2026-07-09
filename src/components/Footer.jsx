@@ -9,6 +9,10 @@ export default function Footer() {
     { label: t.footer.email, href: "mailto:hello@elliechoi.com" },
     { label: t.footer.linkedin, href: "https://www.linkedin.com/" },
     { label: t.footer.github, href: "https://github.com/" },
+    {
+      label: t.footer.coffeeChat,
+      href: "https://calendly.com/worldstar0722/30min",
+    },
   ];
 
   return (

@@ -19,6 +19,7 @@ export const translations = {
         "Information systems · business analytics · urban planning — University of Utah",
       resume: "RESUME",
       linkedin: "LINKEDIN",
+      coffeeChat: "COFFEE CHAT",
     },
     journey: {
       heading: "Journey",
@@ -161,6 +162,7 @@ export const translations = {
       email: "EMAIL",
       linkedin: "LINKEDIN",
       github: "GITHUB",
+      coffeeChat: "Schedule a chat",
       note: "Made with data and 매화 · Salt Lake City",
       copyright: "© 2026 Ellie (Gaeun) Choi",
     },
@@ -185,6 +187,7 @@ export const translations = {
         "정보시스템 · 비즈니스 애널리틱스 · 도시계획 — 유타대학교",
       resume: "이력서",
       linkedin: "링크드인",
+      coffeeChat: "커피챗",
     },
     journey: {
       heading: "여정",
@@ -324,6 +327,7 @@ export const translations = {
       email: "이메일",
       linkedin: "링크드인",
       github: "깃허브",
+      coffeeChat: "커피챗 예약",
       note: "데이터와 매화로 만들었습니다 · 솔트레이크시티",
       copyright: "© 2026 Ellie (Gaeun) Choi",
     },

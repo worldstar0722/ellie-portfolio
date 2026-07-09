@@ -41,6 +41,14 @@ export default function Hero() {
           >
             {t.hero.linkedin} <span aria-hidden="true">↗</span>
           </a>
+          <a
+            href="https://calendly.com/worldstar0722/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline text-[12px] font-medium uppercase tracking-label"
+          >
+            {t.hero.coffeeChat} <span aria-hidden="true">↗</span>
+          </a>
         </div>
       </div>
     </section>
