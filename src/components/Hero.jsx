@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import { easeOutSoft } from "./motion.jsx";
+import Placeholder from "./Placeholder.jsx";
 
 const container = {
   hidden: {},
@@ -15,17 +16,24 @@ const line = {
 export default function Hero() {
   const { t } = useLanguage();
 
+  const ctas = [
+    { label: t.hero.viewWork, href: "#work" },
+    { label: t.hero.resume, href: "/resume.pdf", external: true },
+    { label: t.hero.linkedin, href: "https://www.linkedin.com/in/worldstar0722/", external: true },
+    { label: t.hero.coffeeChat, href: "https://calendly.com/worldstar0722/30min", external: true },
+  ];
+
   return (
     <section id="top">
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto max-w-6xl px-6 pb-32 pt-28 sm:px-8 md:pb-52 md:pt-44"
+        className="mx-auto max-w-6xl px-6 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-36"
       >
         <motion.p
           variants={line}
-          className="mb-8 text-[11px] font-medium uppercase tracking-wide2 text-clay md:mb-10"
+          className="mb-8 text-[11px] font-medium uppercase tracking-wide2 text-clay"
         >
           {t.hero.tagline}
         </motion.p>
@@ -41,39 +49,42 @@ export default function Hero() {
 
         <motion.p
           variants={line}
-          className="mt-8 max-w-xl text-base leading-relaxed text-ink/55 md:mt-10 md:text-lg"
+          className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/70 md:text-xl"
+        >
+          {t.hero.supporting}
+        </motion.p>
+
+        <motion.p
+          variants={line}
+          className="mt-5 text-sm leading-relaxed text-ink/45"
         >
           {t.hero.subline}
         </motion.p>
 
         <motion.div
           variants={line}
-          className="mt-12 flex flex-wrap items-center gap-8 md:mt-14"
+          className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
         >
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-underline text-[12px] font-medium uppercase tracking-label"
-          >
-            {t.hero.resume} <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/worldstar0722/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-underline text-[12px] font-medium uppercase tracking-label"
-          >
-            {t.hero.linkedin} <span aria-hidden="true">↗</span>
-          </a>
-          <a
-            href="https://calendly.com/worldstar0722/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-underline text-[12px] font-medium uppercase tracking-label"
-          >
-            {t.hero.coffeeChat} <span aria-hidden="true">↗</span>
-          </a>
+          {ctas.map((cta) => (
+            <a
+              key={cta.label}
+              href={cta.href}
+              target={cta.external ? "_blank" : undefined}
+              rel={cta.external ? "noopener noreferrer" : undefined}
+              className="link-underline text-[12px] font-medium uppercase tracking-label"
+            >
+              {cta.label} <span aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </motion.div>
+
+        <motion.div variants={line} className="mt-16 md:mt-20">
+          <Placeholder
+            name="hero_collage"
+            hint={t.hero.visualLabel}
+            ratio="21:9"
+            uploadLabel={t.work.uploadLater}
+          />
         </motion.div>
       </motion.div>
     </section>

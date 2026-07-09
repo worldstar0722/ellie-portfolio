@@ -24,10 +24,13 @@ export default function Skills() {
             <h3 className="text-[10px] font-medium uppercase tracking-wide2 text-ink/40">
               {category.label}
             </h3>
-            <ul className="mt-6 space-y-2.5">
+            <ul className="mt-6 space-y-4">
               {category.items.map((item) => (
-                <li key={item} className="text-sm text-ink/75">
-                  {item}
+                <li key={item.tool}>
+                  <p className="text-sm font-semibold text-ink">{item.tool}</p>
+                  <p className="mt-0.5 text-xs leading-relaxed text-ink/50">
+                    {item.desc}
+                  </p>
                 </li>
               ))}
             </ul>

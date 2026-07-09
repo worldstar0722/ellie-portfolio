@@ -15,11 +15,15 @@ export default function Nav() {
 
   const links = [
     { href: "#work", label: t.nav.work },
+    { href: "#research", label: t.nav.research },
     { href: "#skills", label: t.nav.skills },
     { href: "#experience", label: t.nav.experience },
-    { href: "#journey", label: t.nav.journey },
-    { href: "#recognition", label: t.nav.recognition },
     { href: "#contact", label: t.nav.contact },
+  ];
+
+  const ctas = [
+    { href: "/resume.pdf", label: t.nav.resume },
+    { href: "https://calendly.com/worldstar0722/30min", label: t.nav.chat },
   ];
 
   return (
@@ -44,8 +48,8 @@ export default function Nav() {
           <span className="sr-only sm:hidden">{t.nav.name}</span>
         </a>
 
-        <div className="flex items-center gap-5 md:gap-7">
-          <ul className="hidden items-center gap-6 md:flex">
+        <div className="flex items-center gap-5 md:gap-6">
+          <ul className="hidden items-center gap-5 lg:flex">
             {links.map((link) => (
               <li key={link.href}>
                 <a
@@ -53,6 +57,21 @@ export default function Nav() {
                   className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
                 >
                   {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="hidden items-center gap-5 border-l-hairline pl-5 sm:flex">
+            {ctas.map((cta) => (
+              <li key={cta.href}>
+                <a
+                  href={cta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[11px] font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70"
+                >
+                  {cta.label}
                 </a>
               </li>
             ))}

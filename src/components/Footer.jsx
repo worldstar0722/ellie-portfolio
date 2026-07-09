@@ -5,38 +5,32 @@ export default function Footer() {
   const { t } = useLanguage();
 
   const links = [
-    { label: t.footer.email, href: "mailto:gaeunc0722@gmail.com" },
+    { label: t.contact.email, href: "mailto:gaeunc0722@gmail.com" },
     {
-      label: t.footer.linkedin,
+      label: t.contact.linkedin,
       href: "https://www.linkedin.com/in/worldstar0722/",
     },
-    { label: t.footer.resume, href: "/resume.pdf" },
+    { label: t.contact.github, href: "https://github.com/worldstar0722" },
+    {
+      label: t.contact.chat,
+      href: "https://calendly.com/worldstar0722/30min",
+    },
   ];
 
   return (
     <footer id="contact" className="bg-navy text-white">
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:px-8 md:py-36">
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:px-8 md:py-32">
         <Reveal>
-          <h2 className="text-4xl font-bold tracking-headline md:text-6xl">
-            {t.footer.heading}
+          <h2 className="max-w-2xl text-4xl font-bold tracking-headline md:text-6xl">
+            {t.contact.heading}
           </h2>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-white/60">
-            {t.footer.subline}
+            {t.contact.body}
           </p>
         </Reveal>
 
         <Reveal delay={0.1}>
-          {/* Primary CTA */}
-          <a
-            href="https://calendly.com/worldstar0722/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-underline mt-14 inline-flex text-base font-semibold uppercase tracking-label !text-white hover:!text-white/70"
-          >
-            {t.footer.coffeeChat} <span aria-hidden="true">↗</span>
-          </a>
-
-          <ul className="mt-8 flex flex-wrap items-center gap-8">
+          <ul className="mt-14 flex flex-wrap items-center gap-8">
             {links.map((link) => (
               <li key={link.label}>
                 <a
@@ -49,7 +43,7 @@ export default function Footer() {
                       ? undefined
                       : "noopener noreferrer"
                   }
-                  className="link-underline text-[12px] font-medium uppercase tracking-label !text-white/80 hover:!text-white/60"
+                  className="link-underline text-[12px] font-medium uppercase tracking-label !text-white hover:!text-white/70"
                 >
                   {link.label} <span aria-hidden="true">↗</span>
                 </a>
@@ -59,12 +53,12 @@ export default function Footer() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-24 border-t border-white/10 pt-8">
+          <div className="mt-20 border-t border-white/10 pt-8">
             {/* The single blush accent detail */}
             <span aria-hidden="true" className="mb-6 block h-px w-10 bg-blush" />
             <div className="flex flex-col gap-2 text-[11px] font-medium uppercase tracking-label text-white/40 sm:flex-row sm:items-center sm:justify-between">
-              <p>{t.footer.note}</p>
-              <p>{t.footer.copyright}</p>
+              <p>{t.contact.note}</p>
+              <p>{t.contact.copyright}</p>
             </div>
           </div>
         </Reveal>

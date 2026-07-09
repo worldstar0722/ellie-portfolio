@@ -21,14 +21,9 @@ export default function Experience() {
                 {entry.period}
               </p>
             </div>
-            <div className="md:col-span-6">
-              <p className="text-sm leading-relaxed text-ink/50">
-                {entry.detail}
-              </p>
-              <p className="mt-2 text-[11px] font-medium uppercase tracking-label text-clay">
-                {entry.metric}
-              </p>
-            </div>
+            <p className="text-sm leading-relaxed text-ink/50 md:col-span-6">
+              {entry.detail}
+            </p>
             <p className="hidden text-right text-[11px] font-medium uppercase tracking-label text-ink/35 md:col-span-2 md:block">
               {entry.period}
             </p>

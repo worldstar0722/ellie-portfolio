@@ -89,6 +89,17 @@
     font-weight: 600;
   }
 
+  /* Soft grid texture for asset placeholders */
+  .placeholder-grid {
+    background-image: linear-gradient(
+        to right,
+        rgba(35, 39, 47, 0.045) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgba(35, 39, 47, 0.045) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
