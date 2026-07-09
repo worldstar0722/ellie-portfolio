@@ -12,7 +12,7 @@ export default {
       },
       fontFamily: {
         sans: [
-          "Archivo",
+          "Pretendard Variable",
           "Pretendard",
           "-apple-system",
           "BlinkMacSystemFont",
@@ -21,9 +21,12 @@ export default {
         ],
       },
       letterSpacing: {
-        headline: "-0.02em",
-        label: "0.08em",
-        wide2: "0.2em",
+        headline: "-0.025em",
+        label: "0.05em",
+        wide2: "0.18em",
+      },
+      lineHeight: {
+        relaxed: "1.7",
       },
     },
   },

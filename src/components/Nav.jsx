@@ -23,17 +23,21 @@ export default function Nav() {
   ];
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b-hairline transition-colors duration-300 ${
-        scrolled ? "bg-white/85 backdrop-blur-md" : "bg-white"
-      }`}
-    >
-      <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6 sm:px-8">
+    <header className="sticky top-0 z-50 border-b-hairline bg-white/70 backdrop-blur-xl backdrop-saturate-150">
+      <nav
+        className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-all duration-300 ease-out sm:px-8 ${
+          scrolled ? "h-12" : "h-16"
+        }`}
+      >
         <a
           href="#top"
           className="group flex items-center gap-3 transition-opacity duration-200 hover:opacity-70"
         >
-          <Logo className="h-[26px] w-auto" />
+          <Logo
+            className={`w-auto transition-all duration-300 ease-out ${
+              scrolled ? "h-[22px]" : "h-[26px]"
+            }`}
+          />
           <span className="hidden text-[13px] font-semibold uppercase tracking-wide2 text-ink sm:block">
             {t.nav.name}
           </span>
@@ -46,7 +50,7 @@ export default function Nav() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-[11px] uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
+                  className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
                 >
                   {link.label}
                 </a>
@@ -55,7 +59,7 @@ export default function Nav() {
           </ul>
 
           <div
-            className="flex items-center gap-1.5 text-[11px] uppercase tracking-label"
+            className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-label"
             role="group"
             aria-label="Language"
           >

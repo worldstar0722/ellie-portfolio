@@ -46,44 +46,52 @@
     transform: scaleX(0.6);
   }
 
-  /* Scroll-triggered fade, toggled by IntersectionObserver */
-  .fade-section {
-    opacity: 0;
-    transform: translateY(16px);
-    transition:
-      opacity 0.6s ease,
-      transform 0.6s ease;
+  /* Journey map city markers (MapLibre DOM markers) */
+  .city-marker {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
-  .fade-section.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+  .city-marker-dot {
+    width: 11px;
+    height: 11px;
+    flex-shrink: 0;
+    border-radius: 9999px;
+    background-color: #b9b4aa;
+    border: 2px solid #ffffff;
+    box-shadow: 0 1px 4px rgba(35, 39, 47, 0.18);
+    transition: background-color 0.2s ease, transform 0.2s ease;
   }
 
-  /* Journey map route: draws in when the section scrolls into view.
-     Normalized via pathLength=1 on the SVG path. */
-  .journey-arc {
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    transition: stroke-dashoffset 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+  .city-marker.is-active .city-marker-dot {
+    background-color: #c05b3c;
+    transform: scale(1.15);
   }
 
-  .is-visible .journey-arc {
-    stroke-dashoffset: 0;
+  .city-marker-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(35, 39, 47, 0.75);
+    background: rgba(255, 255, 255, 0.78);
+    padding: 2px 7px;
+    border-radius: 9999px;
+    transition: color 0.2s ease;
+  }
+
+  .city-marker.is-active .city-marker-label {
+    color: #23272f;
+    font-weight: 600;
   }
 
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
-    }
-    .fade-section {
-      opacity: 1;
-      transform: none;
-      transition: none;
-    }
-    .journey-arc {
-      stroke-dashoffset: 0;
-      transition: none;
     }
   }
 }

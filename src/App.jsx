@@ -1,3 +1,4 @@
+import { MotionConfig } from "framer-motion";
 import { LanguageProvider } from "./hooks/useLanguage.jsx";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
@@ -13,7 +14,8 @@ import Footer from "./components/Footer.jsx";
 export default function App() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-white text-ink">
+      <MotionConfig reducedMotion="user">
+        <div className="min-h-screen bg-white text-ink">
         <Nav />
         <main>
           <Hero />
@@ -25,8 +27,9 @@ export default function App() {
           <Testimonial />
           <Brand />
         </main>
-        <Footer />
-      </div>
+          <Footer />
+        </div>
+      </MotionConfig>
     </LanguageProvider>
   );
 }

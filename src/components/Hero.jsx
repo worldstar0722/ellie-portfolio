@@ -1,30 +1,55 @@
+import { motion } from "framer-motion";
 import { useLanguage } from "../hooks/useLanguage.jsx";
-import { useScrollFade } from "../hooks/useScrollFade.js";
+import { easeOutSoft } from "./motion.jsx";
+
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+};
+
+const line = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOutSoft } },
+};
 
 export default function Hero() {
   const { t } = useLanguage();
-  const ref = useScrollFade();
 
   return (
     <section id="top">
-      <div
-        ref={ref}
-        className="fade-section mx-auto max-w-6xl px-6 pb-28 pt-24 sm:px-8 md:pb-40 md:pt-36"
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
+        className="mx-auto max-w-6xl px-6 pb-32 pt-28 sm:px-8 md:pb-52 md:pt-44"
       >
-        <p className="mb-8 text-[11px] font-semibold uppercase tracking-wide2 text-clay md:mb-10">
+        <motion.p
+          variants={line}
+          className="mb-8 text-[11px] font-medium uppercase tracking-wide2 text-clay md:mb-10"
+        >
           {t.hero.tagline}
-        </p>
+        </motion.p>
 
-        <h1 className="text-5xl font-semibold leading-[1.05] tracking-headline sm:text-6xl md:text-7xl lg:text-8xl">
-          <span className="block text-ink">{t.hero.headlineLine1}</span>
-          <span className="block text-navy">{t.hero.headlineLine2}</span>
+        <h1 className="text-5xl font-bold leading-[1.08] tracking-headline sm:text-6xl md:text-7xl lg:text-8xl">
+          <motion.span variants={line} className="block text-ink">
+            {t.hero.headlineLine1}
+          </motion.span>
+          <motion.span variants={line} className="block text-navy">
+            {t.hero.headlineLine2}
+          </motion.span>
         </h1>
 
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-ink/55 md:mt-10 md:text-lg">
+        <motion.p
+          variants={line}
+          className="mt-8 max-w-xl text-base leading-relaxed text-ink/55 md:mt-10 md:text-lg"
+        >
           {t.hero.subline}
-        </p>
+        </motion.p>
 
-        <div className="mt-12 flex items-center gap-8 md:mt-14">
+        <motion.div
+          variants={line}
+          className="mt-12 flex flex-wrap items-center gap-8 md:mt-14"
+        >
           <a
             href="/resume.pdf"
             target="_blank"
@@ -49,8 +74,8 @@ export default function Hero() {
           >
             {t.hero.coffeeChat} <span aria-hidden="true">↗</span>
           </a>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

@@ -1,18 +1,15 @@
-import { useScrollFade } from "../hooks/useScrollFade.js";
+import { Reveal } from "./motion.jsx";
 
 export default function Section({ id, heading, children, className = "" }) {
-  const ref = useScrollFade();
-
   return (
     <section id={id} className={`border-t-hairline ${className}`}>
-      <div
-        ref={ref}
-        className="fade-section mx-auto max-w-6xl px-6 py-20 sm:px-8 md:py-28"
-      >
+      <div className="mx-auto max-w-6xl px-6 py-28 sm:px-8 md:py-44">
         {heading ? (
-          <h2 className="mb-12 text-xs font-semibold uppercase tracking-wide2 text-ink/50 md:mb-16">
-            {heading}
-          </h2>
+          <Reveal>
+            <h2 className="mb-14 text-xs font-medium uppercase tracking-wide2 text-ink/50 md:mb-20">
+              {heading}
+            </h2>
+          </Reveal>
         ) : null}
         {children}
       </div>
