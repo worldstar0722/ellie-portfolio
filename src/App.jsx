@@ -9,7 +9,6 @@ import FeaturedWork from "./components/FeaturedWork.jsx";
 import Approach from "./components/Approach.jsx";
 import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
-import Testimonial from "./components/Testimonial.jsx";
 import Journey from "./components/Journey.jsx";
 import Identity from "./components/Identity.jsx";
 import Footer from "./components/Footer.jsx";
@@ -31,7 +30,6 @@ function Home() {
       <Approach />
       <Skills />
       <Experience />
-      <Testimonial />
       <Journey />
       <Identity />
     </main>

@@ -113,45 +113,103 @@ export const translations = {
     },
     experience: {
       heading: "Experience",
-      entries: [
-        {
-          id: "ta",
-          title: "Teaching Assistant — IS 2010 & IS 3060",
-          org: "David Eccles School of Business",
-          period: "Aug 2025 – Present",
-          detail:
-            "Supported 100+ students across information systems courses; led labs, graded projects, and held office hours.",
-        },
+      subtitle:
+        "Recent roles across finance operations, information systems education, student leadership, and cross-cultural business programming.",
+      linkedInCta: "View full experience on LinkedIn",
+      earlierHeading: "Earlier Experience",
+      featured: [
         {
           id: "finance",
-          title: "Student Finance Operations Assistant",
-          org: "College of Architecture & Planning",
-          period: "2026 – Present",
-          detail:
-            "Assisted daily finance operations including reconciliation, reporting, and process documentation.",
+          title: "Financial Operation Assistant",
+          org: "Department of City & Metropolitan Planning",
+          meta: "Part-time · Salt Lake City, Utah",
+          period: "May 2026 – Present",
+          description:
+            "Supported departmental finance operations, documentation, and administrative workflows within an urban planning academic environment.",
+          tags: ["Finance Operations", "Documentation", "Urban Planning"],
+        },
+        {
+          id: "ta",
+          title: "Teaching Assistant",
+          org: "University of Utah — David Eccles School of Business",
+          meta: "Part-time · Salt Lake City, Utah · Hybrid",
+          period: "Aug 2025 – Present",
+          description:
+            "Supported students across Information Systems courses, including IS 2010 Spreadsheet Analysis and IS 3060 Information Systems.",
+          courses: ["IS 2010 — Spreadsheet Analysis", "IS 3060 — Information Systems"],
+          tags: ["Teaching", "Information Systems", "Spreadsheet Analysis"],
         },
         {
           id: "ambassador",
-          title: "IS Department Ambassador",
-          org: "University of Utah",
+          title: "IS Student Ambassador",
+          org: "University of Utah — David Eccles School of Business",
+          meta: "Part-time",
           period: "Jun 2025 – Present",
-          detail:
-            "Represented the Information Systems department at recruiting and outreach events.",
+          description:
+            "Served as a liaison between Information Systems students and faculty to promote program engagement. Organized events, mentored students, supported outreach and recruitment efforts, and created promotional content with student clubs and partner institutions.",
+          tags: ["Student Engagement", "Outreach", "Mentoring", "Recruitment"],
         },
         {
           id: "isb",
-          title: "ISB Club Executive Director",
-          org: "International Students in Business",
-          period: "Aug 2025 – Present",
-          detail:
-            "Led club operations and programming, connecting students with industry speakers and workshops.",
+          title: "Marketing Director",
+          org: "International Students in Business at University of Utah",
+          meta: "Student Organization · Salt Lake City, Utah",
+          period: "Jul 2025 – May 2026",
+          description:
+            "Led marketing support for International Students in Business, helping promote club activities and student-facing programming.",
+          tags: ["Marketing", "Student Organization", "Event Promotion"],
+        },
+        {
+          id: "uac",
+          title: "Leadership & Student Support Roles",
+          org: "The University of Utah Asia Campus",
+          meta: "South Korea · Utah Asia Campus",
+          period: "Aug 2023 – Jan 2025",
+          description:
+            "Held multiple campus leadership and student support roles across advising, teaching, technical support, and student organizations.",
+          nested: [
+            "Vice President, UAC Accounting Club — Aug 2024 – Jan 2025",
+            "Peer Advisor, UAC Academic Advising Center — Feb 2024 – Jan 2025",
+            "Teaching Assistant, CHEM 1210 General Chemistry I — Feb 2024 – Jan 2025",
+            "Founding Service President, UAC TEK Club — Aug 2023 – Dec 2024",
+            "Computer Lab Assistant — Aug 2023 – Jun 2024",
+          ],
+          tags: ["Leadership", "Peer Advising", "Teaching", "Resource Support"],
         },
       ],
-    },
-    testimonial: {
-      quote:
-        "Ellie brings a rare combination of analytical rigor and genuine curiosity. She asks the questions most students overlook — and then builds the model to answer them.",
-      attribution: "Chong Oh · Professor of Information Systems, University of Utah",
+      earlier: [
+        {
+          id: "kims-mat",
+          title: "Summer Intern",
+          org: "Kim's MAT DMC Korea · Seoul",
+          period: "Jul 2023",
+          description:
+            "Supported travel management and tour coordination for international groups and events, including Jamboree Seoul tours and Manchester City Asia Seoul Tour 2023.",
+        },
+        {
+          id: "triple",
+          title: "Triple University Supporters",
+          org: "Triple Corp.",
+          period: "May 2023 – Jul 2023",
+          description:
+            "Created travel-related content through videos and blog posts, sharing personal travel experiences for a student supporter program.",
+        },
+        {
+          id: "nolsoop",
+          title: "Cafe Manager",
+          org: "Nolsoop",
+          period: "Jan 2022 – Aug 2022",
+          description:
+            "Handled customer service, orders, payments, store maintenance, restocking, and daily operations.",
+        },
+        {
+          id: "theatre",
+          title: "Theatre Club Vice President",
+          org: "Seoul Visual Media High School",
+          period: "Jan 2020 – Jan 2022",
+          description: "Held a student leadership role in a theatre club.",
+        },
+      ],
     },
     journey: {
       heading: "Journey",
@@ -367,43 +425,103 @@ export const translations = {
     },
     experience: {
       heading: "경력",
-      entries: [
-        {
-          id: "ta",
-          title: "조교 — IS 2010 & IS 3060",
-          org: "데이비드 에클스 경영대학",
-          period: "2025년 8월 – 현재",
-          detail:
-            "정보시스템 과목에서 100명 이상의 학생을 지원 — 실습 진행, 프로젝트 채점, 오피스아워 운영.",
-        },
+      subtitle:
+        "재무 운영, 정보시스템 교육, 학생 리더십, 크로스컬처 비즈니스 프로그램을 아우르는 최근 활동입니다.",
+      linkedInCta: "링크드인에서 전체 경력 보기",
+      earlierHeading: "이전 경력",
+      featured: [
         {
           id: "finance",
-          title: "학생 재무 운영 어시스턴트",
-          org: "건축·도시계획대학",
-          period: "2026년 – 현재",
-          detail: "정산, 리포팅, 프로세스 문서화 등 일일 재무 운영을 지원.",
+          title: "재무 운영 어시스턴트",
+          org: "도시·메트로폴리탄 계획학과 (City & Metropolitan Planning)",
+          meta: "파트타임 · 솔트레이크시티, 유타",
+          period: "2026년 5월 – 현재",
+          description:
+            "도시계획 학과 환경에서 재무 운영과 문서화, 행정 워크플로를 지원합니다.",
+          tags: ["재무 운영", "문서화", "도시계획"],
+        },
+        {
+          id: "ta",
+          title: "조교",
+          org: "유타대학교 — 데이비드 에클스 경영대학",
+          meta: "파트타임 · 솔트레이크시티, 유타 · 하이브리드",
+          period: "2025년 8월 – 현재",
+          description:
+            "IS 2010 스프레드시트 분석, IS 3060 정보시스템 등 정보시스템 과목에서 학생들을 지원합니다.",
+          courses: ["IS 2010 — 스프레드시트 분석", "IS 3060 — 정보시스템"],
+          tags: ["티칭", "정보시스템", "스프레드시트 분석"],
         },
         {
           id: "ambassador",
-          title: "IS 학과 앰배서더",
-          org: "유타대학교",
+          title: "IS 학생 앰배서더",
+          org: "유타대학교 — 데이비드 에클스 경영대학",
+          meta: "파트타임",
           period: "2025년 6월 – 현재",
-          detail: "리크루팅과 대외 행사에서 정보시스템 학과를 대표.",
+          description:
+            "정보시스템 학생과 교수진을 잇는 다리 역할로 프로그램 참여를 이끌었습니다. 행사를 기획하고 학생을 멘토링하며, 홍보와 리크루팅을 지원하고 학생 클럽·파트너 기관과 콘텐츠를 제작했습니다.",
+          tags: ["학생 참여", "대외 활동", "멘토링", "리크루팅"],
         },
         {
           id: "isb",
-          title: "ISB 클럽 총괄 디렉터",
-          org: "International Students in Business",
-          period: "2025년 8월 – 현재",
-          detail:
-            "클럽 운영과 프로그램을 총괄하며 학생과 업계 연사·워크숍을 연결.",
+          title: "마케팅 디렉터",
+          org: "International Students in Business at University of Utah",
+          meta: "학생 단체 · 솔트레이크시티, 유타",
+          period: "2025년 7월 – 2026년 5월",
+          description:
+            "International Students in Business의 마케팅을 이끌며 클럽 활동과 학생 대상 프로그램 홍보를 도왔습니다.",
+          tags: ["마케팅", "학생 단체", "행사 홍보"],
+        },
+        {
+          id: "uac",
+          title: "리더십 & 학생 지원 활동",
+          org: "유타대학교 아시아캠퍼스",
+          meta: "대한민국 · 유타 아시아캠퍼스",
+          period: "2023년 8월 – 2025년 1월",
+          description:
+            "어드바이징, 티칭, 기술 지원, 학생 단체에 걸쳐 여러 캠퍼스 리더십·학생 지원 역할을 수행했습니다.",
+          nested: [
+            "UAC 회계 동아리 부회장 — 2024년 8월 – 2025년 1월",
+            "피어 어드바이저, UAC 학업 어드바이징 센터 — 2024년 2월 – 2025년 1월",
+            "조교, CHEM 1210 일반화학 I — 2024년 2월 – 2025년 1월",
+            "창립 서비스 회장, UAC TEK 클럽 — 2023년 8월 – 2024년 12월",
+            "컴퓨터랩 어시스턴트 — 2023년 8월 – 2024년 6월",
+          ],
+          tags: ["리더십", "피어 어드바이징", "티칭", "리소스 지원"],
         },
       ],
-    },
-    testimonial: {
-      quote:
-        "Ellie는 분석의 엄밀함과 순수한 호기심을 함께 지닌 보기 드문 학생입니다. 남들이 지나치는 질문을 던지고, 그 답을 찾기 위해 직접 모델을 만듭니다.",
-      attribution: "Chong Oh · 유타대학교 정보시스템 교수",
+      earlier: [
+        {
+          id: "kims-mat",
+          title: "여름 인턴",
+          org: "Kim's MAT DMC Korea · 서울",
+          period: "2023년 7월",
+          description:
+            "잼버리 서울 투어, 맨체스터 시티 아시아 서울 투어 2023 등 국제 그룹·행사의 여행 관리와 투어 운영을 지원했습니다.",
+        },
+        {
+          id: "triple",
+          title: "트리플 대학생 서포터즈",
+          org: "Triple Corp.",
+          period: "2023년 5월 – 7월",
+          description:
+            "학생 서포터 프로그램에서 영상과 블로그 포스트로 여행 콘텐츠를 제작했습니다.",
+        },
+        {
+          id: "nolsoop",
+          title: "카페 매니저",
+          org: "놀숲",
+          period: "2022년 1월 – 8월",
+          description:
+            "고객 응대, 주문·결제, 매장 관리, 재고 보충과 일일 운영을 담당했습니다.",
+        },
+        {
+          id: "theatre",
+          title: "연극 동아리 부회장",
+          org: "서울 영상미디어 고등학교",
+          period: "2020년 1월 – 2022년 1월",
+          description: "교내 연극 동아리에서 학생 리더십 역할을 맡았습니다.",
+        },
+      ],
     },
     journey: {
       heading: "여정",
