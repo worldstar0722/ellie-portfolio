@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../hooks/useLanguage.jsx";
+import { Link } from "../lib/router.jsx";
 import Logo from "./Logo.jsx";
 
-export default function Nav() {
+export default function Nav({ onCasePage = false }) {
   const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
 
@@ -13,12 +14,24 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const links = [
+  const sectionLinks = [
     { href: "#work", label: t.nav.work },
     { href: "#research", label: t.nav.research },
     { href: "#skills", label: t.nav.skills },
     { href: "#experience", label: t.nav.experience },
     { href: "#contact", label: t.nav.contact },
+  ];
+
+  // Case study pages swap section anchors for utility links
+  const caseLinks = [
+    { href: "/resume.pdf", label: t.nav.resume, external: true },
+    {
+      href: "https://www.linkedin.com/in/worldstar0722/",
+      label: t.nav.linkedin,
+      external: true,
+    },
+    { href: "https://github.com/worldstar0722", label: t.nav.github, external: true },
+    { href: "/#contact", label: t.nav.contact },
   ];
 
   const ctas = [
@@ -33,8 +46,8 @@ export default function Nav() {
           scrolled ? "h-12" : "h-16"
         }`}
       >
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="group flex items-center gap-3 transition-opacity duration-200 hover:opacity-70"
         >
           <Logo
@@ -46,36 +59,63 @@ export default function Nav() {
             {t.nav.name}
           </span>
           <span className="sr-only sm:hidden">{t.nav.name}</span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-5 md:gap-6">
-          <ul className="hidden items-center gap-5 lg:flex">
-            {links.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
-                  className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {onCasePage ? (
+            <>
+              <Link
+                to="/"
+                className="hidden text-[11px] font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70 sm:block"
+              >
+                ← {t.caseStudy.backToWork}
+              </Link>
+              <ul className="hidden items-center gap-5 border-l-hairline pl-5 lg:flex">
+                {caseLinks.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={link.external ? "_blank" : undefined}
+                      rel={link.external ? "noopener noreferrer" : undefined}
+                      className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <>
+              <ul className="hidden items-center gap-5 lg:flex">
+                {sectionLinks.map((link) => (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
 
-          <ul className="hidden items-center gap-5 border-l-hairline pl-5 sm:flex">
-            {ctas.map((cta) => (
-              <li key={cta.href}>
-                <a
-                  href={cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[11px] font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70"
-                >
-                  {cta.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+              <ul className="hidden items-center gap-5 border-l-hairline pl-5 sm:flex">
+                {ctas.map((cta) => (
+                  <li key={cta.href}>
+                    <a
+                      href={cta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70"
+                    >
+                      {cta.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
 
           <div
             className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-label"

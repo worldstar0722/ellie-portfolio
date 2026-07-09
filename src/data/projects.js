@@ -1,445 +1,673 @@
-// Featured work + case study content. Visual assets are referenced by
-// name from public/images/ (e.g. /images/project01_dashboard.jpg) and
-// render as polished labeled placeholders until uploaded.
+// Central project data: homepage cards + full case study pages
+// (/work/<slug>). Visual assets live in public/images/<name>.jpg and
+// render as labeled placeholders until uploaded.
 export const projects = [
   {
-    id: "super-bowl-analytics",
+    slug: "super-bowl-advertising-analytics",
     number: "01",
-    featured: true, // large card
     tools: ["Python", "Twitter/X API", "Tableau", "NLP", "Data Visualization"],
-    cover: { name: "project01_cover", hint: "Tableau dashboard screenshot", ratio: "16:9" },
+    cover: { name: "project01_cover", hint: "cover image", ratio: "16:9" },
     links: { github: "https://github.com/worldstar0722" },
     en: {
       title: "Super Bowl Advertising Analytics",
-      subtitle: "Measuring what a $7M ad spot actually earns on social media.",
+      subtitle: "Measuring what a $7M spot actually earns on social media.",
       role: "First Author · Researcher · Data Analyst",
+      projectType: "Marketing Analytics · Research · Social Media Analytics",
+      timeline: "Timeline to be added",
+      outcome:
+        "Found that high visibility does not necessarily equal positive audience reception.",
+      proofPoints: [
+        "64,230 tweets",
+        "59 Super Bowl LX brands",
+        "6-metric Winning Score Model",
+        "R² < 0.05 vs. Ad Meter rankings",
+      ],
+      snapshot: [
+        { label: "Role", value: "First Author" },
+        { label: "Dataset", value: "64,230 tweets · 59 brands" },
+        { label: "Output", value: "Winning Score Model + dashboard" },
+        { label: "Key result", value: "R² < 0.05 vs. Ad Meter" },
+        { label: "Status", value: "Research completed · visuals to be uploaded" },
+      ],
+      overview:
+        "This project analyzed how Super Bowl brands performed on social media and whether online visibility aligned with audience reception. I built a multidimensional framework using tweet volume, engagement, sentiment, and brand-level metrics. The project compared social-media performance against Ad Meter rankings to test whether popular ads were also positively received.",
       problem:
-        "Super Bowl ads receive massive visibility, but visibility does not always mean positive audience reception.",
-      method:
-        "Analyzed 64,230 tweets from 59 Super Bowl LX brands, engineered 6 metrics into a composite Winning Score Model, and compared social-media performance against Ad Meter rankings.",
-      result:
-        "Found R² < 0.05 versus Ad Meter rankings — high visibility does not necessarily equal positive reception.",
-      caseStudy: {
-        summary:
-          "A composite social-scoring model testing whether Super Bowl visibility translates into positive reception.",
-        timeline: "Timeline: TBD",
-        problem: {
-          question: "Do the most visible Super Bowl ads actually earn positive audience response?",
-          why: "Brands pay roughly $7M per 30-second spot; likability panels alone can't justify that spend.",
+        "Super Bowl advertising is expensive, but attention alone does not prove effectiveness. The project asked whether high-visibility ads also generated positive audience response, and how brands could be compared beyond simple viewership or engagement counts. The answer matters to brand and marketing teams deciding how to evaluate — and justify — a $7M media buy.",
+      data: {
+        dataset: "64,230 tweets from 59 Super Bowl LX brands.",
+        source: "Final data source links and collection notes will be added later.",
+        cleaning:
+          "Data cleaning and metric engineering transformed raw social-media activity into comparable brand-level indicators.",
+        limitations:
+          "Tweet-level sentiment approximates, but does not fully represent, broader audience reception.",
+      },
+      methodSteps: [
+        "Defined the advertising performance question",
+        "Collected brand-related Twitter/X data",
+        "Cleaned and structured tweet-level data",
+        "Engineered six performance metrics",
+        "Built a composite Winning Score Model",
+        "Compared results with Ad Meter rankings",
+      ],
+      findings: [
+        "High visibility did not reliably predict positive audience reception.",
+        "The Winning Score Model captured multiple dimensions of brand performance.",
+        "The weak relationship with Ad Meter rankings suggested that social buzz and traditional audience ratings measure different outcomes.",
+      ],
+      metrics: [
+        { label: "Tweets analyzed", value: "64,230" },
+        { label: "Brands scored", value: "59" },
+        { label: "Composite metrics", value: "6" },
+        { label: "R² vs. Ad Meter", value: "< 0.05" },
+      ],
+      charts: [
+        {
+          name: "project01_sentiment_distribution",
+          hint: "sentiment distribution chart",
+          ratio: "16:9",
+          note: "How sentiment split across brands — volume leaders often skewed negative.",
         },
-        data: {
-          dataset: "64,230 tweets referencing 59 Super Bowl LX brands, collected via the Twitter/X API.",
-          source: "Data source note: collection window and query terms to be documented.",
-          cleaning: "Deduplicated retweets, filtered spam accounts, and normalized brand mentions before scoring.",
+        {
+          name: "project01_ad_meter_comparison",
+          hint: "Ad Meter comparison chart",
+          ratio: "16:9",
+          note: "Winning Score vs. Ad Meter rank — the near-zero correlation in one view.",
         },
-        method: {
-          workflow: "Engineered six engagement and sentiment metrics, combined into a composite Winning Score Model.",
-          model: "Sentiment scoring plus reach, volume, and engagement features weighted into a single index.",
-          assumptions: "Assumes tweet-level sentiment approximates broader audience reception during the broadcast window.",
-        },
-        findings: [
-          "Winning Score rankings diverged sharply from USA Today Ad Meter rankings.",
-          "R² < 0.05 — visibility explained almost none of the variance in reception.",
-          "High-volume brands often skewed negative, not positive.",
-        ],
-        metrics: [
-          { label: "Tweets analyzed", value: "64,230" },
-          { label: "Brands scored", value: "59" },
-          { label: "Composite metrics", value: "6" },
-          { label: "R² vs. Ad Meter", value: "< 0.05" },
-        ],
-        impact: {
-          decision: "Gives brand teams a framework to evaluate real social response, not just panel likability.",
-          changed: "Reframed “winning” the Super Bowl as reception quality rather than airtime visibility.",
-          next: "Extend to multi-year data and add engagement-weighted sentiment.",
-        },
+      ],
+      impact:
+        "The project helps marketers evaluate advertising performance beyond exposure. It supports better post-campaign analysis by separating visibility, sentiment, engagement, and audience reception.",
+      reflection: {
+        learned:
+          "Composite metrics are only as credible as their weakest component — metric design deserved as much rigor as modeling.",
+        improve:
+          "Add engagement-weighted sentiment and validate the score against multi-year data.",
+        expand:
+          "Generalize the framework to other high-visibility campaigns beyond the Super Bowl.",
       },
       gallery: [
+        { name: "project01_cover", hint: "cover image", ratio: "16:9" },
         { name: "project01_dashboard", hint: "Tableau dashboard screenshot", ratio: "16:9" },
-        { name: "project01_sentiment_chart", hint: "Sentiment distribution chart", ratio: "4:3" },
-        { name: "project01_ranking_chart", hint: "Brand ranking comparison chart", ratio: "16:9" },
-        { name: "project01_methodology", hint: "Methodology diagram", ratio: "16:9" },
+        { name: "project01_sentiment_distribution", hint: "sentiment distribution chart", ratio: "16:9" },
+        { name: "project01_brand_ranking_chart", hint: "brand ranking comparison chart", ratio: "16:9" },
+        { name: "project01_winning_score_model_diagram", hint: "methodology diagram", ratio: "4:3" },
+        { name: "project01_ad_meter_comparison", hint: "Ad Meter comparison chart", ratio: "16:9" },
       ],
     },
     ko: {
       title: "슈퍼볼 광고 애널리틱스",
       subtitle: "700만 달러짜리 광고가 소셜에서 실제로 얻는 것을 측정합니다.",
       role: "제1저자 · 연구원 · 데이터 애널리스트",
+      projectType: "마케팅 애널리틱스 · 연구 · 소셜미디어 분석",
+      timeline: "기간: 추후 기재",
+      outcome: "높은 노출이 긍정적 반응을 보장하지 않는다는 것을 확인했습니다.",
+      proofPoints: [
+        "트윗 64,230건",
+        "슈퍼볼 LX 브랜드 59개",
+        "6개 지표의 Winning Score 모델",
+        "Ad Meter 순위 대비 R² < 0.05",
+      ],
+      snapshot: [
+        { label: "역할", value: "제1저자" },
+        { label: "데이터셋", value: "트윗 64,230건 · 브랜드 59개" },
+        { label: "결과물", value: "Winning Score 모델 + 대시보드" },
+        { label: "핵심 결과", value: "Ad Meter 대비 R² < 0.05" },
+        { label: "상태", value: "연구 완료 · 비주얼 업로드 예정" },
+      ],
+      overview:
+        "슈퍼볼 브랜드들이 소셜미디어에서 어떤 성과를 냈는지, 온라인 노출이 실제 반응과 일치하는지 분석한 프로젝트입니다. 트윗 볼륨, 참여, 감성, 브랜드 지표를 결합한 다차원 프레임워크를 만들고, 소셜 성과를 Ad Meter 순위와 비교해 인기 있는 광고가 정말 좋게 받아들여졌는지 검증했습니다.",
       problem:
-        "슈퍼볼 광고는 엄청난 노출을 얻지만, 노출이 곧 긍정적인 반응을 의미하지는 않습니다.",
-      method:
-        "슈퍼볼 LX 59개 브랜드의 트윗 64,230건을 분석하고, 6개 지표를 하나의 Winning Score 모델로 결합해 소셜 성과를 Ad Meter 순위와 비교했습니다.",
-      result:
-        "Ad Meter 순위 대비 R² < 0.05 — 많이 보인다고 좋게 받아들여지는 것은 아니었습니다.",
-      caseStudy: {
-        summary: "슈퍼볼의 노출이 긍정적 반응으로 이어지는지 검증한 복합 소셜 스코어링 모델.",
-        timeline: "기간: 추후 기재",
-        problem: {
-          question: "가장 많이 보인 슈퍼볼 광고가 실제로 긍정적인 반응을 얻었을까?",
-          why: "30초에 약 700만 달러 — 호감도 패널만으로는 그 지출을 정당화할 수 없습니다.",
+        "슈퍼볼 광고는 비싸지만, 주목받는 것만으로 효과가 증명되지는 않습니다. 노출이 큰 광고가 긍정적인 반응도 얻었는지, 단순 조회수나 참여 수치를 넘어 브랜드를 어떻게 비교할 수 있는지를 물었습니다. 700만 달러의 미디어 집행을 평가하고 정당화해야 하는 브랜드·마케팅 팀에게 필요한 답입니다.",
+      data: {
+        dataset: "슈퍼볼 LX 59개 브랜드의 트윗 64,230건.",
+        source: "최종 데이터 출처와 수집 노트는 추후 추가됩니다.",
+        cleaning:
+          "데이터 정제와 지표 설계를 통해 원시 소셜 활동을 비교 가능한 브랜드 지표로 변환했습니다.",
+        limitations:
+          "트윗 단위 감성은 전체 시청자 반응을 근사할 뿐, 완전히 대표하지는 않습니다.",
+      },
+      methodSteps: [
+        "광고 성과 질문 정의",
+        "브랜드 관련 Twitter/X 데이터 수집",
+        "트윗 단위 데이터 정제·구조화",
+        "6개 성과 지표 설계",
+        "복합 Winning Score 모델 구축",
+        "Ad Meter 순위와 결과 비교",
+      ],
+      findings: [
+        "높은 노출은 긍정적 반응을 안정적으로 예측하지 못했습니다.",
+        "Winning Score 모델은 브랜드 성과의 여러 차원을 포착했습니다.",
+        "Ad Meter 순위와의 약한 상관은 소셜 버즈와 전통적 시청자 평가가 서로 다른 것을 측정함을 시사합니다.",
+      ],
+      metrics: [
+        { label: "분석한 트윗", value: "64,230" },
+        { label: "스코어링한 브랜드", value: "59" },
+        { label: "복합 지표", value: "6" },
+        { label: "Ad Meter 대비 R²", value: "< 0.05" },
+      ],
+      charts: [
+        {
+          name: "project01_sentiment_distribution",
+          hint: "감성 분포 차트",
+          ratio: "16:9",
+          note: "브랜드별 감성 분포 — 볼륨 상위 브랜드가 오히려 부정적으로 기우는 경향.",
         },
-        data: {
-          dataset: "Twitter/X API로 수집한 슈퍼볼 LX 59개 브랜드 관련 트윗 64,230건.",
-          source: "데이터 출처 노트: 수집 기간과 검색어는 추후 문서화.",
-          cleaning: "리트윗 중복 제거, 스팸 계정 필터링, 브랜드 표기 정규화 후 스코어링.",
+        {
+          name: "project01_ad_meter_comparison",
+          hint: "Ad Meter 비교 차트",
+          ratio: "16:9",
+          note: "Winning Score 대 Ad Meter 순위 — 0에 가까운 상관을 한눈에.",
         },
-        method: {
-          workflow: "6개의 참여·감성 지표를 설계해 하나의 Winning Score 모델로 결합했습니다.",
-          model: "감성 점수에 도달률·볼륨·참여 피처를 가중 결합한 단일 지수.",
-          assumptions: "방송 시간대의 트윗 감성이 전체 시청자 반응을 근사한다고 가정.",
-        },
-        findings: [
-          "Winning Score 순위는 USA Today Ad Meter 순위와 크게 어긋났습니다.",
-          "R² < 0.05 — 노출은 반응의 분산을 거의 설명하지 못했습니다.",
-          "볼륨이 큰 브랜드일수록 오히려 부정적으로 기우는 경우가 많았습니다.",
-        ],
-        metrics: [
-          { label: "분석한 트윗", value: "64,230" },
-          { label: "스코어링한 브랜드", value: "59" },
-          { label: "복합 지표", value: "6" },
-          { label: "Ad Meter 대비 R²", value: "< 0.05" },
-        ],
-        impact: {
-          decision: "패널 호감도가 아니라 실제 소셜 반응으로 광고를 평가할 프레임워크를 제공합니다.",
-          changed: "슈퍼볼에서 '이긴다'의 의미를 노출량이 아닌 반응의 질로 재정의했습니다.",
-          next: "다년도 데이터로 확장하고 참여 가중 감성 지표를 추가할 계획입니다.",
-        },
+      ],
+      impact:
+        "노출을 넘어 광고 성과를 평가하도록 돕는 프로젝트입니다. 가시성, 감성, 참여, 반응을 분리해 캠페인 사후 분석의 질을 높입니다.",
+      reflection: {
+        learned:
+          "복합 지표의 신뢰도는 가장 약한 구성 요소가 결정합니다 — 지표 설계에 모델링만큼의 엄밀함이 필요했습니다.",
+        improve: "참여 가중 감성을 더하고 다년도 데이터로 점수를 검증하고 싶습니다.",
+        expand: "슈퍼볼을 넘어 고노출 캠페인 전반으로 프레임워크를 일반화할 수 있습니다.",
       },
       gallery: [
+        { name: "project01_cover", hint: "커버 이미지", ratio: "16:9" },
         { name: "project01_dashboard", hint: "Tableau 대시보드 스크린샷", ratio: "16:9" },
-        { name: "project01_sentiment_chart", hint: "감성 분포 차트", ratio: "4:3" },
-        { name: "project01_ranking_chart", hint: "브랜드 순위 비교 차트", ratio: "16:9" },
-        { name: "project01_methodology", hint: "방법론 다이어그램", ratio: "16:9" },
+        { name: "project01_sentiment_distribution", hint: "감성 분포 차트", ratio: "16:9" },
+        { name: "project01_brand_ranking_chart", hint: "브랜드 순위 비교 차트", ratio: "16:9" },
+        { name: "project01_winning_score_model_diagram", hint: "방법론 다이어그램", ratio: "4:3" },
+        { name: "project01_ad_meter_comparison", hint: "Ad Meter 비교 차트", ratio: "16:9" },
       ],
     },
   },
   {
-    id: "finbert-stock-prediction",
+    slug: "stock-price-prediction-finbert",
     number: "02",
-    featured: true,
     tools: ["Python", "FinBERT", "scikit-learn", "Random Forest", "LightGBM", "XGBoost"],
-    cover: { name: "project02_pipeline", hint: "Model pipeline diagram", ratio: "16:9" },
+    cover: { name: "project02_cover", hint: "cover image", ratio: "16:9" },
     links: { github: "https://github.com/worldstar0722" },
     en: {
       title: "Stock Price Prediction with FinBERT",
-      subtitle: "Testing whether investor sentiment adds signal beyond price history.",
-      role: "Co-Author · Machine Learning Researcher · Data Analyst",
+      subtitle: "Does investor sentiment add signal beyond price history?",
+      role: "Co-Author · ML Researcher · Data Analyst",
+      projectType: "Financial Analytics · Machine Learning · NLP",
+      timeline: "Timeline to be added",
+      outcome: "Sentiment features improved accuracy and reduced false positives.",
+      proofPoints: [
+        "FinBERT sentiment features",
+        "S&P 500 market data",
+        "Random Forest / LightGBM / XGBoost comparison",
+        "Reduced false positives",
+      ],
+      snapshot: [
+        { label: "Role", value: "Co-Author" },
+        { label: "Data", value: "S&P 500 + sentiment features" },
+        { label: "Output", value: "Model comparison" },
+        { label: "Models", value: "Random Forest · LightGBM · XGBoost" },
+        { label: "Status", value: "Research completed · visuals to be uploaded" },
+      ],
+      overview:
+        "This project tested whether investor sentiment can improve stock movement prediction beyond historical market data. FinBERT was used to extract financial sentiment features, which were combined with market variables and evaluated across multiple machine learning models.",
       problem:
-        "Traditional market data may miss investor sentiment signals that appear in financial text.",
-      method:
-        "Combined FinBERT sentiment features with historical S&P 500 market data and compared Random Forest, LightGBM, and XGBoost models.",
-      result:
-        "Sentiment features improved accuracy and reduced false positives — evidence against weak-form EMH in this setting.",
-      caseStudy: {
-        summary: "An ML comparison testing whether financial-text sentiment improves next-move prediction.",
-        timeline: "Timeline: TBD",
-        problem: {
-          question: "Does investor sentiment carry predictive signal beyond historical prices?",
-          why: "Weak-form EMH says price history is fully priced in; if text sentiment adds signal, that assumption breaks.",
+        "Market price history may not capture investor expectations reflected in financial text. The project asked whether sentiment features could add predictive signal and improve classification performance — a question that matters to anyone building quantitative screening pipelines, and to the broader debate about weak-form market efficiency.",
+      data: {
+        dataset: "Historical S&P 500 market data combined with FinBERT-based sentiment features.",
+        source: "Detailed source links, feature definitions, and preprocessing notes will be added later.",
+        cleaning:
+          "Sentiment scores were aligned to trading days and merged with market variables before model training.",
+        limitations:
+          "Results are specific to this setting; daily-granularity sentiment may smooth over intraday signals.",
+      },
+      methodSteps: [
+        "Defined the prediction question",
+        "Prepared market data",
+        "Generated FinBERT sentiment features",
+        "Combined sentiment and market features",
+        "Trained Random Forest, LightGBM, and XGBoost models",
+        "Compared model performance and false positives",
+      ],
+      findings: [
+        "Sentiment features improved model accuracy.",
+        "Sentiment features reduced false positives.",
+        "Results suggested that financial text can add signal beyond price history in this setting.",
+      ],
+      metrics: [
+        { label: "Models compared", value: "3" },
+        { label: "Index covered", value: "S&P 500" },
+        { label: "Sentiment engine", value: "FinBERT" },
+        { label: "False positives", value: "Reduced" },
+      ],
+      charts: [
+        {
+          name: "project02_model_comparison",
+          hint: "model comparison table/chart",
+          ratio: "16:9",
+          note: "Accuracy with and without sentiment, across all three models.",
         },
-        data: {
-          dataset: "Historical S&P 500 market data joined with FinBERT-scored financial text sentiment.",
-          source: "Data source note: text corpus and market data windows to be documented.",
-          cleaning: "Aligned sentiment scores to trading days and handled missing sessions before feature engineering.",
+        {
+          name: "project02_confusion_matrix",
+          hint: "confusion matrix",
+          ratio: "4:3",
+          note: "Where false positives fell once sentiment features were added.",
         },
-        method: {
-          workflow: "Built matched feature sets with and without sentiment, then benchmarked three classifiers.",
-          model: "Random Forest, LightGBM, and XGBoost compared on identical splits.",
-          assumptions: "Assumes FinBERT sentiment meaningfully proxies investor mood at daily granularity.",
-        },
-        findings: [
-          "Sentiment features improved accuracy across all three models.",
-          "False positives dropped when sentiment was included.",
-          "Results provide evidence against weak-form EMH in this setting.",
-        ],
-        metrics: [
-          { label: "Models compared", value: "3" },
-          { label: "Index covered", value: "S&P 500" },
-          { label: "Sentiment engine", value: "FinBERT" },
-          { label: "False positives", value: "Reduced" },
-        ],
-        impact: {
-          decision: "Supports adding NLP-derived features to quantitative screening pipelines.",
-          changed: "Shifted the question from “which model” to “which information” drives performance.",
-          next: "Test intraday granularity and alternative financial-text sources.",
-        },
+      ],
+      impact:
+        "The project supports financial decision-making by testing whether text-based sentiment can strengthen predictive modeling. It also connects machine learning results to a broader question about market efficiency.",
+      reflection: {
+        learned:
+          "Feature provenance mattered more than model choice — the interesting variance came from the information, not the algorithm.",
+        improve: "Test intraday granularity and alternative financial-text sources.",
+        expand: "Extend to sector-level indices and event-window analysis.",
       },
       gallery: [
-        { name: "project02_pipeline", hint: "Model pipeline diagram", ratio: "16:9" },
-        { name: "project02_feature_importance", hint: "Feature importance chart", ratio: "4:3" },
-        { name: "project02_model_comparison", hint: "Model performance comparison table", ratio: "16:9" },
-        { name: "project02_sentiment_time", hint: "Sentiment-over-time chart", ratio: "16:9" },
+        { name: "project02_cover", hint: "cover image", ratio: "16:9" },
+        { name: "project02_model_pipeline", hint: "model pipeline diagram", ratio: "16:9" },
+        { name: "project02_sentiment_over_time", hint: "sentiment-over-time chart", ratio: "16:9" },
+        { name: "project02_feature_importance", hint: "feature importance chart", ratio: "16:9" },
+        { name: "project02_model_comparison", hint: "model comparison table/chart", ratio: "16:9" },
+        { name: "project02_confusion_matrix", hint: "confusion matrix", ratio: "4:3" },
       ],
     },
     ko: {
       title: "FinBERT 기반 주가 예측",
-      subtitle: "투자자 심리가 가격 이력 너머의 신호를 주는지 검증합니다.",
-      role: "공동저자 · 머신러닝 연구원 · 데이터 애널리스트",
+      subtitle: "투자자 심리는 가격 이력 너머의 신호를 줄 수 있을까?",
+      role: "공동저자 · ML 연구원 · 데이터 애널리스트",
+      projectType: "금융 애널리틱스 · 머신러닝 · NLP",
+      timeline: "기간: 추후 기재",
+      outcome: "감성 피처가 정확도를 높이고 오탐을 줄였습니다.",
+      proofPoints: [
+        "FinBERT 감성 피처",
+        "S&P 500 시장 데이터",
+        "Random Forest / LightGBM / XGBoost 비교",
+        "오탐 감소",
+      ],
+      snapshot: [
+        { label: "역할", value: "공동저자" },
+        { label: "데이터", value: "S&P 500 + 감성 피처" },
+        { label: "결과물", value: "모델 비교" },
+        { label: "모델", value: "Random Forest · LightGBM · XGBoost" },
+        { label: "상태", value: "연구 완료 · 비주얼 업로드 예정" },
+      ],
+      overview:
+        "투자자 심리가 과거 시장 데이터를 넘어 주가 변동 예측을 개선할 수 있는지 검증한 프로젝트입니다. FinBERT로 금융 감성 피처를 추출해 시장 변수와 결합하고, 여러 머신러닝 모델에서 평가했습니다.",
       problem:
-        "전통적인 시장 데이터는 금융 텍스트에 나타나는 투자자 심리 신호를 놓칠 수 있습니다.",
-      method:
-        "FinBERT 감성 피처를 S&P 500 과거 데이터와 결합하고 Random Forest, LightGBM, XGBoost 모델을 비교했습니다.",
-      result:
-        "감성 피처는 정확도를 높이고 오탐을 줄였습니다 — 이 설정에서 약형 효율적 시장 가설에 대한 반증입니다.",
-      caseStudy: {
-        summary: "금융 텍스트 감성이 주가 방향 예측을 개선하는지 검증한 ML 비교 연구.",
-        timeline: "기간: 추후 기재",
-        problem: {
-          question: "투자자 심리는 과거 가격 너머의 예측 신호를 담고 있을까?",
-          why: "약형 EMH는 가격 이력이 모두 반영되어 있다고 말합니다. 텍스트 감성이 신호를 더한다면 그 가정이 깨집니다.",
+        "가격 이력은 금융 텍스트에 반영된 투자자 기대를 담지 못할 수 있습니다. 감성 피처가 예측 신호를 더하고 분류 성능을 개선하는지를 물었습니다 — 퀀트 스크리닝 파이프라인을 만드는 사람들과 약형 시장 효율성 논쟁 모두에 중요한 질문입니다.",
+      data: {
+        dataset: "FinBERT 기반 감성 피처와 결합한 S&P 500 과거 시장 데이터.",
+        source: "상세 출처, 피처 정의, 전처리 노트는 추후 추가됩니다.",
+        cleaning: "감성 점수를 거래일에 정렬하고 시장 변수와 병합한 뒤 모델을 학습했습니다.",
+        limitations:
+          "결과는 이 설정에 한정되며, 일 단위 감성은 일중 신호를 평탄화할 수 있습니다.",
+      },
+      methodSteps: [
+        "예측 질문 정의",
+        "시장 데이터 준비",
+        "FinBERT 감성 피처 생성",
+        "감성·시장 피처 결합",
+        "Random Forest, LightGBM, XGBoost 학습",
+        "모델 성능과 오탐 비교",
+      ],
+      findings: [
+        "감성 피처는 모델 정확도를 높였습니다.",
+        "감성 피처는 오탐을 줄였습니다.",
+        "이 설정에서 금융 텍스트가 가격 이력 너머의 신호를 더할 수 있음을 시사합니다.",
+      ],
+      metrics: [
+        { label: "비교한 모델", value: "3" },
+        { label: "대상 지수", value: "S&P 500" },
+        { label: "감성 엔진", value: "FinBERT" },
+        { label: "오탐", value: "감소" },
+      ],
+      charts: [
+        {
+          name: "project02_model_comparison",
+          hint: "모델 비교 표/차트",
+          ratio: "16:9",
+          note: "감성 포함 여부에 따른 세 모델의 정확도 비교.",
         },
-        data: {
-          dataset: "FinBERT로 점수화한 금융 텍스트 감성과 결합한 S&P 500 과거 시장 데이터.",
-          source: "데이터 출처 노트: 텍스트 코퍼스와 시장 데이터 기간은 추후 문서화.",
-          cleaning: "감성 점수를 거래일에 정렬하고 결측 세션을 처리한 뒤 피처를 설계했습니다.",
+        {
+          name: "project02_confusion_matrix",
+          hint: "혼동 행렬",
+          ratio: "4:3",
+          note: "감성 피처 추가 후 오탐이 어디서 줄었는지.",
         },
-        method: {
-          workflow: "감성 포함/미포함 피처셋을 동일 조건으로 만들어 세 분류기를 벤치마크했습니다.",
-          model: "동일한 분할에서 Random Forest · LightGBM · XGBoost 비교.",
-          assumptions: "FinBERT 감성이 일 단위 투자자 심리를 유의미하게 근사한다고 가정.",
-        },
-        findings: [
-          "감성 피처는 세 모델 모두에서 정확도를 높였습니다.",
-          "감성을 포함하자 오탐이 줄었습니다.",
-          "이 설정에서 약형 EMH에 반하는 실증 결과를 얻었습니다.",
-        ],
-        metrics: [
-          { label: "비교한 모델", value: "3" },
-          { label: "대상 지수", value: "S&P 500" },
-          { label: "감성 엔진", value: "FinBERT" },
-          { label: "오탐", value: "감소" },
-        ],
-        impact: {
-          decision: "퀀트 스크리닝 파이프라인에 NLP 파생 피처를 더할 근거를 제공합니다.",
-          changed: "'어떤 모델'이 아니라 '어떤 정보'가 성능을 끌어올리는지로 질문을 바꿨습니다.",
-          next: "일중 단위와 대안 금융 텍스트 소스를 테스트할 계획입니다.",
-        },
+      ],
+      impact:
+        "텍스트 기반 감성이 예측 모델링을 강화할 수 있는지 검증해 금융 의사결정을 뒷받침합니다. 머신러닝 결과를 시장 효율성이라는 더 큰 질문과도 연결합니다.",
+      reflection: {
+        learned:
+          "모델 선택보다 피처의 출처가 중요했습니다 — 의미 있는 차이는 알고리즘이 아니라 정보에서 나왔습니다.",
+        improve: "일중 단위와 대안 금융 텍스트 소스를 테스트하고 싶습니다.",
+        expand: "섹터 지수와 이벤트 윈도 분석으로 확장할 수 있습니다.",
       },
       gallery: [
-        { name: "project02_pipeline", hint: "모델 파이프라인 다이어그램", ratio: "16:9" },
-        { name: "project02_feature_importance", hint: "피처 중요도 차트", ratio: "4:3" },
-        { name: "project02_model_comparison", hint: "모델 성능 비교 표", ratio: "16:9" },
-        { name: "project02_sentiment_time", hint: "시간에 따른 감성 차트", ratio: "16:9" },
+        { name: "project02_cover", hint: "커버 이미지", ratio: "16:9" },
+        { name: "project02_model_pipeline", hint: "모델 파이프라인 다이어그램", ratio: "16:9" },
+        { name: "project02_sentiment_over_time", hint: "시간에 따른 감성 차트", ratio: "16:9" },
+        { name: "project02_feature_importance", hint: "피처 중요도 차트", ratio: "16:9" },
+        { name: "project02_model_comparison", hint: "모델 비교 표/차트", ratio: "16:9" },
+        { name: "project02_confusion_matrix", hint: "혼동 행렬", ratio: "4:3" },
       ],
     },
   },
   {
-    id: "slc-civic-center",
+    slug: "slc-civic-center-healthy-urban-planning",
     number: "03",
-    featured: false,
     tools: ["HPI", "Equity Analysis", "ArcGIS", "Urban Planning"],
-    cover: { name: "project03_site_map", hint: "ArcGIS site map export", ratio: "4:3" },
+    cover: { name: "project03_cover", hint: "cover image", ratio: "16:9" },
     links: {},
     en: {
       title: "SLC Civic Center Healthy Urban Planning",
       subtitle: "Applying health-first planning to a downtown civic block.",
       role: "Urban Planning Analyst · Researcher",
+      projectType: "Urban Analytics · Planning · Spatial Analysis",
+      timeline: "Timeline to be added",
+      outcome:
+        "Translated health-first planning observations into clearer urban design recommendations.",
+      proofPoints: [
+        "Health-first planning framework",
+        "Equity-focused site analysis",
+        "Downtown civic block recommendations",
+      ],
+      snapshot: [
+        { label: "Role", value: "Urban Planning Analyst" },
+        { label: "Framework", value: "HPI" },
+        { label: "Tools", value: "ArcGIS · equity analysis" },
+        { label: "Output", value: "Planning recommendation board" },
+        { label: "Status", value: "Visuals to be uploaded" },
+      ],
+      overview:
+        "This project applied a health-first planning lens to a downtown civic block in Salt Lake City. The analysis considered access, equity, public life, and spatial conditions to identify opportunities for healthier and more inclusive urban design.",
       problem:
-        "Downtown civic spaces need to be evaluated not only by land use, but also by health, access, equity, and public-life outcomes.",
-      method:
-        "Used a health-first planning framework to assess civic-center conditions and identify planning opportunities.",
-      result:
-        "Translated planning observations into clearer recommendations for healthier, more equitable urban design.",
-      caseStudy: {
-        summary: "A health-first evaluation of Salt Lake City's civic core, from site assessment to policy recommendations.",
-        timeline: "Timeline: TBD",
-        problem: {
-          question: "How healthy and equitable is the Civic Center district for the people who use it daily?",
-          why: "Civic space is public-health infrastructure; land-use maps alone can't show who it serves or excludes.",
+        "Civic spaces should be evaluated not only by land use, but also by health, equity, accessibility, and public-life outcomes. This project asked how a downtown civic block could better support people through planning and design — an answer relevant to planners, city agencies, and the communities the block serves.",
+      data: {
+        dataset: "Planning observations, site context, and equity considerations.",
+        source: "Final map exports and planning visuals will be uploaded later.",
+        cleaning: "Site observations were structured into scorable criteria and organized with ArcGIS-based spatial analysis.",
+        limitations: "District-scale conclusions rest on framework indicators and observational data.",
+      },
+      methodSteps: [
+        "Defined the planning question",
+        "Studied the downtown civic site context",
+        "Applied a health-first planning framework",
+        "Evaluated access and equity factors",
+        "Organized spatial findings in ArcGIS",
+        "Translated findings into recommendations",
+      ],
+      findings: [
+        "The site could be evaluated through health and equity, not only physical form.",
+        "Spatial analysis helped clarify access and public-life patterns.",
+        "Planning recommendations connected site observations to healthier urban design outcomes.",
+      ],
+      metrics: [
+        { label: "Framework", value: "HPI" },
+        { label: "Lens", value: "Equity" },
+        { label: "Scale", value: "Civic block" },
+        { label: "Output", value: "Recommendations" },
+      ],
+      charts: [
+        {
+          name: "project03_equity_analysis",
+          hint: "equity analysis diagram",
+          ratio: "16:9",
+          note: "Who the block currently serves — and where access falls short.",
         },
-        data: {
-          dataset: "Healthy Places Index (HPI) indicators joined with site assessment observations.",
-          source: "Data source note: HPI vintage and census layers to be documented.",
-          cleaning: "Matched HPI tracts to the study boundary and structured field notes into scorable criteria.",
+        {
+          name: "project03_recommendation_board",
+          hint: "planning board",
+          ratio: "16:9",
+          note: "The recommendation set, from traffic calming to green-space programming.",
         },
-        method: {
-          workflow: "Assessed the district against HPI criteria, then ran an equity analysis of access and exposure.",
-          model: "Health-first planning framework: walkability, shade, gathering space, equitable access.",
-          assumptions: "Assumes tract-level HPI indicators are meaningful at the district scale.",
-        },
-        findings: [
-          "The district concentrates public services but underperforms on health-promoting qualities.",
-          "Access and comfort are unevenly distributed across user groups.",
-          "Small physical interventions map to measurable equity indicators.",
-        ],
-        metrics: [
-          { label: "Framework", value: "HPI" },
-          { label: "Lens", value: "Equity" },
-          { label: "Scale", value: "District" },
-          { label: "Output", value: "Policy set" },
-        ],
-        impact: {
-          decision: "Supports prioritizing traffic calming, green-space programming, and anti-displacement policy.",
-          changed: "Reframed the civic center as public-health infrastructure, not just land use.",
-          next: "Quantify recommendations with before/after HPI scenario scoring.",
-        },
+      ],
+      impact:
+        "The project supports urban planning decisions by connecting health, equity, and spatial design. It shows how analytical frameworks can improve civic-space recommendations.",
+      reflection: {
+        learned:
+          "Framework indicators only persuade when tied to observable site conditions — the walk mattered as much as the index.",
+        improve: "Quantify recommendations with before/after HPI scenario scoring.",
+        expand: "Apply the same health-first lens to other civic districts.",
       },
       gallery: [
+        { name: "project03_cover", hint: "cover image", ratio: "16:9" },
         { name: "project03_site_map", hint: "ArcGIS site map export", ratio: "4:3" },
-        { name: "project03_equity_diagram", hint: "Equity analysis diagram", ratio: "16:9" },
-        { name: "project03_planning_board", hint: "Planning recommendation board", ratio: "16:9" },
-        { name: "project03_before_after", hint: "Before/after spatial concept", ratio: "16:9" },
+        { name: "project03_equity_analysis", hint: "equity analysis diagram", ratio: "16:9" },
+        { name: "project03_health_planning_framework", hint: "HPI framework diagram", ratio: "16:9" },
+        { name: "project03_recommendation_board", hint: "planning board", ratio: "16:9" },
+        { name: "project03_before_after_concept", hint: "before/after spatial concept", ratio: "16:9" },
       ],
     },
     ko: {
       title: "SLC 시빅센터 건강 도시계획",
       subtitle: "도심 시빅 블록에 건강 우선 계획을 적용합니다.",
       role: "도시계획 애널리스트 · 연구원",
+      projectType: "어반 애널리틱스 · 계획 · 공간 분석",
+      timeline: "기간: 추후 기재",
+      outcome: "건강 우선 관찰을 더 명확한 도시 설계 권고안으로 옮겼습니다.",
+      proofPoints: ["건강 우선 계획 프레임워크", "형평성 중심 현장 분석", "도심 시빅 블록 권고안"],
+      snapshot: [
+        { label: "역할", value: "도시계획 애널리스트" },
+        { label: "프레임워크", value: "HPI" },
+        { label: "도구", value: "ArcGIS · 형평성 분석" },
+        { label: "결과물", value: "계획 권고 보드" },
+        { label: "상태", value: "비주얼 업로드 예정" },
+      ],
+      overview:
+        "솔트레이크시티 도심의 시빅 블록에 건강 우선 계획의 관점을 적용한 프로젝트입니다. 접근성, 형평성, 공공생활, 공간 조건을 함께 살펴 더 건강하고 포용적인 도시 설계의 기회를 찾았습니다.",
       problem:
-        "도심 시빅 공간은 토지 이용만이 아니라 건강, 접근성, 형평성, 공공생활의 결과로 평가되어야 합니다.",
-      method:
-        "건강 우선 계획 프레임워크로 시빅센터의 현황을 평가하고 계획 기회를 발굴했습니다.",
-      result:
-        "현장 관찰을 더 건강하고 공평한 도시 설계를 위한 명확한 권고안으로 옮겼습니다.",
-      caseStudy: {
-        summary: "현장 평가에서 정책 제안까지, 솔트레이크시티 시빅 코어의 건강 우선 평가.",
-        timeline: "기간: 추후 기재",
-        problem: {
-          question: "시빅센터 지구는 매일 그곳을 쓰는 사람들에게 얼마나 건강하고 공평한가?",
-          why: "시빅 공간은 공중보건 인프라입니다. 토지이용 지도만으로는 누구를 위하고 누구를 배제하는지 보이지 않습니다.",
+        "시빅 공간은 토지 이용만이 아니라 건강, 형평성, 접근성, 공공생활의 결과로 평가되어야 합니다. 도심 시빅 블록이 계획과 설계를 통해 사람들을 어떻게 더 잘 지원할 수 있는지를 물었습니다 — 계획가, 시 기관, 그리고 이 블록을 쓰는 커뮤니티 모두에게 필요한 답입니다.",
+      data: {
+        dataset: "계획 관찰, 부지 맥락, 형평성 요소.",
+        source: "최종 지도와 계획 비주얼은 추후 업로드됩니다.",
+        cleaning: "현장 관찰을 평가 가능한 기준으로 구조화하고 ArcGIS 공간 분석으로 정리했습니다.",
+        limitations: "지구 스케일 결론은 프레임워크 지표와 관찰 데이터에 기반합니다.",
+      },
+      methodSteps: [
+        "계획 질문 정의",
+        "도심 시빅 부지 맥락 조사",
+        "건강 우선 계획 프레임워크 적용",
+        "접근성·형평성 요인 평가",
+        "ArcGIS로 공간 발견 정리",
+        "발견을 권고안으로 전환",
+      ],
+      findings: [
+        "부지는 물리적 형태만이 아니라 건강과 형평성으로 평가될 수 있었습니다.",
+        "공간 분석이 접근성과 공공생활 패턴을 명확히 했습니다.",
+        "권고안은 현장 관찰을 더 건강한 도시 설계 결과와 연결했습니다.",
+      ],
+      metrics: [
+        { label: "프레임워크", value: "HPI" },
+        { label: "관점", value: "형평성" },
+        { label: "스케일", value: "시빅 블록" },
+        { label: "결과물", value: "권고안" },
+      ],
+      charts: [
+        {
+          name: "project03_equity_analysis",
+          hint: "형평성 분석 다이어그램",
+          ratio: "16:9",
+          note: "이 블록이 지금 누구를 위하는지 — 접근성이 부족한 지점은 어디인지.",
         },
-        data: {
-          dataset: "현장 평가 관찰과 결합한 Healthy Places Index(HPI) 지표.",
-          source: "데이터 출처 노트: HPI 버전과 센서스 레이어는 추후 문서화.",
-          cleaning: "HPI 트랙트를 연구 경계에 맞추고 현장 노트를 평가 가능한 기준으로 구조화했습니다.",
+        {
+          name: "project03_recommendation_board",
+          hint: "계획 보드",
+          ratio: "16:9",
+          note: "교통정온화부터 녹지 프로그램까지, 권고안 전체.",
         },
-        method: {
-          workflow: "HPI 기준으로 지구를 평가한 뒤 접근성과 노출의 형평성 분석을 수행했습니다.",
-          model: "건강 우선 계획 프레임워크: 보행성, 그늘, 모임 공간, 공평한 접근.",
-          assumptions: "트랙트 단위 HPI 지표가 지구 스케일에서도 유의미하다고 가정.",
-        },
-        findings: [
-          "공공 서비스는 밀집해 있지만 건강 증진 요소는 미흡했습니다.",
-          "접근성과 쾌적함이 이용자 집단별로 고르지 않았습니다.",
-          "작은 물리적 개입이 측정 가능한 형평성 지표와 연결됩니다.",
-        ],
-        metrics: [
-          { label: "프레임워크", value: "HPI" },
-          { label: "관점", value: "형평성" },
-          { label: "스케일", value: "지구" },
-          { label: "결과물", value: "정책 제안" },
-        ],
-        impact: {
-          decision: "교통정온화, 녹지 프로그램, 반(反)젠트리피케이션 정책의 우선순위를 뒷받침합니다.",
-          changed: "시빅센터를 토지 이용이 아닌 공중보건 인프라로 재정의했습니다.",
-          next: "권고안을 전후 HPI 시나리오 스코어링으로 정량화할 계획입니다.",
-        },
+      ],
+      impact:
+        "건강, 형평성, 공간 설계를 연결해 도시계획 의사결정을 뒷받침합니다. 분석 프레임워크가 시빅 공간 권고안의 질을 어떻게 높이는지 보여줍니다.",
+      reflection: {
+        learned:
+          "프레임워크 지표는 눈에 보이는 현장 조건과 연결될 때만 설득력을 가집니다 — 걷는 일이 지수만큼 중요했습니다.",
+        improve: "전후 HPI 시나리오 스코어링으로 권고안을 정량화하고 싶습니다.",
+        expand: "같은 건강 우선 관점을 다른 시빅 지구에도 적용할 수 있습니다.",
       },
       gallery: [
+        { name: "project03_cover", hint: "커버 이미지", ratio: "16:9" },
         { name: "project03_site_map", hint: "ArcGIS 사이트 맵", ratio: "4:3" },
-        { name: "project03_equity_diagram", hint: "형평성 분석 다이어그램", ratio: "16:9" },
-        { name: "project03_planning_board", hint: "계획 권고 보드", ratio: "16:9" },
-        { name: "project03_before_after", hint: "전후 공간 콘셉트", ratio: "16:9" },
+        { name: "project03_equity_analysis", hint: "형평성 분석 다이어그램", ratio: "16:9" },
+        { name: "project03_health_planning_framework", hint: "HPI 프레임워크 다이어그램", ratio: "16:9" },
+        { name: "project03_recommendation_board", hint: "계획 보드", ratio: "16:9" },
+        { name: "project03_before_after_concept", hint: "전후 공간 콘셉트", ratio: "16:9" },
       ],
     },
   },
   {
-    id: "urban-transect-study",
+    slug: "urban-transect-field-study",
     number: "04",
-    featured: false,
     tools: ["ArcGIS", "Fieldwork", "Urban Observation", "Spatial Analysis"],
-    cover: { name: "project04_arcgis_map", hint: "ArcGIS transect map export", ratio: "4:3" },
+    cover: { name: "project04_cover", hint: "cover image", ratio: "16:9" },
     links: {},
     en: {
       title: "Urban Transect Field Study",
       subtitle: "Reading a city section by section, on foot and in ArcGIS.",
       role: "Field Researcher · Spatial Analyst",
-      problem:
-        "Urban form changes gradually across districts, but those transitions are often hard to understand from data alone.",
-      method:
-        "Conducted field observation and spatial documentation across an urban transect, using ArcGIS to organize and interpret spatial patterns.",
-      result:
+      projectType: "Urban Analytics · Field Research · Spatial Analysis",
+      timeline: "Timeline to be added",
+      outcome:
         "Built a clearer understanding of how land use, mobility, density, and public space shift across the city.",
-      caseStudy: {
-        summary: "A walked urban-to-edge transect, digitized and interpreted in ArcGIS.",
-        timeline: "Timeline: TBD",
-        problem: {
-          question: "How do land use, mobility, density, and public space actually change block by block?",
-          why: "Zoning maps describe intent; they rarely capture the lived transitions between districts.",
+      proofPoints: [
+        "Transect-based observation",
+        "Spatial pattern documentation",
+        "Urban form analysis",
+      ],
+      snapshot: [
+        { label: "Role", value: "Field Researcher" },
+        { label: "Tools", value: "ArcGIS · field observation" },
+        { label: "Output", value: "Transect map + observation analysis" },
+        { label: "Method", value: "On-foot transect" },
+        { label: "Status", value: "Visuals to be uploaded" },
+      ],
+      overview:
+        "This project studied urban change through a transect-based field observation method. By combining on-foot observation with ArcGIS mapping, the project documented how urban form, mobility, land use, and public space shift across different sections of the city.",
+      problem:
+        "Urban transitions are often gradual and difficult to understand through data alone. This project asked how field observation and spatial mapping could reveal patterns across a city transect — patterns useful to planners deciding where small interventions matter most.",
+      data: {
+        dataset: "Field observations, site notes, and photos gathered along the transect.",
+        source: "Final map exports, field photo grids, and annotated diagrams will be uploaded later.",
+        cleaning: "Observations were standardized into categories and digitized for ArcGIS mapping.",
+        limitations: "A single transect approximates, but cannot fully represent, citywide transitions.",
+      },
+      methodSteps: [
+        "Defined the transect study question",
+        "Conducted on-foot field observation",
+        "Documented land use and mobility patterns",
+        "Organized spatial observations in ArcGIS",
+        "Compared patterns across sections",
+        "Summarized urban form findings",
+      ],
+      findings: [
+        "Fieldwork revealed spatial transitions that would be hard to see from data alone.",
+        "ArcGIS mapping helped organize and compare observations.",
+        "The transect method clarified changes in land use, density, movement, and public space.",
+      ],
+      metrics: [
+        { label: "Method", value: "Transect" },
+        { label: "Tooling", value: "ArcGIS" },
+        { label: "Mode", value: "On foot" },
+        { label: "Output", value: "Spatial narrative" },
+      ],
+      charts: [
+        {
+          name: "project04_transect_diagram",
+          hint: "transect diagram",
+          ratio: "16:9",
+          note: "The full section — how form and use change along the route.",
         },
-        data: {
-          dataset: "Field observations — land use, vegetation, street condition — recorded along a full transect.",
-          source: "Data source note: transect route and observation protocol to be documented.",
-          cleaning: "Standardized field notes into categories before digitizing against parcel and census layers.",
+        {
+          name: "project04_annotated_observation_map",
+          hint: "annotated observation map",
+          ratio: "16:9",
+          note: "Field notes pinned to place: where transitions actually happen.",
         },
-        method: {
-          workflow: "Walked the transect, documented conditions, then digitized observations in ArcGIS.",
-          model: "Layered spatial comparison against parcel and census data.",
-          assumptions: "Assumes a single transect is representative of broader district transitions.",
-        },
-        findings: [
-          "Built form diverges from plan most visibly at district seams.",
-          "Mobility and public-space quality shift faster than land-use categories suggest.",
-          "Small sites at transitions offer outsized intervention opportunities.",
-        ],
-        metrics: [
-          { label: "Method", value: "Transect" },
-          { label: "Tooling", value: "ArcGIS" },
-          { label: "Mode", value: "On foot" },
-          { label: "Output", value: "Spatial narrative" },
-        ],
-        impact: {
-          decision: "Points planners to seam locations where small interventions matter most.",
-          changed: "Connected on-the-ground observation to parcel-level data in one narrative.",
-          next: "Repeat across additional transects to test generality.",
-        },
+      ],
+      impact:
+        "The project supports urban analysis by combining human observation with spatial tools. It demonstrates how field research and mapping can produce clearer planning insights.",
+      reflection: {
+        learned:
+          "Walking the line surfaced transitions no dataset flagged — observation is a data source, not a supplement.",
+        improve: "Standardize the observation protocol for repeatability.",
+        expand: "Repeat across additional transects to test how general the patterns are.",
       },
       gallery: [
-        { name: "project04_arcgis_map", hint: "ArcGIS transect map export", ratio: "4:3" },
-        { name: "project04_field_photo_grid", hint: "Field photo grid", ratio: "square" },
-        { name: "project04_annotated_map", hint: "Annotated observation map", ratio: "16:9" },
-        { name: "project04_pattern_diagram", hint: "Urban pattern diagram", ratio: "16:9" },
+        { name: "project04_cover", hint: "cover image", ratio: "16:9" },
+        { name: "project04_arcgis_map", hint: "ArcGIS map export", ratio: "4:3" },
+        { name: "project04_transect_diagram", hint: "transect diagram", ratio: "16:9" },
+        { name: "project04_field_photo_grid", hint: "field photo grid", ratio: "4:3" },
+        { name: "project04_annotated_observation_map", hint: "annotated observation map", ratio: "16:9" },
+        { name: "project04_urban_pattern_diagram", hint: "urban pattern diagram", ratio: "16:9" },
       ],
     },
     ko: {
       title: "도시 트랜섹트 현장 연구",
       subtitle: "걸어서, 그리고 ArcGIS로 도시를 단면별로 읽습니다.",
       role: "현장 연구원 · 공간 분석가",
-      problem:
-        "도시의 형태는 지구를 가로지르며 서서히 변하지만, 그 전환은 데이터만으로 이해하기 어렵습니다.",
-      method:
-        "도시 트랜섹트를 따라 현장 관찰과 공간 기록을 수행하고, ArcGIS로 공간 패턴을 정리·해석했습니다.",
-      result:
+      projectType: "어반 애널리틱스 · 현장 연구 · 공간 분석",
+      timeline: "기간: 추후 기재",
+      outcome:
         "토지 이용, 이동성, 밀도, 공공 공간이 도시를 가로지르며 어떻게 변하는지 명확하게 파악했습니다.",
-      caseStudy: {
-        summary: "도심에서 도시 경계까지 걸어서 기록하고 ArcGIS로 해석한 트랜섹트 연구.",
-        timeline: "기간: 추후 기재",
-        problem: {
-          question: "토지 이용, 이동성, 밀도, 공공 공간은 블록마다 실제로 어떻게 달라지는가?",
-          why: "용도지역 지도는 의도를 말할 뿐, 지구 사이의 실제 전환은 담지 못합니다.",
+      proofPoints: ["트랜섹트 기반 관찰", "공간 패턴 기록", "도시 형태 분석"],
+      snapshot: [
+        { label: "역할", value: "현장 연구원" },
+        { label: "도구", value: "ArcGIS · 현장 관찰" },
+        { label: "결과물", value: "트랜섹트 맵 + 관찰 분석" },
+        { label: "방법", value: "도보 트랜섹트" },
+        { label: "상태", value: "비주얼 업로드 예정" },
+      ],
+      overview:
+        "트랜섹트 기반 현장 관찰로 도시의 변화를 연구한 프로젝트입니다. 도보 관찰과 ArcGIS 매핑을 결합해 도시 형태, 이동성, 토지 이용, 공공 공간이 도시의 구간마다 어떻게 달라지는지 기록했습니다.",
+      problem:
+        "도시의 전환은 점진적이어서 데이터만으로 이해하기 어렵습니다. 현장 관찰과 공간 매핑이 트랜섹트를 따라 어떤 패턴을 드러낼 수 있는지를 물었습니다 — 작은 개입이 가장 큰 효과를 낼 지점을 정해야 하는 계획가에게 유용한 패턴입니다.",
+      data: {
+        dataset: "트랜섹트를 따라 수집한 현장 관찰, 노트, 사진.",
+        source: "최종 지도, 현장 사진 그리드, 주석 다이어그램은 추후 업로드됩니다.",
+        cleaning: "관찰을 범주로 표준화하고 ArcGIS 매핑을 위해 디지털화했습니다.",
+        limitations: "하나의 트랜섹트는 도시 전체의 전환을 근사할 뿐 완전히 대표하지 않습니다.",
+      },
+      methodSteps: [
+        "트랜섹트 연구 질문 정의",
+        "도보 현장 관찰 수행",
+        "토지 이용·이동성 패턴 기록",
+        "ArcGIS로 공간 관찰 정리",
+        "구간별 패턴 비교",
+        "도시 형태 발견 요약",
+      ],
+      findings: [
+        "현장 연구는 데이터만으로 보기 어려운 공간 전환을 드러냈습니다.",
+        "ArcGIS 매핑이 관찰의 정리와 비교를 도왔습니다.",
+        "트랜섹트 방법이 토지 이용, 밀도, 이동, 공공 공간의 변화를 명확히 했습니다.",
+      ],
+      metrics: [
+        { label: "방법", value: "트랜섹트" },
+        { label: "도구", value: "ArcGIS" },
+        { label: "방식", value: "도보" },
+        { label: "결과물", value: "공간 서사" },
+      ],
+      charts: [
+        {
+          name: "project04_transect_diagram",
+          hint: "트랜섹트 다이어그램",
+          ratio: "16:9",
+          note: "전체 단면 — 경로를 따라 형태와 용도가 어떻게 변하는지.",
         },
-        data: {
-          dataset: "트랜섹트 전 구간에서 기록한 토지 이용·식생·가로 환경 현장 관찰 자료.",
-          source: "데이터 출처 노트: 트랜섹트 경로와 관찰 프로토콜은 추후 문서화.",
-          cleaning: "현장 노트를 범주로 표준화한 뒤 필지·센서스 레이어와 함께 디지털화했습니다.",
+        {
+          name: "project04_annotated_observation_map",
+          hint: "주석 달린 관찰 지도",
+          ratio: "16:9",
+          note: "장소에 고정된 현장 노트: 전환이 실제로 일어나는 곳.",
         },
-        method: {
-          workflow: "트랜섹트를 걸으며 기록하고, 관찰 자료를 ArcGIS에서 디지털화했습니다.",
-          model: "필지·센서스 데이터와의 층위적 공간 비교.",
-          assumptions: "하나의 트랜섹트가 더 넓은 지구 전환을 대표한다고 가정.",
-        },
-        findings: [
-          "계획과 실제 건조 환경의 어긋남은 지구의 경계에서 가장 뚜렷했습니다.",
-          "이동성과 공공 공간의 질은 용도 분류보다 빠르게 변했습니다.",
-          "전환부의 작은 부지가 큰 개입 기회를 제공합니다.",
-        ],
-        metrics: [
-          { label: "방법", value: "트랜섹트" },
-          { label: "도구", value: "ArcGIS" },
-          { label: "방식", value: "도보" },
-          { label: "결과물", value: "공간 서사" },
-        ],
-        impact: {
-          decision: "작은 개입이 가장 큰 효과를 내는 경계 지점을 계획가에게 알려줍니다.",
-          changed: "현장 관찰과 필지 단위 데이터를 하나의 서사로 연결했습니다.",
-          next: "추가 트랜섹트에서 반복해 일반성을 검증할 계획입니다.",
-        },
+      ],
+      impact:
+        "사람의 관찰과 공간 도구를 결합해 도시 분석을 뒷받침합니다. 현장 연구와 매핑이 어떻게 더 명확한 계획 인사이트를 만드는지 보여줍니다.",
+      reflection: {
+        learned:
+          "직접 걷자 어떤 데이터셋도 표시하지 않은 전환이 드러났습니다 — 관찰은 보조 자료가 아니라 데이터 소스입니다.",
+        improve: "재현 가능하도록 관찰 프로토콜을 표준화하고 싶습니다.",
+        expand: "추가 트랜섹트에서 반복해 패턴의 일반성을 검증할 수 있습니다.",
       },
       gallery: [
-        { name: "project04_arcgis_map", hint: "ArcGIS 트랜섹트 맵", ratio: "4:3" },
-        { name: "project04_field_photo_grid", hint: "현장 사진 그리드", ratio: "square" },
-        { name: "project04_annotated_map", hint: "주석 달린 관찰 지도", ratio: "16:9" },
-        { name: "project04_pattern_diagram", hint: "도시 패턴 다이어그램", ratio: "16:9" },
+        { name: "project04_cover", hint: "커버 이미지", ratio: "16:9" },
+        { name: "project04_arcgis_map", hint: "ArcGIS 맵", ratio: "4:3" },
+        { name: "project04_transect_diagram", hint: "트랜섹트 다이어그램", ratio: "16:9" },
+        { name: "project04_field_photo_grid", hint: "현장 사진 그리드", ratio: "4:3" },
+        { name: "project04_annotated_observation_map", hint: "주석 달린 관찰 지도", ratio: "16:9" },
+        { name: "project04_urban_pattern_diagram", hint: "도시 패턴 다이어그램", ratio: "16:9" },
       ],
     },
   },

@@ -33,9 +33,7 @@ export const translations = {
       heading: "Featured Work",
       roleLabel: "Role",
       toolsLabel: "Tools",
-      problemLabel: "Problem",
-      methodLabel: "Method",
-      resultLabel: "Result / Insight",
+      proofLabel: "Proof points",
       viewCaseStudy: "View Case Study",
       github: "GitHub",
       uploadLater: "Upload later",
@@ -74,7 +72,7 @@ export const translations = {
       entries: [
         {
           id: "super-bowl-framework",
-          projectId: "super-bowl-analytics",
+          projectId: "super-bowl-advertising-analytics",
           title: "A Multidimensional Framework for Winning Super Bowl Advertising",
           role: "First Author · Advisor: Chong Oh",
           evidence: [
@@ -86,7 +84,7 @@ export const translations = {
         },
         {
           id: "stock-sentiment",
-          projectId: "finbert-stock-prediction",
+          projectId: "stock-price-prediction-finbert",
           title:
             "Predicting Future Stock Price Movements Using Historical Market Data and Investor Sentiment",
           role: "Co-Author · Mentors: Emre Ertan & Chong Oh",
@@ -101,46 +99,50 @@ export const translations = {
     },
     skills: {
       heading: "Skills",
-      categories: [
-        {
-          id: "data",
+      subtitle:
+        "Tools I use to clean data, build models, map patterns, and translate findings into decisions.",
+      groups: {
+        data: {
           label: "DATA & ANALYTICS",
-          items: [
-            { tool: "Python", desc: "pandas, data cleaning, exploratory analysis, reporting" },
-            { tool: "SQL", desc: "joins, aggregation, querying, business reporting" },
-            { tool: "Tableau / Power BI", desc: "dashboards, KPI tracking, stakeholder communication" },
-            { tool: "Excel", desc: "modeling, reconciliation, analysis, documentation" },
-          ],
+          items: {
+            python: { name: "Python", desc: "Data cleaning · modeling · analysis" },
+            sql: { name: "SQL", desc: "Joins · aggregation · reporting" },
+            tableau: { name: "Tableau", desc: "Dashboards · KPI storytelling" },
+            powerbi: { name: "Power BI", desc: "Interactive reports · metrics" },
+            excel: { name: "Excel", desc: "Modeling · reconciliation" },
+          },
         },
-        {
-          id: "ml",
+        ml: {
           label: "NLP & MACHINE LEARNING",
-          items: [
-            { tool: "FinBERT", desc: "financial sentiment analysis" },
-            { tool: "VADER", desc: "social-media sentiment analysis" },
-            { tool: "scikit-learn", desc: "model training and evaluation" },
-            { tool: "Random Forest / LightGBM / XGBoost", desc: "predictive modeling and comparison" },
-          ],
+          items: {
+            finbert: { name: "FinBERT", desc: "Financial sentiment analysis" },
+            vader: { name: "VADER", desc: "Social sentiment scoring" },
+            sklearn: { name: "scikit-learn", desc: "Model training · evaluation" },
+            randomforest: { name: "Random Forest", desc: "Ensemble prediction" },
+            lightgbm: { name: "LightGBM", desc: "Gradient boosting" },
+            xgboost: { name: "XGBoost", desc: "Boosted trees · tuning" },
+          },
         },
-        {
-          id: "urban",
+        urban: {
           label: "SPATIAL & URBAN",
-          items: [
-            { tool: "ArcGIS", desc: "spatial analysis, mapping, urban data visualization" },
-            { tool: "HPI", desc: "health-first planning framework" },
-            { tool: "Field Research", desc: "observation, site documentation, urban pattern reading" },
-            { tool: "Equity Analysis", desc: "access, health, and public-space evaluation" },
-          ],
+          items: {
+            arcgis: { name: "ArcGIS", desc: "Spatial analysis · mapping" },
+            hpi: { name: "HPI", desc: "Health-first planning framework" },
+            fieldresearch: { name: "Field Research", desc: "Observation · documentation" },
+            equity: { name: "Equity Analysis", desc: "Access · public-space evaluation" },
+            urbanplanning: { name: "Urban Planning", desc: "Land use · public life" },
+          },
         },
-        {
-          id: "design",
+        design: {
           label: "DESIGN & CREATIVE",
-          items: [
-            { tool: "Figma", desc: "interface layout and visual systems" },
-            { tool: "Adobe Creative Suite", desc: "presentation, visual storytelling, brand assets" },
-          ],
+          items: {
+            figma: { name: "Figma", desc: "Layout · visual systems" },
+            adobe: { name: "Adobe Creative Suite", desc: "Visual storytelling · assets" },
+            dataviz: { name: "Data Visualization", desc: "Charts that read in seconds" },
+            presentation: { name: "Presentation Design", desc: "Decks · analytical narrative" },
+          },
         },
-      ],
+      },
     },
     experience: {
       heading: "Experience",
@@ -244,32 +246,39 @@ export const translations = {
     },
     caseStudy: {
       overview: "Overview",
+      snapshot: "Project Snapshot",
       roleLabel: "Role",
       toolsLabel: "Tools",
+      typeLabel: "Project type",
+      timelineLabel: "Timeline",
+      outcomeLabel: "Outcome",
       problem: "Problem",
-      questionLabel: "The question",
-      whyLabel: "Why it matters",
       data: "Data / Materials",
       datasetLabel: "Dataset",
       sourceLabel: "Source",
       cleaningLabel: "Preparation",
+      limitationsLabel: "Limitations",
       method: "Method",
-      workflowLabel: "Workflow",
-      modelLabel: "Model / Framework",
-      assumptionsLabel: "Key assumptions",
       results: "Results",
+      findingsLabel: "Key findings",
+      chartsLabel: "Charts",
       impact: "Impact",
-      decisionLabel: "Decision it supports",
-      changedLabel: "What changed",
-      nextLabel: "What's next",
       gallery: "Visual Gallery",
+      reflection: "Reflection / Next Steps",
+      learnedLabel: "What I learned",
+      improveLabel: "What I'd improve",
+      expandLabel: "How this could expand",
       links: "Links",
       github: "GitHub",
       dashboard: "Dashboard",
       report: "Report",
+      presentation: "Presentation",
       comingSoon: "coming soon",
       backToWork: "Back to Work",
+      nextProject: "Next Project",
+      onThisPage: "On this page",
       uploadLater: "Upload later",
+      contact: "Contact",
     },
   },
   ko: {
@@ -305,9 +314,7 @@ export const translations = {
       heading: "프로젝트",
       roleLabel: "역할",
       toolsLabel: "도구",
-      problemLabel: "문제",
-      methodLabel: "방법",
-      resultLabel: "결과 / 인사이트",
+      proofLabel: "핵심 성과",
       viewCaseStudy: "케이스 스터디 보기",
       github: "깃허브",
       uploadLater: "업로드 예정",
@@ -346,7 +353,7 @@ export const translations = {
       entries: [
         {
           id: "super-bowl-framework",
-          projectId: "super-bowl-analytics",
+          projectId: "super-bowl-advertising-analytics",
           title: "슈퍼볼 광고의 성공을 측정하는 다차원 프레임워크",
           role: "제1저자 · 지도교수 Chong Oh",
           evidence: [
@@ -358,7 +365,7 @@ export const translations = {
         },
         {
           id: "stock-sentiment",
-          projectId: "finbert-stock-prediction",
+          projectId: "stock-price-prediction-finbert",
           title: "과거 시장 데이터와 투자자 심리를 활용한 주가 변동 예측",
           role: "공동저자 · 멘토 Emre Ertan & Chong Oh",
           evidence: [
@@ -372,46 +379,50 @@ export const translations = {
     },
     skills: {
       heading: "스킬",
-      categories: [
-        {
-          id: "data",
+      subtitle:
+        "데이터를 정제하고, 모델을 만들고, 패턴을 지도에 옮기고, 발견을 결정으로 바꾸는 도구들입니다.",
+      groups: {
+        data: {
           label: "데이터 & 애널리틱스",
-          items: [
-            { tool: "Python", desc: "pandas, 데이터 정제, 탐색적 분석, 리포팅" },
-            { tool: "SQL", desc: "조인, 집계, 쿼리, 비즈니스 리포팅" },
-            { tool: "Tableau / Power BI", desc: "대시보드, KPI 추적, 이해관계자 커뮤니케이션" },
-            { tool: "Excel", desc: "모델링, 정산, 분석, 문서화" },
-          ],
+          items: {
+            python: { name: "Python", desc: "데이터 정제 · 모델링 · 분석" },
+            sql: { name: "SQL", desc: "조인 · 집계 · 리포팅" },
+            tableau: { name: "Tableau", desc: "대시보드 · KPI 스토리텔링" },
+            powerbi: { name: "Power BI", desc: "인터랙티브 리포트 · 지표" },
+            excel: { name: "Excel", desc: "모델링 · 정산" },
+          },
         },
-        {
-          id: "ml",
+        ml: {
           label: "NLP & 머신러닝",
-          items: [
-            { tool: "FinBERT", desc: "금융 감성 분석" },
-            { tool: "VADER", desc: "소셜미디어 감성 분석" },
-            { tool: "scikit-learn", desc: "모델 학습과 평가" },
-            { tool: "Random Forest / LightGBM / XGBoost", desc: "예측 모델링과 비교" },
-          ],
+          items: {
+            finbert: { name: "FinBERT", desc: "금융 감성 분석" },
+            vader: { name: "VADER", desc: "소셜 감성 스코어링" },
+            sklearn: { name: "scikit-learn", desc: "모델 학습 · 평가" },
+            randomforest: { name: "Random Forest", desc: "앙상블 예측" },
+            lightgbm: { name: "LightGBM", desc: "그래디언트 부스팅" },
+            xgboost: { name: "XGBoost", desc: "부스티드 트리 · 튜닝" },
+          },
         },
-        {
-          id: "urban",
+        urban: {
           label: "공간 & 도시",
-          items: [
-            { tool: "ArcGIS", desc: "공간 분석, 매핑, 도시 데이터 시각화" },
-            { tool: "HPI", desc: "건강 우선 계획 프레임워크" },
-            { tool: "현장 연구", desc: "관찰, 현장 기록, 도시 패턴 읽기" },
-            { tool: "형평성 분석", desc: "접근성·건강·공공 공간 평가" },
-          ],
+          items: {
+            arcgis: { name: "ArcGIS", desc: "공간 분석 · 매핑" },
+            hpi: { name: "HPI", desc: "건강 우선 계획 프레임워크" },
+            fieldresearch: { name: "현장 연구", desc: "관찰 · 현장 기록" },
+            equity: { name: "형평성 분석", desc: "접근성 · 공공 공간 평가" },
+            urbanplanning: { name: "도시계획", desc: "토지 이용 · 공공 생활" },
+          },
         },
-        {
-          id: "design",
+        design: {
           label: "디자인 & 크리에이티브",
-          items: [
-            { tool: "Figma", desc: "인터페이스 레이아웃과 비주얼 시스템" },
-            { tool: "Adobe Creative Suite", desc: "프레젠테이션, 비주얼 스토리텔링, 브랜드 에셋" },
-          ],
+          items: {
+            figma: { name: "Figma", desc: "레이아웃 · 비주얼 시스템" },
+            adobe: { name: "Adobe Creative Suite", desc: "비주얼 스토리텔링 · 에셋" },
+            dataviz: { name: "데이터 시각화", desc: "몇 초 만에 읽히는 차트" },
+            presentation: { name: "프레젠테이션 디자인", desc: "덱 · 분석 내러티브" },
+          },
         },
-      ],
+      },
     },
     experience: {
       heading: "경력",
@@ -513,32 +524,39 @@ export const translations = {
     },
     caseStudy: {
       overview: "개요",
+      snapshot: "프로젝트 스냅샷",
       roleLabel: "역할",
       toolsLabel: "도구",
+      typeLabel: "프로젝트 유형",
+      timelineLabel: "기간",
+      outcomeLabel: "결과",
       problem: "문제",
-      questionLabel: "질문",
-      whyLabel: "왜 중요한가",
       data: "데이터 / 자료",
       datasetLabel: "데이터셋",
       sourceLabel: "출처",
       cleaningLabel: "전처리",
+      limitationsLabel: "한계",
       method: "방법",
-      workflowLabel: "워크플로",
-      modelLabel: "모델 / 프레임워크",
-      assumptionsLabel: "핵심 가정",
       results: "결과",
+      findingsLabel: "핵심 발견",
+      chartsLabel: "차트",
       impact: "임팩트",
-      decisionLabel: "뒷받침하는 결정",
-      changedLabel: "무엇이 달라졌나",
-      nextLabel: "다음 단계",
       gallery: "비주얼 갤러리",
+      reflection: "회고 / 다음 단계",
+      learnedLabel: "배운 것",
+      improveLabel: "개선하고 싶은 것",
+      expandLabel: "확장 방향",
       links: "링크",
       github: "깃허브",
       dashboard: "대시보드",
       report: "리포트",
+      presentation: "프레젠테이션",
       comingSoon: "준비 중",
       backToWork: "프로젝트로 돌아가기",
+      nextProject: "다음 프로젝트",
+      onThisPage: "목차",
       uploadLater: "업로드 예정",
+      contact: "연락처",
     },
   },
 };

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MotionConfig } from "framer-motion";
 import { LanguageProvider } from "./hooks/useLanguage.jsx";
-import { useHashRoute } from "./hooks/useHashRoute.js";
+import { usePath, navigate } from "./lib/router.jsx";
 import { projects } from "./data/projects.js";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
@@ -15,6 +15,14 @@ import Journey from "./components/Journey.jsx";
 import Identity from "./components/Identity.jsx";
 import Footer from "./components/Footer.jsx";
 import CaseStudy from "./components/CaseStudy.jsx";
+
+// Old hash routes (#/case/<id>) → new path routes (/work/<slug>)
+const legacyCaseIds = {
+  "super-bowl-analytics": "super-bowl-advertising-analytics",
+  "finbert-stock-prediction": "stock-price-prediction-finbert",
+  "slc-civic-center": "slc-civic-center-healthy-urban-planning",
+  "urban-transect-study": "urban-transect-field-study",
+};
 
 function Home() {
   return (
@@ -33,26 +41,35 @@ function Home() {
 }
 
 export default function App() {
-  const { caseId, hash } = useHashRoute();
-  const project = caseId ? projects.find((p) => p.id === caseId) : null;
+  const path = usePath();
+  const workMatch = path.match(/^\/work\/([\w-]+)\/?$/);
+  const project = workMatch
+    ? projects.find((p) => p.slug === workMatch[1])
+    : null;
 
-  // When navigating home from a case study via a "#section" anchor, the
-  // target section mounts after the hash changes — scroll to it manually.
+  // Redirect legacy #/case/<id> links to the new /work/<slug> routes
   useEffect(() => {
-    if (project) return;
-    if (hash && !hash.startsWith("#/")) {
-      const target = document.querySelector(hash);
-      if (target) target.scrollIntoView();
-    } else {
-      window.scrollTo(0, 0);
+    const hashMatch = window.location.hash.match(/^#\/case\/([\w-]+)$/);
+    if (hashMatch) {
+      const slug = legacyCaseIds[hashMatch[1]] ?? hashMatch[1];
+      navigate(`/work/${slug}`);
     }
-  }, [project, hash]);
+  }, []);
+
+  // Unknown /work/* slug: send back home rather than rendering a blank page
+  useEffect(() => {
+    if (workMatch && !project) navigate("/");
+  }, [workMatch, project]);
+
+  useEffect(() => {
+    if (!project && !window.location.hash) window.scrollTo(0, 0);
+  }, [path, project]);
 
   return (
     <LanguageProvider>
       <MotionConfig reducedMotion="user">
         <div className="min-h-screen bg-white text-ink">
-          <Nav />
+          <Nav onCasePage={Boolean(project)} />
           {project ? <CaseStudy project={project} /> : <Home />}
           <Footer />
         </div>

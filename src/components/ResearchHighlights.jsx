@@ -1,4 +1,5 @@
 import { useLanguage } from "../hooks/useLanguage.jsx";
+import { Link } from "../lib/router.jsx";
 import Section from "./Section.jsx";
 import { Stagger, StaggerChild } from "./motion.jsx";
 
@@ -37,12 +38,12 @@ export default function ResearchHighlights() {
             </ul>
 
             <div className="mt-auto flex flex-wrap gap-6 pt-8">
-              <a
-                href={`#/case/${entry.projectId}`}
+              <Link
+                to={`/work/${entry.projectId}`}
                 className="link-underline text-[12px] font-medium uppercase tracking-label"
               >
                 {t.research.readMore} <span aria-hidden="true">↗</span>
-              </a>
+              </Link>
               <a
                 href="#work"
                 className="link-underline text-[12px] font-medium uppercase tracking-label"
