@@ -26,8 +26,8 @@ export const translations = {
       resume: "DOWNLOAD RESUME",
       linkedin: "LINKEDIN",
       coffeeChat: "COFFEE CHAT",
-      visualLabel: "Future visual: dashboard / map / analytics collage",
-      visualHint: "Upload later: hero collage · 21:9",
+      portraitAlt: "Ellie Choi portrait",
+      portraitHint: "formal portrait",
     },
     work: {
       heading: "Featured Work",
@@ -313,8 +313,8 @@ export const translations = {
       resume: "이력서 다운로드",
       linkedin: "링크드인",
       coffeeChat: "커피챗",
-      visualLabel: "예정 비주얼: 대시보드 / 지도 / 애널리틱스 콜라주",
-      visualHint: "업로드 예정: 히어로 콜라주 · 21:9",
+      portraitAlt: "엘리 최 프로필 사진",
+      portraitHint: "프로필 사진",
     },
     work: {
       heading: "프로젝트",

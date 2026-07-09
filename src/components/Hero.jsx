@@ -1,7 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import { easeOutSoft } from "./motion.jsx";
-import Placeholder from "./Placeholder.jsx";
 
 const container = {
   hidden: {},
@@ -12,6 +12,47 @@ const line = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: easeOutSoft } },
 };
+
+// Portrait with WebP + JPG fallback. aspect-ratio is reserved up front so
+// there is no layout shift; until the files are uploaded, the frame shows
+// the site's labeled paper placeholder instead of a broken image.
+function HeroPortrait({ alt, hint, uploadLabel }) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div
+      className="relative w-full overflow-hidden rounded-[20px] bg-[#F7F4EE]/70 placeholder-grid shadow-[0_2px_20px_rgba(35,39,47,0.07)]"
+      style={{ aspectRatio: "4 / 5" }}
+    >
+      {!failed ? (
+        <picture>
+          <source srcSet="/images/ellie-portrait.webp" type="image/webp" />
+          <img
+            src="/images/ellie-portrait.jpg"
+            alt={alt}
+            width="800"
+            height="1000"
+            fetchpriority="high"
+            onError={() => setFailed(true)}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        </picture>
+      ) : (
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center"
+        >
+          <span className="max-w-full truncate rounded-full border-hairline border-solid bg-white/80 px-3 py-1 text-[10px] font-medium uppercase tracking-label text-ink/50">
+            ellie-portrait
+          </span>
+          <span className="text-xs font-medium text-ink/55">
+            {uploadLabel}: {hint} · 4:5
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -29,60 +70,74 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto max-w-6xl px-6 pb-24 pt-24 sm:px-8 md:pb-32 md:pt-36"
+        className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-24 pt-20 sm:px-8 md:grid-cols-12 md:gap-10 md:pb-32 md:pt-28"
       >
-        <motion.p
-          variants={line}
-          className="mb-8 text-[11px] font-medium uppercase tracking-wide2 text-clay"
-        >
-          {t.hero.tagline}
-        </motion.p>
+        <div className="md:col-span-7 lg:col-span-8">
+          <motion.p
+            variants={line}
+            className="mb-8 text-[11px] font-medium uppercase tracking-wide2 text-clay"
+          >
+            {t.hero.tagline}
+          </motion.p>
 
-        <h1 className="text-5xl font-bold leading-[1.08] tracking-headline sm:text-6xl md:text-7xl lg:text-8xl">
-          <motion.span variants={line} className="block text-ink">
-            {t.hero.headlineLine1}
-          </motion.span>
-          <motion.span variants={line} className="block text-navy">
-            {t.hero.headlineLine2}
-          </motion.span>
-        </h1>
+          <h1 className="text-5xl font-bold leading-[1.08] tracking-headline sm:text-6xl md:text-5xl lg:text-7xl">
+            <motion.span variants={line} className="block text-ink">
+              {t.hero.headlineLine1}
+            </motion.span>
+            <motion.span variants={line} className="block text-navy">
+              {t.hero.headlineLine2}
+            </motion.span>
+          </h1>
 
-        <motion.p
-          variants={line}
-          className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/70 md:text-xl"
-        >
-          {t.hero.supporting}
-        </motion.p>
+          <motion.p
+            variants={line}
+            className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/70 lg:text-xl"
+          >
+            {t.hero.supporting}
+          </motion.p>
 
-        <motion.p
-          variants={line}
-          className="mt-5 text-sm leading-relaxed text-ink/45"
-        >
-          {t.hero.subline}
-        </motion.p>
+          <motion.p
+            variants={line}
+            className="mt-5 text-sm leading-relaxed text-ink/45"
+          >
+            {t.hero.subline}
+          </motion.p>
 
+          {/* Mobile: portrait stacks below the subline */}
+          <motion.div variants={line} className="mt-10 md:hidden">
+            <HeroPortrait
+              alt={t.hero.portraitAlt}
+              hint={t.hero.portraitHint}
+              uploadLabel={t.work.uploadLater}
+            />
+          </motion.div>
+
+          <motion.div
+            variants={line}
+            className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+          >
+            {ctas.map((cta) => (
+              <a
+                key={cta.label}
+                href={cta.href}
+                target={cta.external ? "_blank" : undefined}
+                rel={cta.external ? "noopener noreferrer" : undefined}
+                className="link-underline text-[12px] font-medium uppercase tracking-label"
+              >
+                {cta.label} <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Desktop: portrait on the right, headline stays left */}
         <motion.div
           variants={line}
-          className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+          className="hidden md:col-span-5 md:block lg:col-span-4"
         >
-          {ctas.map((cta) => (
-            <a
-              key={cta.label}
-              href={cta.href}
-              target={cta.external ? "_blank" : undefined}
-              rel={cta.external ? "noopener noreferrer" : undefined}
-              className="link-underline text-[12px] font-medium uppercase tracking-label"
-            >
-              {cta.label} <span aria-hidden="true">↗</span>
-            </a>
-          ))}
-        </motion.div>
-
-        <motion.div variants={line} className="mt-16 md:mt-20">
-          <Placeholder
-            name="hero_collage"
-            hint={t.hero.visualLabel}
-            ratio="21:9"
+          <HeroPortrait
+            alt={t.hero.portraitAlt}
+            hint={t.hero.portraitHint}
             uploadLabel={t.work.uploadLater}
           />
         </motion.div>
