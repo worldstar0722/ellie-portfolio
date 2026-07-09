@@ -4,6 +4,8 @@ Single-page portfolio for Ellie (Gaeun) Choi — Information Systems student at 
 
 Built with React + Vite + Tailwind CSS. Deployable to Vercel out of the box.
 
+**Updating content?** See **[CONTENT_GUIDE.md](./CONTENT_GUIDE.md)** — a non-developer guide to editing text, images, experience entries, projects, and PDFs, with copy-paste templates.
+
 ## Development
 
 ```bash
@@ -16,10 +18,12 @@ npm run preview  # preview the production build
 ## Structure
 
 - `src/data/translations.js` — all UI copy, English/Korean key pairs
-- `src/data/projects.js` — case study content (Problem → Approach → Result)
+- `src/data/projects.js` — the four case studies (homepage cards + `/work/<slug>` pages)
+- `src/data/skills.js` — skills grid entries and icon/badge mapping
 - `src/components/` — data-driven section components; no hardcoded copy
-- `public/images/` — project images (gray placeholder blocks render if missing)
-- `public/resume.pdf` — resume linked from the hero (placeholder for now)
+- `public/images/` — served images (labeled placeholder blocks render if a file is missing)
+- `public/resume.pdf`, `public/academic-cv.pdf` — documents linked across the site
+- `assets-src/` — raw source assets that are kept in the repo but never served
 
 ## Language toggle
 
