@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import { projects } from "../data/projects.js";
 import { Link } from "../lib/router.jsx";
+import { isEditMode } from "../lib/editMode.js";
 import Placeholder from "./Placeholder.jsx";
+import GalleryEditor from "./GalleryEditor.jsx";
 import { Reveal } from "./motion.jsx";
 
 function SectionBlock({ id, title, children }) {
@@ -46,9 +48,11 @@ export default function CaseStudy({ project }) {
 
   const index = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(index + 1) % projects.length];
+  const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setEditMode(isEditMode()); // client-only: keeps SSR output stable
   }, [project.slug]);
 
   const anchors = [
@@ -266,17 +270,21 @@ export default function CaseStudy({ project }) {
             </SectionBlock>
 
             <SectionBlock id="cs-gallery" title={L.gallery}>
-              <div className="grid gap-6 sm:grid-cols-2">
-                {copy.gallery.map((asset) => (
-                  <Placeholder
-                    key={asset.name}
-                    name={asset.name}
-                    hint={asset.hint}
-                    ratio={asset.ratio}
-                    uploadLabel={L.uploadLater}
-                  />
-                ))}
-              </div>
+              {editMode ? (
+                <GalleryEditor project={project} lang={lang} />
+              ) : (
+                <div className="grid gap-6 sm:grid-cols-2">
+                  {copy.gallery.map((asset) => (
+                    <Placeholder
+                      key={asset.name}
+                      name={asset.name}
+                      hint={asset.hint}
+                      ratio={asset.ratio}
+                      uploadLabel={L.uploadLater}
+                    />
+                  ))}
+                </div>
+              )}
             </SectionBlock>
 
             <SectionBlock id="cs-reflection" title={L.reflection}>

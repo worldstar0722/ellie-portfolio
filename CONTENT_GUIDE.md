@@ -253,20 +253,24 @@ Remember to make the same move in **both** the `en` and `ko` halves so the two l
 - `public/images/` — everything the site actually displays.
 - `assets-src/` — original/raw versions you want to keep but not publish (e.g. `assets-src/ellie-portrait-original.jpg`, the unedited studio photo). Nothing in this folder is served.
 
-**Naming rules:** lowercase, no spaces, hyphens or underscores only — e.g. `project01_dashboard.jpg`, `ellie-portrait.webp`. The name is the connection: components and project data refer to images *by exact filename*.
+**Naming rules:** lowercase, no spaces, hyphens or underscores only — e.g. `project01_dashboard.jpg`, `ellie-portrait.webp`. The name is the connection: components and project data refer to images *by base filename* — **the extension doesn't matter**.
 
-**Formats:** `.webp` for the smallest files (best), `.jpg` for photos and as a fallback, `.png` only for screenshots that need pixel-perfect text. Keep images around 1000–1600px on the long edge — phone-camera originals are 10× bigger than needed.
+**Formats — any of these work:** `.webp`, `.jpg`, `.jpeg`, `.png`, or `.pdf`. The site checks for each in that order and shows the first one it finds. A PDF displays its first page as the preview. Images are never cropped — whatever the shape (portrait, landscape, square), the full image is shown inside its frame. Keep images around 1000–1600px on the long edge — phone-camera originals are 10× bigger than needed.
 
-**Replacing an existing image — no code changes needed.** Overwrite the file in `public/images/` with a new one **of exactly the same name**. Example: to update the portrait, replace both `public/images/ellie-portrait.webp` and `public/images/ellie-portrait.jpg` (keep it 4:5, about 800×1000).
+**Replacing an existing image — no code changes needed.** Overwrite the file in `public/images/` with a new one **of the same base name** (any supported extension). Example: to update the portrait, replace both `public/images/ellie-portrait.webp` and `public/images/ellie-portrait.jpg` (keep it 4:5, about 800×1000).
 
-**Filling a project placeholder — also no code changes.** Every gray "Upload later" box on the site is named. Save your image as `public/images/<that name>.jpg` and it appears automatically. Current expected names include:
+**Galleries have no fixed slot count.** Each case study's gallery is just an array in `src/data/projects.js` — add, remove, or reorder entries freely and the layout adapts.
+
+**Gallery editor (owner mode).** On any case study page, add `?edit` to the URL when running `npm run dev` locally (or `?edit=YOUR_KEY` on the live site, where the key is the `VITE_EDIT_KEY` environment variable set in Vercel). The Visual Gallery becomes a drag-and-drop editor: drag tiles to reorder, drop image/PDF files onto a tile to replace it or onto the "+" tile to add, and click × to remove. Nothing you do there changes the live site — when the arrangement looks right, click **Copy snippet**, paste it over the project's `gallery:` array in `src/data/projects.js` (both `en` and `ko`), drop the listed files into `public/images/` with the shown names, then commit and push as usual. Visitors never see the editor, and even if someone found it, the site can only be changed by pushing to this repository.
+
+**Filling a project placeholder — also no code changes.** Every gray "Upload later" box on the site is named. Save your image as `public/images/<that name>.<any supported extension>` and it appears automatically. Current expected names include:
 
 - Project 01: `project01_cover`, `project01_dashboard`, `project01_sentiment_distribution`, `project01_brand_ranking_chart`, `project01_winning_score_model_diagram`, `project01_ad_meter_comparison`
 - Project 02: `project02_cover`, `project02_model_pipeline`, `project02_sentiment_over_time`, `project02_feature_importance`, `project02_model_comparison`, `project02_confusion_matrix`
 - Project 03: `project03_cover`, `project03_site_map`, `project03_equity_analysis`, `project03_health_planning_framework`, `project03_recommendation_board`, `project03_before_after_concept`
 - Project 04: `project04_cover`, `project04_arcgis_map`, `project04_transect_diagram`, `project04_field_photo_grid`, `project04_annotated_observation_map`, `project04_urban_pattern_diagram`
 
-(All `.jpg` — e.g. `public/images/project01_dashboard.jpg`.)
+(Any supported extension — e.g. `public/images/project01_dashboard.png` or `.../project01_dashboard.pdf` both work.)
 
 **Referencing a brand-new image in a component** (rare — only for images outside the placeholder system). The real line the site uses for the portrait, in `src/components/Hero.jsx`, is:
 
