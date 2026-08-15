@@ -268,7 +268,7 @@ Remember to make the same move in **both** the `en` and `ko` halves so the two l
 - Project 01: `project01_cover`, `project01_dashboard`, `project01_sentiment_distribution`, `project01_brand_ranking_chart`, `project01_winning_score_model_diagram`, `project01_ad_meter_comparison`
 - Project 02: `project02_cover`, `project02_model_pipeline`, `project02_sentiment_over_time`, `project02_feature_importance`, `project02_model_comparison`, `project02_confusion_matrix`
 - Project 03: `project03_cover`, `project03_site_map`, `project03_equity_analysis`, `project03_health_planning_framework`, `project03_recommendation_board`, `project03_before_after_concept`
-- Project 04: `project04_cover`, `project04_arcgis_map`, `project04_transect_diagram`, `project04_field_photo_grid`, `project04_annotated_observation_map`, `project04_urban_pattern_diagram`
+- Project 04: `project04_cover`, `project04_score_map`, `project04_buffer_map`, `project04_amenity_map`
 
 (Any supported extension — e.g. `public/images/project01_dashboard.png` or `.../project01_dashboard.pdf` both work.)
 

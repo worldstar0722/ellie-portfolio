@@ -260,6 +260,19 @@ export default function CaseStudy({ project }) {
                     </figcaption>
                   </figure>
                 ))}
+                {(copy.highlights ?? []).map((highlight) => (
+                  <div
+                    key={highlight.label}
+                    className="rounded-2xl border-hairline border-solid bg-[#F7F4EE]/40 p-6 md:p-8"
+                  >
+                    <p className="text-[10px] font-medium uppercase tracking-wide2 text-clay">
+                      {highlight.label}
+                    </p>
+                    <p className="mt-3 text-sm leading-relaxed text-ink/75">
+                      {highlight.text}
+                    </p>
+                  </div>
+                ))}
               </div>
             </SectionBlock>
 
@@ -307,9 +320,11 @@ export default function CaseStudy({ project }) {
                 ) : (
                   <ComingSoon label={L.github} soon={L.comingSoon} />
                 )}
-                <ComingSoon label={L.dashboard} soon={L.comingSoon} />
-                <ComingSoon label={L.report} soon={L.comingSoon} />
-                <ComingSoon label={L.presentation} soon={L.comingSoon} />
+                {(project.docLinks ?? ["dashboard", "report", "presentation"]).map(
+                  (doc) => (
+                    <ComingSoon key={doc} label={L[doc]} soon={L.comingSoon} />
+                  )
+                )}
                 {project.researchBacked ? (
                   <a
                     href="/academic-cv.pdf"

@@ -14,12 +14,17 @@ import Identity from "./components/Identity.jsx";
 import Footer from "./components/Footer.jsx";
 import CaseStudy from "./components/CaseStudy.jsx";
 
+// Retired slugs → current ones, so shared links keep working
+const legacySlugs = {
+  "urban-transect-field-study": "where-should-you-invest-slc",
+};
+
 // Old hash routes (#/case/<id>) → new path routes (/work/<slug>)
 const legacyCaseIds = {
   "super-bowl-analytics": "super-bowl-advertising-analytics",
   "finbert-stock-prediction": "stock-price-prediction-finbert",
   "slc-civic-center": "slc-civic-center-healthy-urban-planning",
-  "urban-transect-study": "urban-transect-field-study",
+  "urban-transect-study": "where-should-you-invest-slc",
 };
 
 function Home() {
@@ -52,9 +57,11 @@ export default function App() {
     }
   }, []);
 
-  // Unknown /work/* slug: send back home rather than rendering a blank page
+  // Retired slug → its replacement; anything else unknown goes home
   useEffect(() => {
-    if (workMatch && !project) navigate("/");
+    if (!workMatch || project) return;
+    const replacement = legacySlugs[workMatch[1]];
+    navigate(replacement ? `/work/${replacement}` : "/");
   }, [workMatch, project]);
 
   useEffect(() => {
