@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import { renderPdfPreview } from "../lib/pdfPreview.js";
+import { useAsset } from "../hooks/useAsset.js";
 
 const ratioClass = {
   "16:9": "aspect-video",
@@ -9,76 +8,38 @@ const ratioClass = {
   "4:5": "aspect-[4/5]",
 };
 
-// Any of these formats is accepted for an asset — the first one found in
-// public/images/ wins. PDFs preview as their first page.
-const EXTENSIONS = ["webp", "jpg", "jpeg", "png", "pdf"];
-
-function probeImage(url) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
-    img.src = url;
-  });
-}
-
-async function resolveAsset(name) {
-  for (const ext of EXTENSIONS) {
-    const url = `/images/${name}.${ext}`;
-    if (ext === "pdf") {
-      try {
-        // The SPA rewrite answers 200 for missing files, so read the
-        // first bytes and require the %PDF magic before rendering.
-        const res = await fetch(url, { headers: { Range: "bytes=0-7" } });
-        if (!res.ok) continue;
-        const start = (await res.text()).slice(0, 5);
-        if (!start.startsWith("%PDF")) continue;
-        return await renderPdfPreview(url);
-      } catch {
-        continue;
-      }
-    } else if (await probeImage(url)) {
-      return url;
-    }
-  }
-  return null;
-}
-
-// Labeled asset frame: shows the real file when one exists under any
-// supported extension (never cropped — object-contain keeps the whole
-// image visible whatever its shape); otherwise a polished paper
-// placeholder with a clear "upload later" label.
+// Asset frame. Shows the real image whenever one exists — never cropped
+// (object-contain keeps the whole image visible whatever its shape).
+//
+// When the asset is missing:
+//   - hideIfMissing (public galleries) renders nothing, so the grid closes
+//     up instead of showing an empty box;
+//   - otherwise a labeled paper placeholder is drawn, which is what the
+//     gallery editor wants while arranging slots.
 export default function Placeholder({
   name,
+  file,
   hint,
   ratio = "16:9",
   uploadLabel = "Upload later",
   className = "",
-  src, // optional local override (used by the gallery editor previews)
+  hideIfMissing = false,
+  src, // local override (gallery editor previews)
 }) {
-  const [resolved, setResolved] = useState(null);
-  const [failed, setFailed] = useState(false);
+  const asset = useAsset(name, file);
+  const shown = src ?? asset.url;
 
-  useEffect(() => {
-    if (src) return undefined;
-    let cancelled = false;
-    setResolved(null);
-    setFailed(false);
-    resolveAsset(name).then((url) => {
-      if (cancelled) return;
-      if (url) setResolved(url);
-      else setFailed(true);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, [name, src]);
+  if (!shown && hideIfMissing) return null;
 
-  const shown = src ?? resolved;
+  // A real image gets the site's normal frame (solid hairline, soft
+  // shadow); only an empty slot keeps the dashed placeholder treatment.
+  const frame = shown
+    ? "border-hairline border-solid bg-[#F7F4EE]/40 shadow-[0_2px_20px_rgba(35,39,47,0.05)]"
+    : "border border-dashed border-ink/15 bg-[#F7F4EE]/70 placeholder-grid";
 
   return (
     <figure
-      className={`relative overflow-hidden rounded-[20px] border border-dashed border-ink/15 bg-[#F7F4EE]/70 placeholder-grid ${ratioClass[ratio] ?? "aspect-video"} ${className}`}
+      className={`relative overflow-hidden rounded-[20px] ${frame} ${ratioClass[ratio] ?? "aspect-video"} ${className}`}
     >
       {shown ? (
         <img
@@ -87,7 +48,7 @@ export default function Placeholder({
           loading="lazy"
           className="absolute inset-0 h-full w-full object-contain"
         />
-      ) : failed ? (
+      ) : asset.status === "missing" ? (
         <figcaption className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center">
           <span className="max-w-full truncate rounded-full border-hairline border-solid bg-white/80 px-3 py-1 text-[10px] font-medium uppercase tracking-label text-ink/50">
             {name}

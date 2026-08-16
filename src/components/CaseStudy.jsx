@@ -3,6 +3,7 @@ import { useLanguage } from "../hooks/useLanguage.jsx";
 import { projects } from "../data/projects.js";
 import { Link } from "../lib/router.jsx";
 import { isEditMode } from "../lib/editMode.js";
+import { useAsset } from "../hooks/useAsset.js";
 import Placeholder from "./Placeholder.jsx";
 import GalleryEditor from "./GalleryEditor.jsx";
 import { Reveal } from "./motion.jsx";
@@ -30,6 +31,30 @@ function Row({ label, children }) {
         {children}
       </p>
     </div>
+  );
+}
+
+// A results chart hides itself entirely — image and caption together —
+// when its image hasn't been provided yet, so the grid closes up rather
+// than showing an empty box next to an orphaned caption.
+function ChartFigure({ chart, uploadLabel }) {
+  const asset = useAsset(chart.name, chart.file);
+  if (asset.status !== "found") return null;
+
+  return (
+    <figure>
+      <Placeholder
+        name={chart.name}
+        file={chart.file}
+        hint={chart.hint}
+        ratio={chart.ratio}
+        uploadLabel={uploadLabel}
+        hideIfMissing
+      />
+      <figcaption className="mt-3 text-xs leading-relaxed text-ink/55">
+        {chart.note}
+      </figcaption>
+    </figure>
   );
 }
 
@@ -102,8 +127,9 @@ export default function CaseStudy({ project }) {
             <div className="mt-10">
               <Placeholder
                 name={project.cover.name}
+                file={project.cover.file}
                 hint={project.cover.hint}
-                ratio="16:9"
+                ratio={project.cover.ratio}
                 uploadLabel={L.uploadLater}
               />
             </div>
@@ -248,17 +274,11 @@ export default function CaseStudy({ project }) {
 
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 {copy.charts.map((chart) => (
-                  <figure key={chart.name}>
-                    <Placeholder
-                      name={chart.name}
-                      hint={chart.hint}
-                      ratio={chart.ratio}
-                      uploadLabel={L.uploadLater}
-                    />
-                    <figcaption className="mt-3 text-xs leading-relaxed text-ink/55">
-                      {chart.note}
-                    </figcaption>
-                  </figure>
+                  <ChartFigure
+                    key={chart.name}
+                    chart={chart}
+                    uploadLabel={L.uploadLater}
+                  />
                 ))}
                 {(copy.highlights ?? []).map((highlight) => (
                   <div
@@ -291,9 +311,11 @@ export default function CaseStudy({ project }) {
                     <Placeholder
                       key={asset.name}
                       name={asset.name}
+                      file={asset.file}
                       hint={asset.hint}
                       ratio={asset.ratio}
                       uploadLabel={L.uploadLater}
+                      hideIfMissing
                     />
                   ))}
                 </div>

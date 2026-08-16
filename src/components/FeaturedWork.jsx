@@ -88,6 +88,7 @@ function ProjectCard({ project, flip }) {
         <div className={flip ? "md:order-1" : ""}>
           <Placeholder
             name={project.cover.name}
+            file={project.cover.file}
             hint={copy.gallery[1]?.hint ?? project.cover.hint}
             ratio={project.cover.ratio}
             uploadLabel={labels.uploadLater}
