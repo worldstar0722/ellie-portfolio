@@ -24,8 +24,11 @@ export default function Footer() {
           <h2 className="max-w-2xl text-4xl font-bold tracking-headline md:text-6xl">
             {t.contact.heading}
           </h2>
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-white/60">
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60">
             {t.contact.body}
+          </p>
+          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/40">
+            {t.contact.bodySecondary}
           </p>
         </Reveal>
 

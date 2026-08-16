@@ -6,6 +6,7 @@ import { projects } from "./data/projects.js";
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import FeaturedWork from "./components/FeaturedWork.jsx";
+import FinancialOperations from "./components/FinancialOperations.jsx";
 import Approach from "./components/Approach.jsx";
 import Skills from "./components/Skills.jsx";
 import Experience from "./components/Experience.jsx";
@@ -33,10 +34,11 @@ function Home() {
     <main>
       <Hero />
       <FeaturedWork />
+      <FinancialOperations />
       <Approach />
       <Skills />
-      <Experience />
       <Education />
+      <Experience />
       <Journey />
       <Identity />
     </main>

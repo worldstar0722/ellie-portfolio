@@ -3,13 +3,42 @@ import { useLanguage } from "../hooks/useLanguage.jsx";
 import Section from "./Section.jsx";
 import { Reveal, Stagger, StaggerChild, Collapse } from "./motion.jsx";
 
-function FeaturedCard({ entry }) {
+function FeaturedCard({ entry, currentFocusLabel }) {
+  // Older campus roles render tighter so they never compete with the
+  // finance and technology roles above them.
+  if (entry.compact) {
+    return (
+      <StaggerChild
+        as="li"
+        className="grid gap-1 border-t-hairline py-5 md:grid-cols-12 md:gap-10"
+      >
+        <div className="md:col-span-4">
+          <h3 className="text-sm font-medium text-ink/85">{entry.title}</h3>
+          <p className="mt-0.5 text-[11px] leading-relaxed text-ink/45">
+            {entry.org}
+          </p>
+        </div>
+        <p className="text-xs leading-relaxed text-ink/45 md:col-span-6">
+          {entry.description}
+        </p>
+        <p className="text-[10px] font-medium uppercase tracking-label text-ink/30 md:col-span-2 md:text-right">
+          {entry.period}
+        </p>
+      </StaggerChild>
+    );
+  }
+
   return (
     <StaggerChild
       as="li"
       className="grid gap-3 border-t-hairline py-8 first:border-t-0 first:pt-0 md:grid-cols-12 md:gap-10"
     >
       <div className="md:col-span-4">
+        {currentFocusLabel ? (
+          <p className="mb-2 text-[10px] font-medium uppercase tracking-wide2 text-clay">
+            {currentFocusLabel}
+          </p>
+        ) : null}
         <h3 className="text-base font-semibold text-ink">{entry.title}</h3>
         <p className="mt-1 text-xs leading-relaxed text-ink/50">{entry.org}</p>
         {entry.meta ? (
@@ -78,8 +107,12 @@ export default function Experience() {
       </Reveal>
 
       <Stagger as="ul">
-        {t.experience.featured.map((entry) => (
-          <FeaturedCard key={entry.id} entry={entry} />
+        {t.experience.featured.map((entry, i) => (
+          <FeaturedCard
+            key={entry.id}
+            entry={entry}
+            currentFocusLabel={i === 0 ? t.experience.currentFocusLabel : null}
+          />
         ))}
       </Stagger>
 

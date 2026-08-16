@@ -80,7 +80,7 @@ export default function Hero() {
             {t.hero.tagline}
           </motion.p>
 
-          <h1 className="text-5xl font-bold leading-[1.08] tracking-headline sm:text-6xl md:text-5xl lg:text-7xl">
+          <h1 className="text-[2.6rem] font-bold leading-[1.08] tracking-headline sm:text-6xl md:text-[2.9rem] lg:text-[3rem] xl:text-6xl">
             <motion.span variants={line} className="block text-ink">
               {t.hero.headlineLine1}
             </motion.span>
@@ -96,12 +96,12 @@ export default function Hero() {
             {t.hero.supporting}
           </motion.p>
 
-          <motion.p
-            variants={line}
-            className="mt-5 text-sm leading-relaxed text-ink/45"
-          >
-            {t.hero.subline}
-          </motion.p>
+          <motion.div variants={line} className="mt-6">
+            <p className="text-sm font-medium text-ink/70">{t.hero.subline}</p>
+            <p className="mt-1 text-xs leading-relaxed text-ink/40">
+              {t.hero.sublineMeta}
+            </p>
+          </motion.div>
 
           {/* Mobile: portrait stacks below the subline */}
           <motion.div variants={line} className="mt-10 md:hidden">

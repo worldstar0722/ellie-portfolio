@@ -6,6 +6,68 @@ import Section from "./Section.jsx";
 import Placeholder from "./Placeholder.jsx";
 import { Reveal } from "./motion.jsx";
 
+function GroupLabel({ label, first, primary }) {
+  return (
+    <Reveal>
+      <p
+        className={`text-[10px] font-medium uppercase tracking-wide2 ${
+          primary ? "text-clay" : "text-ink/40"
+        } ${first ? "" : "mt-4 border-t-hairline pt-14 md:pt-20"}`}
+      >
+        {label}
+      </p>
+    </Reveal>
+  );
+}
+
+// Supporting work: same grid, deliberately lighter than the case studies
+// above it — no large image, tighter type.
+function CompactProjectCard({ project }) {
+  const { lang, t } = useLanguage();
+  const copy = project[lang];
+
+  return (
+    <Reveal as="article" className="pt-8 md:pt-10">
+      <div className="grid gap-4 md:grid-cols-12 md:gap-10">
+        <div className="md:col-span-7">
+          <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="text-[11px] font-medium tracking-wide2 text-clay">
+              {project.number}
+            </span>
+            <span className="text-[10px] font-medium uppercase tracking-label text-ink/40">
+              {copy.category}
+            </span>
+          </p>
+          <h3 className="mt-2 text-lg font-semibold leading-snug tracking-headline text-ink md:text-xl">
+            {copy.title}
+          </h3>
+          <p className="mt-2 max-w-xl text-sm leading-relaxed text-ink/55">
+            {copy.subtitle}
+          </p>
+        </div>
+        <div className="flex flex-col gap-4 md:col-span-5">
+          <ul className="flex flex-wrap gap-2">
+            {project.tools.map((tool) => (
+              <li
+                key={tool}
+                className="rounded-full border-hairline border-solid px-2.5 py-0.5 text-[10px] font-medium tracking-label text-ink/50"
+              >
+                {tool}
+              </li>
+            ))}
+          </ul>
+          <Link
+            to={`/work/${project.slug}`}
+            className="link-underline text-[11px] font-medium uppercase tracking-label"
+          >
+            {t.work.viewCaseStudy} <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      </div>
+    </Reveal>
+  );
+}
+
 function ProjectCard({ project, flip, flush }) {
   const { lang, t } = useLanguage();
   const copy = project[lang];
@@ -110,23 +172,28 @@ export default function FeaturedWork() {
     <Section id="work" heading={t.work.heading}>
       <div>
         {projects.map((project, i) => {
-          // The spatial/urban work sits below the finance-focused case
-          // studies under its own label, so it reads as breadth.
-          const opensSecondary = project.secondary && !projects[i - 1]?.secondary;
+          // Three tiers: the finance case studies lead, PropTech follows
+          // as the differentiator, and the remaining urban work sits last
+          // as supporting breadth.
+          const opensGroup = project.group !== projects[i - 1]?.group;
           return (
             <Fragment key={project.slug}>
-              {opensSecondary ? (
-                <Reveal>
-                  <p className="mt-4 border-t-hairline pt-14 text-[10px] font-medium uppercase tracking-wide2 text-ink/40 md:pt-20">
-                    {t.work.secondaryHeading}
-                  </p>
-                </Reveal>
+              {opensGroup ? (
+                <GroupLabel
+                  label={t.work.groups[project.group]}
+                  first={i === 0}
+                  primary={project.group === "fintech"}
+                />
               ) : null}
-              <ProjectCard
-                project={project}
-                flip={i % 2 === 1}
-                flush={opensSecondary}
-              />
+              {project.group === "additional" ? (
+                <CompactProjectCard project={project} />
+              ) : (
+                <ProjectCard
+                  project={project}
+                  flip={i % 2 === 1}
+                  flush={opensGroup}
+                />
+              )}
             </Fragment>
           );
         })}

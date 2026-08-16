@@ -8,6 +8,10 @@ import {
   FiPieChart,
   FiCheckSquare,
   FiTrendingUp,
+  FiGithub,
+  FiLink,
+  FiMessageSquare,
+  FiLayers,
 } from "react-icons/fi";
 import {
   TbBinaryTree,
@@ -15,6 +19,7 @@ import {
   TbPresentation,
   TbReportMoney,
   TbBuildingBank,
+  TbShieldCheck,
 } from "react-icons/tb";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import { skillGroups } from "../data/skills.js";
@@ -23,6 +28,11 @@ import { Reveal, Stagger, StaggerChild } from "./motion.jsx";
 
 const icons = {
   checkSquare: FiCheckSquare,
+  shieldCheck: TbShieldCheck,
+  plug: FiLink,
+  github: FiGithub,
+  message: FiMessageSquare,
+  layers: FiLayers,
   reportMoney: TbReportMoney,
   bank: TbBuildingBank,
   trending: FiTrendingUp,
@@ -85,28 +95,42 @@ export default function Skills() {
                   {groupCopy.label}
                 </h3>
               </Reveal>
-              <Stagger
-                as="ul"
-                className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-              >
-                {group.skills.map((skill) => (
-                  <StaggerChild
-                    as="li"
-                    key={skill.id}
-                    className="group flex items-center gap-4 rounded-2xl border-hairline border-solid bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-clay/40 hover:shadow-[0_4px_16px_rgba(35,39,47,0.06)]"
-                  >
-                    <SkillMark skill={skill} />
-                    <span className="min-w-0">
-                      <span className="block text-sm font-semibold leading-snug text-ink">
-                        {groupCopy.items[skill.id]?.name ?? skill.name}
+              {group.muted ? (
+                <Stagger as="ul" className="flex flex-wrap gap-2">
+                  {group.skills.map((skill) => (
+                    <StaggerChild
+                      as="li"
+                      key={skill.id}
+                      className="rounded-full border-hairline border-solid px-3 py-1.5 text-xs text-ink/55"
+                    >
+                      {groupCopy.items[skill.id]?.name ?? skill.name}
+                    </StaggerChild>
+                  ))}
+                </Stagger>
+              ) : (
+                <Stagger
+                  as="ul"
+                  className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                >
+                  {group.skills.map((skill) => (
+                    <StaggerChild
+                      as="li"
+                      key={skill.id}
+                      className="group flex items-center gap-4 rounded-2xl border-hairline border-solid bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-clay/40 hover:shadow-[0_4px_16px_rgba(35,39,47,0.06)]"
+                    >
+                      <SkillMark skill={skill} />
+                      <span className="min-w-0">
+                        <span className="block text-sm font-semibold leading-snug text-ink">
+                          {groupCopy.items[skill.id]?.name ?? skill.name}
+                        </span>
+                        <span className="mt-0.5 line-clamp-2 block text-xs leading-snug text-ink/50">
+                          {groupCopy.items[skill.id]?.desc}
+                        </span>
                       </span>
-                      <span className="mt-0.5 line-clamp-2 block text-xs leading-snug text-ink/50">
-                        {groupCopy.items[skill.id]?.desc}
-                      </span>
-                    </span>
-                  </StaggerChild>
-                ))}
-              </Stagger>
+                    </StaggerChild>
+                  ))}
+                </Stagger>
+              )}
             </div>
           );
         })}

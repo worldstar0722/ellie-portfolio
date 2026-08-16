@@ -15,13 +15,14 @@ export const translations = {
       langKo: "KO",
     },
     hero: {
-      tagline: "FINANCE · DATA · ANALYTICS · MARKETS",
-      headlineLine1: "Turning data",
+      tagline: "FINTECH · FINANCIAL ANALYTICS · SPATIAL INTELLIGENCE",
+      headlineLine1: "Turning financial data",
       headlineLine2: "into decisions.",
       supporting:
-        "I apply machine learning and NLP to financial and market data — turning investor sentiment, price history, and ad spend into decision-ready insight, with a second lens in business and spatial analytics.",
-      subline:
-        "Information Systems · Business Analytics · Urban Planning — University of Utah",
+        "I use data, machine learning, and financial systems to understand markets and financial operations — with a spatial lens on real estate and urban investment.",
+      subline: "Information Systems → Finance + FinTech",
+      sublineMeta:
+        "Business Analytics · Urban Planning — University of Utah",
       viewWork: "VIEW WORK",
       resume: "DOWNLOAD RESUME",
       linkedin: "LINKEDIN",
@@ -31,7 +32,11 @@ export const translations = {
     },
     work: {
       heading: "Featured Case Studies",
-      secondaryHeading: "Spatial & Urban Analytics",
+      groups: {
+        fintech: "FinTech & Financial Analytics",
+        proptech: "PropTech & Spatial Analytics",
+        additional: "Additional Spatial / Urban Work",
+      },
       roleLabel: "Role",
       toolsLabel: "Tools",
       proofLabel: "Proof points",
@@ -41,58 +46,62 @@ export const translations = {
     },
     approach: {
       heading: "Analytics Approach",
-      title: "How I turn messy data into decisions.",
+      title: "How I turn financial questions into decisions.",
       steps: [
         {
-          title: "Frame the question",
-          text: "Start with the decision that needs to be made, not the data that happens to exist.",
+          title: "Define the financial decision",
+          text: "Start with the decision, risk, or opportunity — not the dataset that happens to exist.",
         },
         {
-          title: "Collect and clean the data",
-          text: "Pull from APIs, surveys, and public datasets — and make the messy parts explicit.",
+          title: "Build reliable financial data",
+          text: "Work with transactions, market data, APIs, alternative data, and structured records.",
         },
         {
-          title: "Build the model or framework",
-          text: "Choose the simplest method that can actually answer the question.",
+          title: "Model the signal",
+          text: "Use the simplest statistical or machine-learning method that answers the financial question.",
         },
         {
-          title: "Visualize the pattern",
-          text: "Design charts and dashboards a stakeholder can read in seconds.",
+          title: "Validate risk and performance",
+          text: "Test accuracy, false positives, robustness, assumptions, and practical limits.",
         },
         {
-          title: "Translate findings into action",
-          text: "End with a recommendation, not a statistic.",
+          title: "Turn insight into financial action",
+          text: "Translate results into investment, reporting, operational, or strategic recommendations.",
         },
       ],
     },
     skills: {
       heading: "Skills",
       subtitle:
-        "Tools I use to clean data, build models, map patterns, and translate findings into decisions.",
+        "Finance first — with the technology, applied AI, and spatial tools I use to answer financial questions.",
       groups: {
         finance: {
-          label: "FINANCE & ACCOUNTING",
+          label: "FINANCIAL ANALYTICS",
           items: {
-            reconciliation: { name: "Financial reconciliation", desc: "Transaction matching · data integrity" },
+            reconciliation: { name: "Financial reconciliation", desc: "Transaction matching · discrepancy resolution" },
             budgeting: { name: "Budgeting & reporting", desc: "Budget workflows · financial reporting" },
+            marketdata: { name: "Financial & market data", desc: "S&P 500 pricing · Yahoo Finance API" },
+            integrity: { name: "Transaction data integrity", desc: "Accuracy checks · auditable records" },
             accounting: { name: "Accounting fundamentals", desc: "Core accounting principles" },
             excelmodeling: { name: "Excel modeling", desc: "Modeling · reconciliation · analysis" },
           },
         },
-        data: {
-          label: "DATA & ANALYTICS",
+        tech: {
+          label: "DATA & TECHNOLOGY",
           items: {
-            python: { name: "Python", desc: "Data cleaning · modeling · analysis" },
+            python: { name: "Python", desc: "pandas · analysis · automation" },
             sql: { name: "SQL", desc: "Joins · aggregation · reporting" },
-            yahoofinance: { name: "Yahoo Finance API", desc: "Market & price data sourcing" },
+            apis: { name: "APIs", desc: "Yahoo Finance · Twitter/X collection" },
             tableau: { name: "Tableau", desc: "Dashboards · KPI storytelling" },
             powerbi: { name: "Power BI", desc: "Interactive reports · metrics" },
+            github: { name: "Git & GitHub", desc: "Version control · project delivery" },
           },
         },
-        ml: {
-          label: "NLP & MACHINE LEARNING",
+        ai: {
+          label: "APPLIED AI FOR FINANCE",
           items: {
-            finbert: { name: "FinBERT", desc: "Financial sentiment analysis" },
+            finbert: { name: "FinBERT", desc: "Financial news sentiment" },
+            sentiment: { name: "Sentiment analysis", desc: "Text signals as market features" },
             vader: { name: "VADER", desc: "Social sentiment scoring" },
             sklearn: { name: "scikit-learn", desc: "Model training · evaluation" },
             randomforest: { name: "Random Forest", desc: "Ensemble prediction" },
@@ -100,23 +109,24 @@ export const translations = {
             xgboost: { name: "XGBoost", desc: "Boosted trees · tuning" },
           },
         },
-        urban: {
-          label: "SPATIAL & URBAN",
+        spatial: {
+          label: "SPATIAL & REAL ESTATE ANALYTICS",
           items: {
             arcgis: { name: "ArcGIS", desc: "Spatial analysis · mapping" },
+            locationintel: { name: "Location intelligence", desc: "Screening investment by place" },
+            accessibility: { name: "Accessibility analysis", desc: "Transit · amenity access" },
+            spatialscoring: { name: "Spatial scoring", desc: "Composite location scores" },
+            equity: { name: "Equity analysis", desc: "Access · public-space evaluation" },
             hpi: { name: "HPI", desc: "Health-first planning framework" },
-            fieldresearch: { name: "Field Research", desc: "Observation · documentation" },
-            equity: { name: "Equity Analysis", desc: "Access · public-space evaluation" },
-            urbanplanning: { name: "Urban Planning", desc: "Land use · public life" },
           },
         },
-        design: {
-          label: "DESIGN & CREATIVE",
+        additional: {
+          label: "ADDITIONAL TOOLS",
           items: {
-            figma: { name: "Figma", desc: "Layout · visual systems" },
-            adobe: { name: "Adobe Creative Suite", desc: "Visual storytelling · assets" },
-            dataviz: { name: "Data Visualization", desc: "Charts that read in seconds" },
-            presentation: { name: "Presentation Design", desc: "Decks · analytical narrative" },
+            figma: { name: "Figma" },
+            adobe: { name: "Adobe Creative Suite" },
+            dataviz: { name: "Data visualization" },
+            presentation: { name: "Presentation design" },
           },
         },
       },
@@ -125,19 +135,19 @@ export const translations = {
       heading: "Education",
       entries: [
         {
-          id: "msf",
-          degree: "M.S. in Finance (MSF) + Graduate Certificate in FinTech",
-          school: "University of Utah — David Eccles School of Business",
-          period: "Jan 2027 – Exp. Dec 2028",
-          detail: "",
-        },
-        {
           id: "bs",
           degree: "B.S. in Information Systems",
           school: "University of Utah — David Eccles School of Business",
           period: "Exp. Dec 2026",
           detail:
-            "Double minor in Business Analytics and Urban Ecology & Planning.",
+            "Minors in Business Analytics and Urban Ecology & Planning.",
+        },
+        {
+          id: "msf",
+          degree: "M.S. in Finance (MSF) + Graduate Certificate in FinTech",
+          school: "University of Utah — David Eccles School of Business",
+          period: "Jan 2027 – Exp. Dec 2028",
+          detail: "Incoming — the finance and FinTech half of the progression.",
         },
       ],
     },
@@ -147,6 +157,7 @@ export const translations = {
         "Recent roles across finance operations, information systems education, student leadership, and cross-cultural business programming.",
       linkedInCta: "View full experience on LinkedIn",
       earlierHeading: "Earlier Experience",
+      currentFocusLabel: "CURRENT FOCUS",
       featured: [
         {
           id: "finance",
@@ -155,7 +166,7 @@ export const translations = {
           meta: "Part-time · Salt Lake City, Utah",
           period: "May 2026 – Present",
           description:
-            "Process and reconcile financial transactions and support budgeting and reporting workflows, maintaining data integrity across departmental finance documentation.",
+            "Work across transaction accuracy, reconciliation, budgeting, and reporting — resolving discrepancies and maintaining data integrity across departmental financial records.",
           tags: ["Reconciliation", "Budgeting & Reporting", "Finance Operations"],
         },
         {
@@ -171,6 +182,7 @@ export const translations = {
         },
         {
           id: "ambassador",
+          compact: true,
           title: "IS Student Ambassador",
           org: "University of Utah — David Eccles School of Business",
           meta: "Part-time",
@@ -181,6 +193,7 @@ export const translations = {
         },
         {
           id: "isb",
+          compact: true,
           title: "Marketing Director",
           org: "International Students in Business at University of Utah",
           meta: "Student Organization · Salt Lake City, Utah",
@@ -191,6 +204,7 @@ export const translations = {
         },
         {
           id: "uac",
+          compact: true,
           title: "Leadership & Student Support Roles",
           org: "The University of Utah Asia Campus",
           meta: "South Korea · Utah Asia Campus",
@@ -241,6 +255,32 @@ export const translations = {
         },
       ],
     },
+    finops: {
+      heading: "Financial Operations",
+      title: "How can financial workflows become more accurate, auditable, and scalable?",
+      intro:
+        "Alongside research and modeling, I work inside real financial operations — processing and reconciling transactions, supporting budgeting and reporting workflows, and resolving discrepancies so records stay accurate and auditable.",
+      roleLabel: "Where this comes from",
+      role: "Financial Operations Assistant · Department of City & Metropolitan Planning",
+      flowLabel: "The workflow",
+      flow: [
+        "Transactions",
+        "Reconciliation",
+        "Exception review",
+        "Reporting",
+        "Financial decision",
+      ],
+      themesLabel: "Focus areas",
+      themes: [
+        "Transaction reconciliation",
+        "Data integrity",
+        "Exception & discrepancy handling",
+        "Budgeting",
+        "Reporting",
+        "Financial controls",
+        "Workflow accuracy",
+      ],
+    },
     journey: {
       heading: "Journey",
       subheading:
@@ -276,7 +316,7 @@ export const translations = {
       heading: "Identity",
       markLabel: "THE MARK",
       markStory:
-        "Three bars of increasing length form an E — for Ellie. The rhythm echoes a ledger and a bar chart, the visual language of data and finance. The clay dot acts like a decimal point: the moment data resolves into a decision.",
+        "Three bars of increasing length form an E — for Ellie. The rhythm echoes a ledger and a bar chart, the visual language of finance. The clay dot is a decimal point: data resolving into a decision.",
       paletteLabel: "THE PALETTE",
       colors: [
         { name: "Ledger navy", hex: "#1B3A5C" },
@@ -290,8 +330,9 @@ export const translations = {
         "The palette connects finance, film, spreadsheets, planning maps, Utah's red rock, and the plum blossoms of Gwangyang.",
     },
     contact: {
-      heading: "Let's turn data into decisions.",
-      body: "Open to FinTech and Business/Data Analyst roles, with additional interest in PropTech and urban analytics.",
+      heading: "Let's turn financial data into decisions.",
+      body: "Seeking opportunities in FinTech, Financial Analytics, and financial data roles — especially across market intelligence, financial operations, and data-driven financial products.",
+      bodySecondary: "Also interested in PropTech, location intelligence, and spatial applications of financial analytics.",
       email: "EMAIL",
       linkedin: "LINKEDIN",
       github: "GITHUB",
@@ -359,12 +400,13 @@ export const translations = {
       langKo: "KO",
     },
     hero: {
-      tagline: "금융 · 데이터 · 애널리틱스 · 마켓",
-      headlineLine1: "데이터에서",
+      tagline: "핀테크 · 금융 애널리틱스 · 공간 인텔리전스",
+      headlineLine1: "금융 데이터를",
       headlineLine2: "결정으로.",
       supporting:
-        "머신러닝과 NLP로 금융·시장 데이터를 다룹니다. 투자자 심리, 가격 이력, 광고 지출을 의사결정에 바로 쓸 수 있는 인사이트로 바꾸고, 비즈니스와 공간 분석을 두 번째 렌즈로 삼습니다.",
-      subline: "정보시스템 · 비즈니스 애널리틱스 · 도시계획 — 유타대학교",
+        "데이터와 머신러닝, 금융 시스템으로 시장과 재무 운영을 이해합니다. 여기에 부동산과 도시 투자를 보는 공간적 시각을 더합니다.",
+      subline: "정보시스템 → 재무 + 핀테크",
+      sublineMeta: "비즈니스 애널리틱스 · 도시계획 — 유타대학교",
       viewWork: "프로젝트 보기",
       resume: "이력서 다운로드",
       linkedin: "링크드인",
@@ -374,7 +416,11 @@ export const translations = {
     },
     work: {
       heading: "케이스 스터디",
-      secondaryHeading: "공간 · 도시 애널리틱스",
+      groups: {
+        fintech: "핀테크 & 금융 애널리틱스",
+        proptech: "프롭테크 & 공간 애널리틱스",
+        additional: "그 외 공간 · 도시 작업",
+      },
       roleLabel: "역할",
       toolsLabel: "도구",
       proofLabel: "핵심 성과",
@@ -384,58 +430,62 @@ export const translations = {
     },
     approach: {
       heading: "분석 프로세스",
-      title: "복잡한 데이터를 결정으로 바꾸는 방법.",
+      title: "금융의 질문을 결정으로 바꾸는 방법.",
       steps: [
         {
-          title: "질문 정의",
-          text: "존재하는 데이터가 아니라, 내려야 할 결정에서 시작합니다.",
+          title: "금융 의사결정 정의",
+          text: "가진 데이터가 아니라, 내려야 할 결정과 리스크·기회에서 시작합니다.",
         },
         {
-          title: "데이터 수집·정제",
-          text: "API, 설문, 공공 데이터에서 모으고, 지저분한 부분을 숨기지 않고 드러냅니다.",
+          title: "신뢰할 수 있는 금융 데이터 구축",
+          text: "거래 내역, 시장 데이터, API, 대안 데이터, 정형 기록을 다룹니다.",
         },
         {
-          title: "모델·프레임워크 구축",
-          text: "질문에 실제로 답할 수 있는 가장 단순한 방법을 고릅니다.",
+          title: "시그널 모델링",
+          text: "그 금융 질문에 답할 수 있는 가장 단순한 통계·머신러닝 방법을 고릅니다.",
         },
         {
-          title: "패턴 시각화",
-          text: "이해관계자가 몇 초 만에 읽을 수 있는 차트와 대시보드를 설계합니다.",
+          title: "리스크와 성능 검증",
+          text: "정확도, 오탐, 견고성, 가정과 현실적 한계를 함께 점검합니다.",
         },
         {
-          title: "발견을 행동으로",
-          text: "통계가 아니라 권고안으로 마무리합니다.",
+          title: "인사이트를 금융 행동으로",
+          text: "결과를 투자·리포팅·운영·전략 권고안으로 옮깁니다.",
         },
       ],
     },
     skills: {
       heading: "스킬",
       subtitle:
-        "데이터를 정제하고, 모델을 만들고, 패턴을 지도에 옮기고, 발견을 결정으로 바꾸는 도구들입니다.",
+        "금융이 먼저입니다 — 그리고 금융의 질문에 답하기 위해 쓰는 기술, 응용 AI, 공간 도구들입니다.",
       groups: {
         finance: {
-          label: "금융 & 회계",
+          label: "금융 애널리틱스",
           items: {
-            reconciliation: { name: "재무 정산", desc: "거래 대사 · 데이터 정합성" },
+            reconciliation: { name: "재무 정산", desc: "거래 대사 · 불일치 해소" },
             budgeting: { name: "예산 & 리포팅", desc: "예산 워크플로 · 재무 리포팅" },
+            marketdata: { name: "금융 & 시장 데이터", desc: "S&P 500 가격 · Yahoo Finance API" },
+            integrity: { name: "거래 데이터 정합성", desc: "정확성 점검 · 감사 가능한 기록" },
             accounting: { name: "회계 기초", desc: "회계의 기본 원리" },
             excelmodeling: { name: "엑셀 모델링", desc: "모델링 · 정산 · 분석" },
           },
         },
-        data: {
-          label: "데이터 & 애널리틱스",
+        tech: {
+          label: "데이터 & 테크놀로지",
           items: {
-            python: { name: "Python", desc: "데이터 정제 · 모델링 · 분석" },
+            python: { name: "Python", desc: "pandas · 분석 · 자동화" },
             sql: { name: "SQL", desc: "조인 · 집계 · 리포팅" },
-            yahoofinance: { name: "Yahoo Finance API", desc: "시장·가격 데이터 수집" },
+            apis: { name: "API", desc: "Yahoo Finance · Twitter/X 수집" },
             tableau: { name: "Tableau", desc: "대시보드 · KPI 스토리텔링" },
             powerbi: { name: "Power BI", desc: "인터랙티브 리포트 · 지표" },
+            github: { name: "Git & GitHub", desc: "버전 관리 · 프로젝트 운영" },
           },
         },
-        ml: {
-          label: "NLP & 머신러닝",
+        ai: {
+          label: "금융을 위한 응용 AI",
           items: {
-            finbert: { name: "FinBERT", desc: "금융 감성 분석" },
+            finbert: { name: "FinBERT", desc: "금융 뉴스 감성 분석" },
+            sentiment: { name: "감성 분석", desc: "텍스트 신호를 시장 피처로" },
             vader: { name: "VADER", desc: "소셜 감성 스코어링" },
             sklearn: { name: "scikit-learn", desc: "모델 학습 · 평가" },
             randomforest: { name: "Random Forest", desc: "앙상블 예측" },
@@ -443,23 +493,24 @@ export const translations = {
             xgboost: { name: "XGBoost", desc: "부스티드 트리 · 튜닝" },
           },
         },
-        urban: {
-          label: "공간 & 도시",
+        spatial: {
+          label: "공간 & 부동산 애널리틱스",
           items: {
             arcgis: { name: "ArcGIS", desc: "공간 분석 · 매핑" },
-            hpi: { name: "HPI", desc: "건강 우선 계획 프레임워크" },
-            fieldresearch: { name: "현장 연구", desc: "관찰 · 현장 기록" },
+            locationintel: { name: "로케이션 인텔리전스", desc: "장소 기반 투자 스크리닝" },
+            accessibility: { name: "접근성 분석", desc: "대중교통 · 생활 인프라 접근" },
+            spatialscoring: { name: "공간 스코어링", desc: "복합 입지 점수" },
             equity: { name: "형평성 분석", desc: "접근성 · 공공 공간 평가" },
-            urbanplanning: { name: "도시계획", desc: "토지 이용 · 공공 생활" },
+            hpi: { name: "HPI", desc: "건강 우선 계획 프레임워크" },
           },
         },
-        design: {
-          label: "디자인 & 크리에이티브",
+        additional: {
+          label: "그 외 도구",
           items: {
-            figma: { name: "Figma", desc: "레이아웃 · 비주얼 시스템" },
-            adobe: { name: "Adobe Creative Suite", desc: "비주얼 스토리텔링 · 에셋" },
-            dataviz: { name: "데이터 시각화", desc: "몇 초 만에 읽히는 차트" },
-            presentation: { name: "프레젠테이션 디자인", desc: "덱 · 분석 내러티브" },
+            figma: { name: "Figma" },
+            adobe: { name: "Adobe Creative Suite" },
+            dataviz: { name: "데이터 시각화" },
+            presentation: { name: "프레젠테이션 디자인" },
           },
         },
       },
@@ -468,18 +519,18 @@ export const translations = {
       heading: "학력",
       entries: [
         {
-          id: "msf",
-          degree: "재무학 석사(MSF) + 핀테크 대학원 수료증",
-          school: "유타대학교 — 데이비드 에클스 경영대학",
-          period: "2027년 1월 – 2028년 12월(예정)",
-          detail: "",
-        },
-        {
           id: "bs",
           degree: "정보시스템 학사",
           school: "유타대학교 — 데이비드 에클스 경영대학",
           period: "2026년 12월 졸업 예정",
-          detail: "비즈니스 애널리틱스, 도시생태·계획 복수 부전공.",
+          detail: "비즈니스 애널리틱스, 도시생태·계획 부전공.",
+        },
+        {
+          id: "msf",
+          degree: "재무학 석사(MSF) + 핀테크 대학원 수료증",
+          school: "유타대학교 — 데이비드 에클스 경영대학",
+          period: "2027년 1월 – 2028년 12월(예정)",
+          detail: "입학 예정 — 재무와 핀테크로 이어지는 다음 단계.",
         },
       ],
     },
@@ -489,6 +540,7 @@ export const translations = {
         "재무 운영, 정보시스템 교육, 학생 리더십, 크로스컬처 비즈니스 프로그램을 아우르는 최근 활동입니다.",
       linkedInCta: "링크드인에서 전체 경력 보기",
       earlierHeading: "이전 경력",
+      currentFocusLabel: "현재 집중",
       featured: [
         {
           id: "finance",
@@ -497,7 +549,7 @@ export const translations = {
           meta: "파트타임 · 솔트레이크시티, 유타",
           period: "2026년 5월 – 현재",
           description:
-            "재무 거래를 처리·정산하고 예산·리포팅 워크플로를 지원하며, 학과 재무 문서 전반의 데이터 정합성을 유지합니다.",
+            "거래 정확성과 정산, 예산·리포팅 업무를 담당하며, 불일치를 해소하고 학과 재무 기록 전반의 데이터 정합성을 유지합니다.",
           tags: ["정산", "예산·리포팅", "재무 운영"],
         },
         {
@@ -513,6 +565,7 @@ export const translations = {
         },
         {
           id: "ambassador",
+          compact: true,
           title: "IS 학생 앰배서더",
           org: "유타대학교 — 데이비드 에클스 경영대학",
           meta: "파트타임",
@@ -523,6 +576,7 @@ export const translations = {
         },
         {
           id: "isb",
+          compact: true,
           title: "마케팅 디렉터",
           org: "International Students in Business at University of Utah",
           meta: "학생 단체 · 솔트레이크시티, 유타",
@@ -533,6 +587,7 @@ export const translations = {
         },
         {
           id: "uac",
+          compact: true,
           title: "리더십 & 학생 지원 활동",
           org: "유타대학교 아시아캠퍼스",
           meta: "대한민국 · 유타 아시아캠퍼스",
@@ -583,6 +638,26 @@ export const translations = {
         },
       ],
     },
+    finops: {
+      heading: "재무 운영",
+      title: "재무 워크플로를 어떻게 더 정확하고, 추적 가능하며, 확장 가능하게 만들 수 있을까?",
+      intro:
+        "연구와 모델링과 나란히, 실제 재무 운영 현장에서 일합니다. 거래를 처리·정산하고 예산과 리포팅 워크플로를 지원하며, 불일치를 해소해 기록이 정확하고 감사 가능하도록 유지합니다.",
+      roleLabel: "출처",
+      role: "재무 운영 어시스턴트 · 도시·메트로폴리탄 계획학과",
+      flowLabel: "워크플로",
+      flow: ["거래", "정산", "예외 검토", "리포팅", "재무 의사결정"],
+      themesLabel: "집중 영역",
+      themes: [
+        "거래 정산",
+        "데이터 정합성",
+        "예외·불일치 처리",
+        "예산",
+        "리포팅",
+        "재무 통제",
+        "워크플로 정확성",
+      ],
+    },
     journey: {
       heading: "여정",
       subheading:
@@ -618,7 +693,7 @@ export const translations = {
       heading: "아이덴티티",
       markLabel: "마크",
       markStory:
-        "길이가 다른 세 개의 막대가 모여 Ellie의 E가 됩니다. 장부의 행과 막대그래프를 닮은 리듬 — 데이터와 금융의 시각 언어입니다. 끝의 클레이 점은 소수점처럼, 데이터가 결정으로 맺히는 순간을 가리킵니다.",
+        "길이가 다른 세 개의 막대가 모여 Ellie의 E가 됩니다. 장부의 행과 막대그래프를 닮은 리듬 — 금융의 시각 언어입니다. 끝의 클레이 점은 소수점, 데이터가 결정으로 맺히는 순간입니다.",
       paletteLabel: "팔레트",
       colors: [
         { name: "레저 네이비", hex: "#1B3A5C" },
@@ -632,8 +707,9 @@ export const translations = {
         "네이비의 금융, 잉크의 영화, 페이퍼의 스프레드시트와 계획 지도, 유타의 붉은 바위 클레이, 그리고 광양의 매화 블러시 — 팔레트가 그 여정을 잇습니다.",
     },
     contact: {
-      heading: "데이터를 결정으로, 함께.",
-      body: "핀테크와 비즈니스/데이터 애널리스트 포지션을 찾고 있으며, 프롭테크와 어반 애널리틱스에도 관심이 있습니다.",
+      heading: "금융 데이터를 결정으로, 함께.",
+      body: "핀테크, 금융 애널리틱스, 금융 데이터 직무를 찾고 있습니다 — 특히 마켓 인텔리전스, 재무 운영, 데이터 기반 금융 서비스 영역입니다.",
+      bodySecondary: "프롭테크와 로케이션 인텔리전스, 금융 분석의 공간적 응용에도 관심이 있습니다.",
       email: "이메일",
       linkedin: "링크드인",
       github: "깃허브",

@@ -8,13 +8,21 @@ export default function Education() {
   return (
     <Section id="education" heading={t.education.heading}>
       <Stagger as="ul">
-        {t.education.entries.map((entry) => (
+        {t.education.entries.map((entry, i) => (
           <StaggerChild
             as="li"
             key={entry.id}
             className="grid gap-2 border-t-hairline py-8 first:border-t-0 first:pt-0 last:pb-0 md:grid-cols-12 md:gap-10"
           >
             <div className="md:col-span-5">
+              {i > 0 ? (
+                <span
+                  aria-hidden="true"
+                  className="mb-2 block text-sm leading-none text-clay/60"
+                >
+                  ↓
+                </span>
+              ) : null}
               <h3 className="text-base font-semibold text-ink">
                 {entry.degree}
               </h3>
