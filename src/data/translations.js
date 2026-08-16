@@ -70,14 +70,23 @@ export const translations = {
       subtitle:
         "Tools I use to clean data, build models, map patterns, and translate findings into decisions.",
       groups: {
+        finance: {
+          label: "FINANCE & ACCOUNTING",
+          items: {
+            reconciliation: { name: "Financial reconciliation", desc: "Transaction matching · data integrity" },
+            budgeting: { name: "Budgeting & reporting", desc: "Budget workflows · financial reporting" },
+            accounting: { name: "Accounting fundamentals", desc: "Core accounting principles" },
+            excelmodeling: { name: "Excel modeling", desc: "Modeling · reconciliation · analysis" },
+          },
+        },
         data: {
           label: "DATA & ANALYTICS",
           items: {
             python: { name: "Python", desc: "Data cleaning · modeling · analysis" },
             sql: { name: "SQL", desc: "Joins · aggregation · reporting" },
+            yahoofinance: { name: "Yahoo Finance API", desc: "Market & price data sourcing" },
             tableau: { name: "Tableau", desc: "Dashboards · KPI storytelling" },
             powerbi: { name: "Power BI", desc: "Interactive reports · metrics" },
-            excel: { name: "Excel", desc: "Modeling · reconciliation" },
           },
         },
         ml: {
@@ -111,6 +120,26 @@ export const translations = {
           },
         },
       },
+    },
+    education: {
+      heading: "Education",
+      entries: [
+        {
+          id: "msf",
+          degree: "M.S. in Finance (MSF) + Graduate Certificate in FinTech",
+          school: "University of Utah — David Eccles School of Business",
+          period: "Jan 2027 – Exp. Dec 2028",
+          detail: "",
+        },
+        {
+          id: "bs",
+          degree: "B.S. in Information Systems",
+          school: "University of Utah — David Eccles School of Business",
+          period: "Exp. Dec 2026",
+          detail:
+            "Double minor in Business Analytics and Urban Ecology & Planning.",
+        },
+      ],
     },
     experience: {
       heading: "Experience",
@@ -384,14 +413,23 @@ export const translations = {
       subtitle:
         "데이터를 정제하고, 모델을 만들고, 패턴을 지도에 옮기고, 발견을 결정으로 바꾸는 도구들입니다.",
       groups: {
+        finance: {
+          label: "금융 & 회계",
+          items: {
+            reconciliation: { name: "재무 정산", desc: "거래 대사 · 데이터 정합성" },
+            budgeting: { name: "예산 & 리포팅", desc: "예산 워크플로 · 재무 리포팅" },
+            accounting: { name: "회계 기초", desc: "회계의 기본 원리" },
+            excelmodeling: { name: "엑셀 모델링", desc: "모델링 · 정산 · 분석" },
+          },
+        },
         data: {
           label: "데이터 & 애널리틱스",
           items: {
             python: { name: "Python", desc: "데이터 정제 · 모델링 · 분석" },
             sql: { name: "SQL", desc: "조인 · 집계 · 리포팅" },
+            yahoofinance: { name: "Yahoo Finance API", desc: "시장·가격 데이터 수집" },
             tableau: { name: "Tableau", desc: "대시보드 · KPI 스토리텔링" },
             powerbi: { name: "Power BI", desc: "인터랙티브 리포트 · 지표" },
-            excel: { name: "Excel", desc: "모델링 · 정산" },
           },
         },
         ml: {
@@ -425,6 +463,25 @@ export const translations = {
           },
         },
       },
+    },
+    education: {
+      heading: "학력",
+      entries: [
+        {
+          id: "msf",
+          degree: "재무학 석사(MSF) + 핀테크 대학원 수료증",
+          school: "유타대학교 — 데이비드 에클스 경영대학",
+          period: "2027년 1월 – 2028년 12월(예정)",
+          detail: "",
+        },
+        {
+          id: "bs",
+          degree: "정보시스템 학사",
+          school: "유타대학교 — 데이비드 에클스 경영대학",
+          period: "2026년 12월 졸업 예정",
+          detail: "비즈니스 애널리틱스, 도시생태·계획 복수 부전공.",
+        },
+      ],
     },
     experience: {
       heading: "경력",

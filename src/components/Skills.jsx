@@ -6,14 +6,26 @@ import {
   FiMapPin,
   FiUsers,
   FiPieChart,
+  FiCheckSquare,
+  FiTrendingUp,
 } from "react-icons/fi";
-import { TbBinaryTree, TbBuildings, TbPresentation } from "react-icons/tb";
+import {
+  TbBinaryTree,
+  TbBuildings,
+  TbPresentation,
+  TbReportMoney,
+  TbBuildingBank,
+} from "react-icons/tb";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import { skillGroups } from "../data/skills.js";
 import Section from "./Section.jsx";
 import { Reveal, Stagger, StaggerChild } from "./motion.jsx";
 
 const icons = {
+  checkSquare: FiCheckSquare,
+  reportMoney: TbReportMoney,
+  bank: TbBuildingBank,
+  trending: FiTrendingUp,
   python: SiPython,
   database: FiDatabase,
   barchart: FiBarChart2,
@@ -85,7 +97,7 @@ export default function Skills() {
                   >
                     <SkillMark skill={skill} />
                     <span className="min-w-0">
-                      <span className="block truncate text-sm font-semibold text-ink">
+                      <span className="block text-sm font-semibold leading-snug text-ink">
                         {groupCopy.items[skill.id]?.name ?? skill.name}
                       </span>
                       <span className="mt-0.5 line-clamp-2 block text-xs leading-snug text-ink/50">

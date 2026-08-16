@@ -4,13 +4,22 @@
 // simple-icons, and research tools have no official marks).
 export const skillGroups = [
   {
+    id: "finance",
+    skills: [
+      { id: "reconciliation", name: "Financial reconciliation", icon: "checkSquare" },
+      { id: "budgeting", name: "Budgeting & reporting", icon: "reportMoney" },
+      { id: "accounting", name: "Accounting fundamentals", icon: "bank" },
+      { id: "excelmodeling", name: "Excel modeling", icon: "grid" },
+    ],
+  },
+  {
     id: "data",
     skills: [
       { id: "python", name: "Python", icon: "python" },
       { id: "sql", name: "SQL", icon: "database" },
+      { id: "yahoofinance", name: "Yahoo Finance API", icon: "trending" },
       { id: "tableau", name: "Tableau", badge: "TB" },
       { id: "powerbi", name: "Power BI", icon: "barchart" },
-      { id: "excel", name: "Excel", icon: "grid" },
     ],
   },
   {
