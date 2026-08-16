@@ -15,11 +15,11 @@ export const translations = {
       langKo: "KO",
     },
     hero: {
-      tagline: "DATA · BUSINESS · URBAN · CREATIVE",
+      tagline: "FINANCE · DATA · ANALYTICS · MARKETS",
       headlineLine1: "Turning data",
       headlineLine2: "into decisions.",
       supporting:
-        "I combine business analytics, NLP, financial data, and spatial thinking to translate messy human behavior into decision-ready insights.",
+        "I apply machine learning and NLP to financial and market data — turning investor sentiment, price history, and ad spend into decision-ready insight, with a second lens in business and spatial analytics.",
       subline:
         "Information Systems · Business Analytics · Urban Planning — University of Utah",
       viewWork: "VIEW WORK",
@@ -31,6 +31,7 @@ export const translations = {
     },
     work: {
       heading: "Featured Case Studies",
+      secondaryHeading: "Spatial & Urban Analytics",
       roleLabel: "Role",
       toolsLabel: "Tools",
       proofLabel: "Proof points",
@@ -125,8 +126,8 @@ export const translations = {
           meta: "Part-time · Salt Lake City, Utah",
           period: "May 2026 – Present",
           description:
-            "Supported departmental finance operations, documentation, and administrative workflows within an urban planning academic environment.",
-          tags: ["Finance Operations", "Documentation", "Urban Planning"],
+            "Process and reconcile financial transactions and support budgeting and reporting workflows, maintaining data integrity across departmental finance documentation.",
+          tags: ["Reconciliation", "Budgeting & Reporting", "Finance Operations"],
         },
         {
           id: "ta",
@@ -174,7 +175,7 @@ export const translations = {
             "Founding Service President, UAC TEK Club — Aug 2023 – Dec 2024",
             "Computer Lab Assistant — Aug 2023 – Jun 2024",
           ],
-          tags: ["Leadership", "Peer Advising", "Teaching", "Resource Support"],
+          tags: ["Leadership", "Accounting", "Peer Advising", "Teaching"],
         },
       ],
       earlier: [
@@ -261,7 +262,7 @@ export const translations = {
     },
     contact: {
       heading: "Let's turn data into decisions.",
-      body: "Open to Business/Data Analyst, FinTech, PropTech, and Urban Analytics roles.",
+      body: "Open to FinTech and Business/Data Analyst roles, with additional interest in PropTech and urban analytics.",
       email: "EMAIL",
       linkedin: "LINKEDIN",
       github: "GITHUB",
@@ -329,11 +330,11 @@ export const translations = {
       langKo: "KO",
     },
     hero: {
-      tagline: "데이터 · 비즈니스 · 도시 · 크리에이티브",
+      tagline: "금융 · 데이터 · 애널리틱스 · 마켓",
       headlineLine1: "데이터에서",
       headlineLine2: "결정으로.",
       supporting:
-        "비즈니스 애널리틱스, NLP, 금융 데이터, 공간적 사고를 결합해 복잡한 인간 행동을 의사결정에 바로 쓸 수 있는 인사이트로 옮깁니다.",
+        "머신러닝과 NLP로 금융·시장 데이터를 다룹니다. 투자자 심리, 가격 이력, 광고 지출을 의사결정에 바로 쓸 수 있는 인사이트로 바꾸고, 비즈니스와 공간 분석을 두 번째 렌즈로 삼습니다.",
       subline: "정보시스템 · 비즈니스 애널리틱스 · 도시계획 — 유타대학교",
       viewWork: "프로젝트 보기",
       resume: "이력서 다운로드",
@@ -344,6 +345,7 @@ export const translations = {
     },
     work: {
       heading: "케이스 스터디",
+      secondaryHeading: "공간 · 도시 애널리틱스",
       roleLabel: "역할",
       toolsLabel: "도구",
       proofLabel: "핵심 성과",
@@ -438,8 +440,8 @@ export const translations = {
           meta: "파트타임 · 솔트레이크시티, 유타",
           period: "2026년 5월 – 현재",
           description:
-            "도시계획 학과 환경에서 재무 운영과 문서화, 행정 워크플로를 지원합니다.",
-          tags: ["재무 운영", "문서화", "도시계획"],
+            "재무 거래를 처리·정산하고 예산·리포팅 워크플로를 지원하며, 학과 재무 문서 전반의 데이터 정합성을 유지합니다.",
+          tags: ["정산", "예산·리포팅", "재무 운영"],
         },
         {
           id: "ta",
@@ -487,7 +489,7 @@ export const translations = {
             "창립 서비스 회장, UAC TEK 클럽 — 2023년 8월 – 2024년 12월",
             "컴퓨터랩 어시스턴트 — 2023년 8월 – 2024년 6월",
           ],
-          tags: ["리더십", "피어 어드바이징", "티칭", "리소스 지원"],
+          tags: ["리더십", "회계", "피어 어드바이징", "티칭"],
         },
       ],
       earlier: [
@@ -574,7 +576,7 @@ export const translations = {
     },
     contact: {
       heading: "데이터를 결정으로, 함께.",
-      body: "비즈니스/데이터 애널리스트, 핀테크, 프롭테크, 어반 애널리틱스 포지션을 찾고 있습니다 — 편하게 연락 주세요.",
+      body: "핀테크와 비즈니스/데이터 애널리스트 포지션을 찾고 있으며, 프롭테크와 어반 애널리틱스에도 관심이 있습니다.",
       email: "이메일",
       linkedin: "링크드인",
       github: "깃허브",

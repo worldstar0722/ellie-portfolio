@@ -35,7 +35,11 @@ function SkillMark({ skill }) {
   return (
     <span
       aria-hidden="true"
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-hairline border-solid bg-[#F7F4EE]/80 text-navy"
+      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-solid ${
+        skill.accent
+          ? "border-[0.5px] border-clay/40 bg-clay/5 text-clay"
+          : "border-hairline bg-[#F7F4EE]/80 text-navy"
+      }`}
     >
       {Icon ? (
         <Icon size={19} />

@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { useLanguage } from "../hooks/useLanguage.jsx";
 import { projects } from "../data/projects.js";
 import { Link } from "../lib/router.jsx";
@@ -5,7 +6,7 @@ import Section from "./Section.jsx";
 import Placeholder from "./Placeholder.jsx";
 import { Reveal } from "./motion.jsx";
 
-function ProjectCard({ project, flip }) {
+function ProjectCard({ project, flip, flush }) {
   const { lang, t } = useLanguage();
   const copy = project[lang];
   const labels = t.work;
@@ -13,7 +14,9 @@ function ProjectCard({ project, flip }) {
   return (
     <Reveal
       as="article"
-      className="border-t-hairline py-14 first:border-t-0 first:pt-0 md:py-20"
+      className={`py-14 md:py-20 ${
+        flush ? "pt-8 md:pt-10" : "border-t-hairline first:border-t-0 first:pt-0"
+      }`}
     >
       <div className="grid gap-10 md:grid-cols-2 md:gap-12">
         <div className={`flex flex-col ${flip ? "md:order-2" : ""}`}>
@@ -106,9 +109,27 @@ export default function FeaturedWork() {
   return (
     <Section id="work" heading={t.work.heading}>
       <div>
-        {projects.map((project, i) => (
-          <ProjectCard key={project.slug} project={project} flip={i % 2 === 1} />
-        ))}
+        {projects.map((project, i) => {
+          // The spatial/urban work sits below the finance-focused case
+          // studies under its own label, so it reads as breadth.
+          const opensSecondary = project.secondary && !projects[i - 1]?.secondary;
+          return (
+            <Fragment key={project.slug}>
+              {opensSecondary ? (
+                <Reveal>
+                  <p className="mt-4 border-t-hairline pt-14 text-[10px] font-medium uppercase tracking-wide2 text-ink/40 md:pt-20">
+                    {t.work.secondaryHeading}
+                  </p>
+                </Reveal>
+              ) : null}
+              <ProjectCard
+                project={project}
+                flip={i % 2 === 1}
+                flush={opensSecondary}
+              />
+            </Fragment>
+          );
+        })}
       </div>
     </Section>
   );

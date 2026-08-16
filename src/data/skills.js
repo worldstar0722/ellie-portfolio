@@ -16,7 +16,7 @@ export const skillGroups = [
   {
     id: "ml",
     skills: [
-      { id: "finbert", name: "FinBERT", badge: "FBERT" },
+      { id: "finbert", name: "FinBERT", badge: "FBERT", accent: true },
       { id: "vader", name: "VADER", badge: "VADER" },
       { id: "sklearn", name: "scikit-learn", icon: "sklearn" },
       { id: "randomforest", name: "Random Forest", icon: "tree" },
