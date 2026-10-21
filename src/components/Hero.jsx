@@ -16,12 +16,12 @@ const line = {
 // Portrait with WebP + JPG fallback. aspect-ratio is reserved up front so
 // there is no layout shift; until the files are uploaded, the frame shows
 // the site's labeled paper placeholder instead of a broken image.
-function HeroPortrait({ alt, hint, uploadLabel }) {
+function HeroPortrait({ alt }) {
   const [failed, setFailed] = useState(false);
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-[20px] bg-[#F7F4EE]/70 placeholder-grid shadow-[0_2px_20px_rgba(35,39,47,0.07)]"
+      className="relative w-full overflow-hidden rounded-xl bg-paper"
       style={{ aspectRatio: "4 / 5" }}
     >
       {!failed ? (
@@ -37,19 +37,7 @@ function HeroPortrait({ alt, hint, uploadLabel }) {
             className="absolute inset-0 h-full w-full object-cover"
           />
         </picture>
-      ) : (
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center"
-        >
-          <span className="max-w-full truncate rounded-full border-hairline border-solid bg-white/80 px-3 py-1 text-[10px] font-medium uppercase tracking-label text-ink/50">
-            ellie-portrait
-          </span>
-          <span className="text-xs font-medium text-ink/55">
-            {uploadLabel}: {hint} · 4:5
-          </span>
-        </div>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -70,17 +58,18 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto grid max-w-6xl items-center gap-12 px-6 pb-24 pt-20 sm:px-8 md:grid-cols-12 md:gap-10 md:pb-32 md:pt-28"
+        className="mx-auto grid max-w-[1200px] items-center gap-12 px-6 pb-32 pt-24 sm:px-8 md:grid-cols-12 md:gap-10 md:pb-40 md:pt-32"
       >
         <div className="md:col-span-7 lg:col-span-8">
           <motion.p
             variants={line}
-            className="mb-8 text-[11px] font-medium uppercase tracking-wide2 text-clay"
+            className="mb-8 text-micro font-medium uppercase tracking-wide2 text-clay-text"
           >
             {t.hero.tagline}
           </motion.p>
 
-          <h1 className="text-[2.6rem] font-bold leading-[1.08] tracking-headline sm:text-6xl md:text-[2.9rem] lg:text-[3rem] xl:text-6xl">
+          {/* The only L1 on the site. */}
+          <h1 className="text-h3 font-bold tracking-headline sm:text-h2 lg:text-h1">
             <motion.span variants={line} className="block text-ink">
               {t.hero.headlineLine1}
             </motion.span>
@@ -91,30 +80,28 @@ export default function Hero() {
 
           <motion.p
             variants={line}
-            className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/70 lg:text-xl"
+            className="mt-8 max-w-2xl text-lead text-ink/75"
           >
             {t.hero.supporting}
           </motion.p>
 
-          <motion.div variants={line} className="mt-6">
-            <p className="text-sm font-medium text-ink/70">{t.hero.subline}</p>
-            <p className="mt-1 text-xs leading-relaxed text-ink/40">
+          <motion.div variants={line} className="mt-8">
+            <p className="text-body font-medium text-ink/75">
+              {t.hero.subline}
+            </p>
+            <p className="mt-2 text-micro text-ink/65">
               {t.hero.sublineMeta}
             </p>
           </motion.div>
 
           {/* Mobile: portrait stacks below the subline */}
-          <motion.div variants={line} className="mt-10 md:hidden">
-            <HeroPortrait
-              alt={t.hero.portraitAlt}
-              hint={t.hero.portraitHint}
-              uploadLabel={t.work.uploadLater}
-            />
+          <motion.div variants={line} className="mt-8 md:hidden">
+            <HeroPortrait alt={t.hero.portraitAlt} />
           </motion.div>
 
           <motion.div
             variants={line}
-            className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4"
+            className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4"
           >
             {ctas.map((cta) => (
               <a
@@ -122,7 +109,7 @@ export default function Hero() {
                 href={cta.href}
                 target={cta.external ? "_blank" : undefined}
                 rel={cta.external ? "noopener noreferrer" : undefined}
-                className="link-underline text-[12px] font-medium uppercase tracking-label"
+                className="link-underline text-micro font-medium uppercase tracking-label"
               >
                 {cta.label} <span aria-hidden="true">↗</span>
               </a>
@@ -135,11 +122,7 @@ export default function Hero() {
           variants={line}
           className="hidden md:col-span-5 md:block lg:col-span-4"
         >
-          <HeroPortrait
-            alt={t.hero.portraitAlt}
-            hint={t.hero.portraitHint}
-            uploadLabel={t.work.uploadLater}
-          />
+          <HeroPortrait alt={t.hero.portraitAlt} />
         </motion.div>
       </motion.div>
     </section>

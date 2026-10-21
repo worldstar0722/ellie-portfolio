@@ -39,9 +39,9 @@ export default function Nav({ onCasePage = false }) {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b-hairline bg-white/70 backdrop-blur-xl backdrop-saturate-150">
+    <header className="sticky top-0 z-50 border-b-hairline bg-white">
       <nav
-        className={`mx-auto flex max-w-6xl items-center justify-between px-6 transition-all duration-300 ease-out sm:px-8 ${
+        className={`mx-auto flex max-w-[1200px] items-center justify-between px-6 transition-all duration-300 ease-out sm:px-8 ${
           scrolled ? "h-12" : "h-16"
         }`}
       >
@@ -54,7 +54,7 @@ export default function Nav({ onCasePage = false }) {
               scrolled ? "h-[22px]" : "h-[26px]"
             }`}
           />
-          <span className="hidden text-[13px] font-semibold uppercase tracking-wide2 text-ink sm:block">
+          <span className="hidden text-micro font-semibold uppercase tracking-wide2 text-ink sm:block">
             {t.nav.name}
           </span>
           <span className="sr-only sm:hidden">{t.nav.name}</span>
@@ -65,7 +65,7 @@ export default function Nav({ onCasePage = false }) {
             <>
               <Link
                 to="/"
-                className="hidden text-[11px] font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70 sm:block"
+                className="hidden text-micro font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70 sm:block"
               >
                 ← {t.caseStudy.backToWork}
               </Link>
@@ -76,7 +76,7 @@ export default function Nav({ onCasePage = false }) {
                       href={link.href}
                       target={link.external ? "_blank" : undefined}
                       rel={link.external ? "noopener noreferrer" : undefined}
-                      className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
+                      className="text-micro font-medium uppercase tracking-label text-ink/75 transition-colors duration-200 hover:text-navy"
                     >
                       {link.label}
                     </a>
@@ -91,7 +91,7 @@ export default function Nav({ onCasePage = false }) {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="text-[11px] font-medium uppercase tracking-label text-ink/60 transition-colors duration-200 hover:text-navy"
+                      className="text-micro font-medium uppercase tracking-label text-ink/75 transition-colors duration-200 hover:text-navy"
                     >
                       {link.label}
                     </a>
@@ -106,7 +106,7 @@ export default function Nav({ onCasePage = false }) {
                       href={cta.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[11px] font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70"
+                      className="text-micro font-medium uppercase tracking-label text-navy transition-opacity duration-200 hover:opacity-70"
                     >
                       {cta.label}
                     </a>
@@ -117,21 +117,21 @@ export default function Nav({ onCasePage = false }) {
           )}
 
           <div
-            className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-label"
+            className="flex items-center gap-2 text-micro font-medium uppercase tracking-label"
             role="group"
-            aria-label="Language"
+            aria-label={t.nav.langLabel}
           >
             <button
               type="button"
               onClick={() => setLang("en")}
               aria-pressed={lang === "en"}
               className={`transition-colors duration-200 hover:text-navy ${
-                lang === "en" ? "font-semibold text-ink" : "text-ink/40"
+                lang === "en" ? "font-semibold text-ink" : "text-ink/65"
               }`}
             >
               {t.nav.langEn}
             </button>
-            <span aria-hidden="true" className="text-ink/30">
+            <span aria-hidden="true" className="text-ink/65">
               /
             </span>
             <button
@@ -139,7 +139,7 @@ export default function Nav({ onCasePage = false }) {
               onClick={() => setLang("ko")}
               aria-pressed={lang === "ko"}
               className={`transition-colors duration-200 hover:text-navy ${
-                lang === "ko" ? "font-semibold text-ink" : "text-ink/40"
+                lang === "ko" ? "font-semibold text-ink" : "text-ink/65"
               }`}
             >
               {t.nav.langKo}

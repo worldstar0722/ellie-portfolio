@@ -12,6 +12,8 @@ import {
   FiLink,
   FiMessageSquare,
   FiLayers,
+  FiCloud,
+  FiCpu,
 } from "react-icons/fi";
 import {
   TbBinaryTree,
@@ -33,6 +35,8 @@ const icons = {
   github: FiGithub,
   message: FiMessageSquare,
   layers: FiLayers,
+  cloud: FiCloud,
+  robot: FiCpu,
   reportMoney: TbReportMoney,
   bank: TbBuildingBank,
   trending: FiTrendingUp,
@@ -51,22 +55,22 @@ const icons = {
   presentation: TbPresentation,
 };
 
+// The brand marks stay — they identify the tool — but unframed, at one
+// size, so the list does not read as a grid of identical boxes.
 function SkillMark({ skill }) {
   const Icon = skill.icon ? icons[skill.icon] : null;
 
   return (
     <span
       aria-hidden="true"
-      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border-solid ${
-        skill.accent
-          ? "border-[0.5px] border-clay/40 bg-clay/5 text-clay"
-          : "border-hairline bg-[#F7F4EE]/80 text-navy"
+      className={`flex w-6 shrink-0 items-center justify-center ${
+        skill.accent ? "text-clay-text" : "text-navy"
       }`}
     >
       {Icon ? (
-        <Icon size={19} />
+        <Icon size={18} />
       ) : (
-        <span className="text-[9px] font-bold tracking-label">
+        <span className="text-micro font-bold tracking-label">
           {skill.badge}
         </span>
       )}
@@ -80,52 +84,54 @@ export default function Skills() {
   return (
     <Section id="skills" heading={t.skills.heading}>
       <Reveal>
-        <p className="mb-12 max-w-2xl text-2xl font-bold leading-snug tracking-headline text-ink md:mb-16 md:text-3xl">
+        <p className="mb-12 max-w-2xl text-h4 font-bold tracking-headline text-ink md:text-h3">
           {t.skills.subtitle}
         </p>
       </Reveal>
 
-      <div className="space-y-14 md:space-y-16">
+      <div className="space-y-16">
         {skillGroups.map((group) => {
           const groupCopy = t.skills.groups[group.id];
           return (
             <div key={group.id}>
               <Reveal>
-                <h3 className="mb-6 text-[10px] font-medium uppercase tracking-wide2 text-ink/40">
+                <h3 className="mb-2 text-micro font-medium uppercase tracking-wide2 text-ink/65">
                   {groupCopy.label}
                 </h3>
               </Reveal>
               {group.muted ? (
-                <Stagger as="ul" className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <StaggerChild
-                      as="li"
-                      key={skill.id}
-                      className="rounded-full border-hairline border-solid px-3 py-1.5 text-xs text-ink/55"
-                    >
-                      {groupCopy.items[skill.id]?.name ?? skill.name}
-                    </StaggerChild>
-                  ))}
-                </Stagger>
+                /* Supporting craft: one quiet line, not a row of chips. */
+                <Reveal>
+                  <p className="border-t-hairline pt-4 text-body text-ink/65">
+                    {group.skills
+                      .map(
+                        (skill) =>
+                          groupCopy.items[skill.id]?.name ?? skill.name
+                      )
+                      .join("  ·  ")}
+                  </p>
+                </Reveal>
               ) : (
                 <Stagger
                   as="ul"
-                  className="grid grid-cols-1 gap-4 min-[420px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 >
                   {group.skills.map((skill) => (
                     <StaggerChild
                       as="li"
                       key={skill.id}
-                      className="group flex items-center gap-4 rounded-2xl border-hairline border-solid bg-white p-4 transition-all duration-200 hover:-translate-y-0.5 hover:border-clay/40 hover:shadow-[0_4px_16px_rgba(35,39,47,0.06)]"
+                      className="flex items-baseline gap-4 border-t-hairline py-2 sm:pr-8"
                     >
                       <SkillMark skill={skill} />
                       <span className="min-w-0">
-                        <span className="block text-sm font-semibold leading-snug text-ink">
+                        <span className="block text-body font-semibold text-ink">
                           {groupCopy.items[skill.id]?.name ?? skill.name}
                         </span>
-                        <span className="mt-0.5 line-clamp-2 block text-xs leading-snug text-ink/50">
-                          {groupCopy.items[skill.id]?.desc}
-                        </span>
+                        {groupCopy.items[skill.id]?.desc ? (
+                          <span className="block text-micro text-ink/65">
+                            {groupCopy.items[skill.id].desc}
+                          </span>
+                        ) : null}
                       </span>
                     </StaggerChild>
                   ))}

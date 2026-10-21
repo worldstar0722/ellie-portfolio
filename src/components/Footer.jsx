@@ -19,15 +19,15 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="bg-navy text-white">
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:px-8 md:py-32">
+      <div className="mx-auto max-w-[1200px] px-6 py-24 sm:px-8 md:py-32">
         <Reveal>
-          <h2 className="max-w-2xl text-4xl font-bold tracking-headline md:text-6xl">
+          <h2 className="max-w-2xl text-h3 font-bold tracking-headline md:text-h2">
             {t.contact.heading}
           </h2>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60">
+          <p className="mt-8 max-w-xl text-body text-white/80">
             {t.contact.body}
           </p>
-          <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/40">
+          <p className="mt-4 max-w-xl text-body text-white/70">
             {t.contact.bodySecondary}
           </p>
         </Reveal>
@@ -46,7 +46,7 @@ export default function Footer() {
                       ? undefined
                       : "noopener noreferrer"
                   }
-                  className="link-underline text-[12px] font-medium uppercase tracking-label !text-white hover:!text-white/70"
+                  className="link-underline text-micro font-medium uppercase tracking-label !text-white hover:!text-white/70"
                 >
                   {link.label} <span aria-hidden="true">↗</span>
                 </a>
@@ -58,7 +58,7 @@ export default function Footer() {
         {/* Document hierarchy: Resume stays primary; Academic CV is the
             secondary option for research-facing readers. */}
         <Reveal delay={0.12}>
-          <div className="mt-10 flex flex-col gap-2 text-[11px] font-medium uppercase tracking-label sm:flex-row sm:items-center sm:gap-10">
+          <div className="mt-8 flex flex-col gap-2 text-micro font-medium uppercase tracking-label sm:flex-row sm:items-center sm:gap-10">
             <p>
               <a
                 href="/resume.pdf"
@@ -68,7 +68,7 @@ export default function Footer() {
               >
                 {t.contact.resume} <span aria-hidden="true">↗</span>
               </a>
-              <span className="ml-2 normal-case text-white/40">
+              <span className="ml-2 normal-case text-white/70">
                 — {t.contact.resumeNote}
               </span>
             </p>
@@ -77,11 +77,11 @@ export default function Footer() {
                 href="/academic-cv.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-underline !text-white/70 hover:!text-white/50"
+                className="link-underline !text-white/70 hover:!text-white"
               >
                 {t.contact.academicCv} <span aria-hidden="true">↗</span>
               </a>
-              <span className="ml-2 normal-case text-white/40">
+              <span className="ml-2 normal-case text-white/70">
                 — {t.contact.academicCvNote}
               </span>
             </p>
@@ -89,10 +89,8 @@ export default function Footer() {
         </Reveal>
 
         <Reveal delay={0.15}>
-          <div className="mt-20 border-t border-white/10 pt-8">
-            {/* The single blush accent detail */}
-            <span aria-hidden="true" className="mb-6 block h-px w-10 bg-blush" />
-            <div className="flex flex-col gap-2 text-[11px] font-medium uppercase tracking-label text-white/40 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-24 border-t border-white/20 pt-8">
+            <div className="flex flex-col gap-2 text-micro font-medium uppercase tracking-label text-white/70 sm:flex-row sm:items-center sm:justify-between">
               <p>{t.contact.note}</p>
               <p>{t.contact.copyright}</p>
             </div>

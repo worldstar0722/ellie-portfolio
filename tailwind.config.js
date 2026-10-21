@@ -6,9 +6,16 @@ export default {
       colors: {
         ink: "#23272F",
         navy: "#1B3A5C",
-        clay: "#C05B3C",
-        blush: "#E4A3B4",
+        // clay is the single accent. The DEFAULT is for fills, rules and
+        // dots; `clay-text` is a slightly deeper mix used wherever clay
+        // carries type, where #C05B3C only reaches 4.37:1 on white.
+        clay: {
+          DEFAULT: "#C05B3C",
+          text: "#B85533",
+        },
         hairline: "#EBEBEB",
+        // Flat fill behind images and empty asset frames.
+        paper: "#F5F5F7",
       },
       fontFamily: {
         sans: [
@@ -19,6 +26,16 @@ export default {
           "system-ui",
           "sans-serif",
         ],
+      },
+      // Seven steps, nothing between them. 12 / 15 / 17 / 22 / 32 / 48 / 72.
+      fontSize: {
+        micro: ["0.75rem", { lineHeight: "1.5" }],
+        body: ["0.9375rem", { lineHeight: "1.7" }],
+        lead: ["1.0625rem", { lineHeight: "1.7" }],
+        h4: ["1.375rem", { lineHeight: "1.35" }],
+        h3: ["2rem", { lineHeight: "1.2" }],
+        h2: ["3rem", { lineHeight: "1.1" }],
+        h1: ["4.5rem", { lineHeight: "1.05" }],
       },
       letterSpacing: {
         headline: "-0.025em",

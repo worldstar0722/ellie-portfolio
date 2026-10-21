@@ -25,6 +25,9 @@ export const skillGroups = [
       { id: "tableau", name: "Tableau", badge: "TB" },
       { id: "powerbi", name: "Power BI", icon: "barchart" },
       { id: "github", name: "Git & GitHub", icon: "github" },
+      { id: "colab", name: "Google Colab", badge: "CLB" },
+      { id: "lucidchart", name: "LucidChart", icon: "layers" },
+      { id: "salesforce", name: "Salesforce", icon: "cloud" },
     ],
   },
   {
@@ -36,7 +39,8 @@ export const skillGroups = [
       { id: "sklearn", name: "scikit-learn", icon: "sklearn" },
       { id: "randomforest", name: "Random Forest", icon: "tree" },
       { id: "lightgbm", name: "LightGBM", badge: "LGBM" },
-      { id: "xgboost", name: "XGBoost", badge: "XGB" },
+      { id: "gradientboosting", name: "Gradient Boosting", badge: "GB" },
+      { id: "llmeval", name: "LLM evaluation", icon: "robot", accent: true },
     ],
   },
   {

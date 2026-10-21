@@ -14,8 +14,10 @@ const ratioClass = {
 // When the asset is missing:
 //   - hideIfMissing (public galleries) renders nothing, so the grid closes
 //     up instead of showing an empty box;
-//   - otherwise a labeled paper placeholder is drawn, which is what the
-//     gallery editor wants while arranging slots.
+//   - otherwise a flat empty frame holds the space. The slot name and the
+//     "upload later" hint are production notes, so they only appear when
+//     showSlot is set — the gallery editor passes it, the public site
+//     never does.
 export default function Placeholder({
   name,
   file,
@@ -24,6 +26,7 @@ export default function Placeholder({
   uploadLabel = "Upload later",
   className = "",
   hideIfMissing = false,
+  showSlot = false,
   src, // local override (gallery editor previews)
 }) {
   const asset = useAsset(name, file);
@@ -31,15 +34,11 @@ export default function Placeholder({
 
   if (!shown && hideIfMissing) return null;
 
-  // A real image gets the site's normal frame (solid hairline, soft
-  // shadow); only an empty slot keeps the dashed placeholder treatment.
-  const frame = shown
-    ? "border-hairline border-solid bg-[#F7F4EE]/40 shadow-[0_2px_20px_rgba(35,39,47,0.05)]"
-    : "border border-dashed border-ink/15 bg-[#F7F4EE]/70 placeholder-grid";
-
   return (
     <figure
-      className={`relative overflow-hidden rounded-[20px] ${frame} ${ratioClass[ratio] ?? "aspect-video"} ${className}`}
+      className={`relative overflow-hidden rounded-xl bg-paper ${
+        shown ? "border-hairline border-solid" : ""
+      } ${ratioClass[ratio] ?? "aspect-video"} ${className}`}
     >
       {shown ? (
         <img
@@ -48,12 +47,12 @@ export default function Placeholder({
           loading="lazy"
           className="absolute inset-0 h-full w-full object-contain"
         />
-      ) : asset.status === "missing" ? (
-        <figcaption className="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 text-center">
-          <span className="max-w-full truncate rounded-full border-hairline border-solid bg-white/80 px-3 py-1 text-[10px] font-medium uppercase tracking-label text-ink/50">
+      ) : showSlot && asset.status === "missing" ? (
+        <figcaption className="absolute inset-0 flex flex-col justify-end gap-1 p-4">
+          <span className="truncate text-micro font-medium uppercase tracking-label text-ink/65">
             {name}
           </span>
-          <span className="text-xs font-medium text-ink/55">
+          <span className="text-micro text-ink/65">
             {uploadLabel}: {hint} · {ratio}
           </span>
         </figcaption>

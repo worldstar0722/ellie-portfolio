@@ -9,7 +9,7 @@ const JourneyMap = lazy(() => import("./JourneyMap.jsx"));
 
 function MapFallback() {
   return (
-    <div className="h-[320px] w-full rounded-[20px] border-hairline border-solid bg-[#F7F4EE] md:h-[440px]" />
+    <div className="h-[320px] w-full rounded-xl border-hairline border-solid bg-paper md:h-[440px]" />
   );
 }
 
@@ -24,7 +24,7 @@ export default function Journey() {
   return (
     <Section id="journey" heading={t.journey.heading}>
       <Reveal>
-        <p className="mb-12 max-w-2xl text-2xl font-bold leading-snug tracking-headline text-ink md:mb-16 md:text-3xl">
+        <p className="mb-12 max-w-2xl text-h4 font-bold tracking-headline text-ink md:text-h3">
           {t.journey.subheading}
         </p>
       </Reveal>
@@ -57,18 +57,18 @@ export default function Journey() {
                     <span
                       aria-hidden="true"
                       className={`block h-[9px] w-[9px] rounded-full transition-colors duration-300 ${
-                        isActive ? "bg-clay" : "bg-hairline group-hover:bg-ink/30"
+                        isActive ? "bg-clay" : "bg-hairline group-hover:bg-ink/40"
                       }`}
                     />
                     <span
-                      className={`text-sm font-semibold tracking-headline transition-colors duration-200 ${
-                        isActive ? "text-ink" : "text-ink/45 group-hover:text-navy"
+                      className={`text-body font-semibold tracking-headline transition-colors duration-200 ${
+                        isActive ? "text-ink" : "text-ink/65 group-hover:text-navy"
                       }`}
                     >
                       {stop.city}
                     </span>
                   </span>
-                  <span className="pl-[19px] text-[10px] font-medium uppercase tracking-label text-ink/35">
+                  <span className="pl-[19px] text-micro font-medium uppercase tracking-label text-ink/65">
                     {stop.period}
                   </span>
                 </button>
@@ -85,7 +85,7 @@ export default function Journey() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ duration: 0.25, ease: easeOutSoft }}
-              className="max-w-2xl text-base leading-relaxed text-ink/70"
+              className="max-w-2xl text-lead text-ink/75"
             >
               {active.story}
             </motion.p>
@@ -113,19 +113,19 @@ export default function Journey() {
                 />
                 <span className="flex flex-1 items-baseline justify-between gap-3">
                   <span
-                    className={`text-sm font-semibold ${
-                      isActive ? "text-ink" : "text-ink/50"
+                    className={`text-body font-semibold ${
+                      isActive ? "text-ink" : "text-ink/65"
                     }`}
                   >
                     {stop.city}
                   </span>
-                  <span className="text-[10px] font-medium uppercase tracking-label text-ink/35">
+                  <span className="text-micro font-medium uppercase tracking-label text-ink/65">
                     {stop.period}
                   </span>
                 </span>
               </button>
               <Collapse open={isActive}>
-                <p className="pb-6 pl-[26px] text-sm leading-relaxed text-ink/70">
+                <p className="pb-6 pl-[26px] text-body text-ink/75">
                   {stop.story}
                 </p>
               </Collapse>

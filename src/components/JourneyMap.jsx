@@ -236,7 +236,7 @@ function JourneyMap({ cityNames, activeId, onSelect }) {
   return (
     <div
       ref={containerRef}
-      className="h-[320px] w-full overflow-hidden rounded-[20px] border-hairline border-solid shadow-[0_2px_20px_rgba(35,39,47,0.05)] md:h-[440px]"
+      className="h-[320px] w-full overflow-hidden rounded-xl border-hairline border-solid md:h-[440px]"
       aria-label={journeyCities.map((c) => cityNames[c.id]).join(" → ")}
     />
   );

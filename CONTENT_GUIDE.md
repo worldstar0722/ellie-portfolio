@@ -1,6 +1,6 @@
 # Content Guide
 
-How to update the text, images, and documents on this portfolio **without touching any real code**. Almost everything you'll ever want to change lives in two files: `src/data/translations.js` (all sentences and labels, in English and Korean) and `src/data/projects.js` (the four case studies).
+How to update the text, images, and documents on this portfolio **without touching any real code**. Almost everything you'll ever want to change lives in two files: `src/data/translations.js` (all sentences and labels, in English and Korean) and `src/data/projects.js` (the seven case studies).
 
 > **The golden rule:** every piece of text exists **twice** — once under `en:` and once under `ko:`. When you edit or add something, do it in **both** places, or the language toggle will show mismatched content.
 
@@ -19,11 +19,11 @@ How to update the text, images, and documents on this portfolio **without touchi
 | Skills (names, icons, capability lines) | `src/data/skills.js` **and** `src/data/translations.js` | see [Section 4D](#d-skills) — a skill lives in two files |
 | Analytics Approach (5 steps) | `src/data/translations.js` | `approach.steps` array |
 | Journey map city stories | `src/data/translations.js` | `journey.stops` array |
-| Identity section (the mark, palette, story) | `src/data/translations.js` | `identity:` block |
+| Identity section (the mark, the story) | `src/data/translations.js` | `identity:` block |
 | Contact / footer text and links | `src/data/translations.js` (labels) + `src/components/Footer.jsx` (the actual URLs) | `contact:` block / `links` array at the top of Footer.jsx |
 | Resume PDF | `public/resume.pdf` | replace the file, keep the same name |
 | Academic CV PDF | `public/academic-cv.pdf` | replace the file, keep the same name |
-| Project images (dashboards, maps, charts) | `public/images/` | add files with the exact names listed in `projects.js` (e.g. `project01_dashboard.jpg`) |
+| Project images (dashboards, maps, charts) | `public/images/` | add the file, then register its pixel size in `src/lib/imageMeta.js` |
 | Portrait photo | `public/images/ellie-portrait.webp` + `.jpg` | replace both files, keep the same names |
 | Original / source photos (not shown on site) | `assets-src/` | e.g. `assets-src/ellie-portrait-original.jpg` |
 | Your LinkedIn / Calendly / email / GitHub URLs | `src/components/Hero.jsx`, `Nav.jsx`, `Footer.jsx`, `Experience.jsx` | search the file for the old URL and replace it |
@@ -53,12 +53,12 @@ If the preview ever shows a full-screen error after an edit, you most likely bro
 | File / folder | Controls |
 | --- | --- |
 | `src/data/translations.js` | **Every sentence and label on the site**, in two mirrored halves: `en: { … }` and `ko: { … }`. Blocks inside: `nav`, `hero`, `work` (labels only), `approach`, `skills` (names + capability lines), `experience`, `journey`, `identity`, `contact`, `caseStudy` (labels only). |
-| `src/data/projects.js` | The 4 case studies: homepage card content **and** the full `/work/<slug>` pages (overview, problem, data, method, results, impact, gallery, reflection, research context). |
+| `src/data/projects.js` | The 7 case studies: homepage card content **and** the full `/work/<slug>` pages (overview, problem, data, method, results, impact, evidence, reflection, research context). |
 | `src/data/skills.js` | Which skills appear in the Skills grid, in what order, and which icon or text badge each one uses. |
 | `src/data/journey.js` | Map coordinates and zoom levels for the 4 journey cities (you'll rarely touch this). |
 | `public/resume.pdf` | The file behind every "Resume" link. Replace it; don't rename it. |
 | `public/academic-cv.pdf` | The file behind every "Academic CV" link. Replace it; don't rename it. |
-| `public/images/` | All images the site shows: the portrait (`ellie-portrait.webp` + `.jpg`) and, in future, project images named after the placeholders (e.g. `project01_dashboard.jpg`). |
+| `public/images/` | All images the site shows: the portrait (`ellie-portrait.webp` + `.jpg`) and the project evidence images, named for what they show (e.g. `stock-model-evaluation.png`). |
 | `assets-src/` | Storage for original, unprocessed files (like the raw studio photo). Nothing here appears on the site. |
 | `src/components/*.jsx` | The layout code. You normally don't edit these — **except** to change a hardcoded URL (LinkedIn, Calendly, email, GitHub) in `Hero.jsx`, `Nav.jsx`, `Footer.jsx`, or `Experience.jsx`. |
 
@@ -72,7 +72,7 @@ If the preview ever shows a full-screen error after an edit, you most likely bro
 
 **File:** `src/data/translations.js` → paste into the `experience.featured` array — once inside `en:` (around the top half of the file) and once inside `ko:` (bottom half). Same spot in both.
 
-English version (this is the real shape of the current "Financial Operation Assistant" entry):
+English version (this is the real shape of the current "Student Finance Operations Assistant" entry):
 
 ```js
 {
@@ -80,7 +80,7 @@ English version (this is the real shape of the current "Financial Operation Assi
   title: "YOUR_ROLE_TITLE_HERE",
   org: "YOUR_COMPANY_NAME_HERE",
   meta: "Part-time · Salt Lake City, Utah", // type · location — or delete this line
-  period: "May 2026 – Present", // date range only, no durations
+  period: "2026 – Present", // date range only, no durations
   description:
     "YOUR_DESCRIPTION_HERE — one or two conservative sentences.",
   tags: ["YOUR_TAG_1", "YOUR_TAG_2", "YOUR_TAG_3"], // 3–4 tags
@@ -137,46 +137,55 @@ To give a project a Research Context box it doesn't have yet, also add `research
 
 **File:** `src/data/projects.js` → the `projects` array. One object = one homepage card **plus** one full page at `/work/<slug>`. The page and its address are created automatically from the `slug` — no other file needs touching.
 
-Abbreviated real shape (the full objects in the file also contain `snapshot`, `overview`, `problem`, `data`, `methodSteps`, `findings`, `metrics`, `charts`, `impact`, `reflection`, and `gallery` — copy an entire existing project object and rewrite every text field):
+Abbreviated real shape (the full objects in the file also contain `snapshot`, `overview`, `problem`, `data`, `methodSteps`, `findings`, `metrics`, `impact`, `reflection`, and `evidence` — copy an entire existing project object and rewrite every text field):
 
 ```js
 {
   slug: "your-project-name-here", // becomes the page address: /work/your-project-name-here
-  number: "05",
-  tools: ["YOUR_TOOL_1", "YOUR_TOOL_2", "YOUR_TOOL_3"],
-  cover: { name: "project05_cover", hint: "cover image", ratio: "16:9" },
-  links: { github: "https://github.com/worldstar0722" }, // or {} for none
+  number: "08",
+  group: "technical", // picks the band + size tier (see below)
+  tools: ["YOUR_TOOL_1", "YOUR_TOOL_2"],
+  team: ["Ellie Choi", "TEAMMATE_NAME"], // [] if solo
+  mentors: ["MENTOR_NAME"],              // [] if none
+  course: "IS 0000 — Course Name",       // omit if not a course project
+  inProgress: true,   // optional: shows an "In progress" label
+  privateRepo: true,  // optional: shows the code-access note instead of a link
+  cover: { file: "your-image.png", fit: "contain" },
+  links: {}, // only real links; there are no "coming soon" placeholders
   en: {
     title: "YOUR_PROJECT_TITLE_HERE",
     category: "RESEARCH · YOUR_CATEGORY_HERE", // small eyebrow above the title
     subtitle: "YOUR_ONE_LINE_SUMMARY_HERE.",
     role: "YOUR_ROLE_TITLE_HERE",
-    // …
-    proofPoints: [
-      "YOUR_PROOF_POINT_1", // e.g. "64,230 tweets"
-      "YOUR_PROOF_POINT_2",
-      "YOUR_PROOF_POINT_3",
+    status: "Completed student project",
+    coverAlt: "DESCRIBE_THE_COVER_IMAGE_FOR_SCREEN_READERS",
+    proofPoints: ["YOUR_PROOF_POINT_1", "YOUR_PROOF_POINT_2"],
+    evidence: [
+      {
+        file: "your-image.png",
+        alt: "WHAT_THE_IMAGE_SHOWS",
+        caption: "What this is, and what it does not prove.",
+        credit: "Whose work it is · data source if any",
+      },
     ],
+    evidenceNote: "", // optional: why an expected figure is missing
     // … copy the remaining fields from an existing project
   },
-  ko: {
-    title: "프로젝트 제목",
-    category: "리서치 · 카테고리",
-    subtitle: "한 줄 요약.",
-    role: "역할",
-    proofPoints: ["핵심 성과 1", "핵심 성과 2", "핵심 성과 3"],
-    // … 나머지 필드도 기존 프로젝트에서 복사해 번역
-  },
+  ko: { /* same shape, same facts, natural Korean */ },
 },
 ```
 
-Image fields (`cover`, `charts`, `gallery`) each have a `name` — that name maps to a file you drop into `public/images/` later (see Section 6). Until the file exists, the site shows a tidy labeled placeholder, never a broken image.
+**Groups** set both the band heading and the card size. `fintech`, `appliedai` and `transferable` are large cards; `proptech` is medium; `technical` and `additional` are compact rows. Band headings live in `translations.js` under `work.groups`.
+
+**Every image needs three things:** the file in `public/images/`, an entry in `src/lib/imageMeta.js` giving its pixel width and height, and `alt` text in **both** languages. Without the `imageMeta` entry the figure renders nothing — that is deliberate, so a missing image fails loudly during development rather than silently shipping an empty box.
+
+**Captions carry the caveats.** A cropped poster panel, a classroom screenshot or a schematic has to say what it is and whose work it is. If a figure could be read as a stronger claim than the evidence supports, the caption is where you say so.
 
 ### D. Skills
 
 A skill lives in **two files** — both steps are required:
 
-**Step 1 — `src/data/skills.js`:** add to the right group's `skills` array (groups: `data`, `ml`, `urban`, `design`). Real shape:
+**Step 1 — `src/data/skills.js`:** add to the right group's `skills` array (groups: `finance`, `tech`, `ai`, `spatial`, `additional`). Real shape:
 
 ```js
 { id: "your_skill_id", name: "YOUR_SKILL_NAME_HERE", icon: "database" },
@@ -184,7 +193,7 @@ A skill lives in **two files** — both steps are required:
 { id: "your_skill_id", name: "YOUR_SKILL_NAME_HERE", badge: "ABCD" },
 ```
 
-Available `icon` values (already wired up in `src/components/Skills.jsx`): `python`, `database`, `barchart`, `grid`, `sklearn`, `tree`, `arcgis`, `mappin`, `users`, `buildings`, `figma`, `piechart`, `presentation`. Anything else: use `badge` with 2–5 characters.
+Available `icon` values (already wired up in `src/components/Skills.jsx`): `python`, `database`, `barchart`, `grid`, `sklearn`, `tree`, `arcgis`, `mappin`, `users`, `buildings`, `figma`, `piechart`, `presentation`, `layers`, `cloud`, `robot`, `checkSquare`, `shieldCheck`, `plug`, `github`, `message`, `reportMoney`, `bank`, `trending`. Anything else: use `badge` with 2–5 characters.
 
 **Step 2 — `src/data/translations.js`:** in `skills.groups.<same group>.items`, add a line keyed by the same `id` — once under `en:`, once under `ko:`:
 
@@ -207,20 +216,12 @@ identity: {
   heading: "Identity",
   markLabel: "THE MARK",
   markStory: "YOUR_DESCRIPTION_HERE — the story of the E-bar logo.",
-  paletteLabel: "THE PALETTE",
-  colors: [
-    { name: "Ledger navy", hex: "#1B3A5C" },
-    { name: "Cinema ink", hex: "#23272F" },
-    { name: "Field paper", hex: "#F7F4EE" },
-    { name: "Canyon clay", hex: "#C05B3C" },
-    { name: "Maehwa blush", hex: "#E4A3B4" },
-  ],
   storyLabel: "THE STORY",
   story: "YOUR_DESCRIPTION_HERE — the one-paragraph palette story.",
 },
 ```
 
-Safe to edit: any of the text strings, and the color `name`s. The `hex` values change the swatch colors shown in this section only — the site's actual theme colors live in `tailwind.config.js` (leave that alone unless you're rebranding). The logo itself is drawn in `src/components/Logo.jsx`.
+Safe to edit: any of the text strings. The site's theme colors live in `tailwind.config.js` (leave that alone unless you're rebranding). The logo itself is drawn in `src/components/Logo.jsx`.
 
 ---
 
@@ -237,7 +238,7 @@ Small example — moving the Teaching Assistant card above the Finance card:
 ```js
 featured: [
   { id: "ta",      title: "Teaching Assistant", … },        // ← moved up: now shows first
-  { id: "finance", title: "Financial Operation Assistant", … },
+  { id: "finance", title: "Student Finance Operations Assistant", … },
   …
 ],
 ```
@@ -253,24 +254,25 @@ Remember to make the same move in **both** the `en` and `ko` halves so the two l
 - `public/images/` — everything the site actually displays.
 - `assets-src/` — original/raw versions you want to keep but not publish (e.g. `assets-src/ellie-portrait-original.jpg`, the unedited studio photo). Nothing in this folder is served.
 
-**Naming rules:** lowercase, no spaces, hyphens or underscores only — e.g. `project01_dashboard.jpg`, `ellie-portrait.webp`. The name is the connection: components and project data refer to images *by base filename* — **the extension doesn't matter**.
+**Naming rules:** lowercase, no spaces, hyphens or underscores only, and **name the file for what it shows** — `stock-model-evaluation.png`, not `project01_chart.png`. Project data refers to images by their *full filename including the extension*, so `.png`, `.jpg` and `.svg` all work as long as the name matches exactly.
 
-**Formats — any of these work:** `.webp`, `.jpg`, `.jpeg`, `.png`, or `.pdf`. The site checks for each in that order and shows the first one it finds. A PDF displays its first page as the preview. Images are never cropped — whatever the shape (portrait, landscape, square), the full image is shown inside its frame. Keep images around 1000–1600px on the long edge — phone-camera originals are 10× bigger than needed.
+**Formats:** `.png`, `.jpg`, `.jpeg`, `.webp` and `.svg`. Evidence figures are never cropped — whatever the shape, the whole image is shown inside its frame. Keep raster images around 1000–2000px on the long edge.
 
-**Replacing an existing image — no code changes needed.** Overwrite the file in `public/images/` with a new one **of the same base name** (any supported extension). Example: to update the portrait, replace both `public/images/ellie-portrait.webp` and `public/images/ellie-portrait.jpg` (keep it 4:5, about 800×1000).
+**Replacing an existing image.** Overwrite the file in `public/images/` keeping the exact same filename, and update its width/height in `src/lib/imageMeta.js` if the new file has different dimensions. Example: to update the portrait, replace both `public/images/ellie-portrait.webp` and `public/images/ellie-portrait.jpg` (keep it 4:5, about 800×1000) — the portrait is the one image outside the `imageMeta` system.
 
-**Galleries have no fixed slot count.** Each case study's gallery is just an array in `src/data/projects.js` — add, remove, or reorder entries freely and the layout adapts.
+**Evidence has no fixed slot count.** Each case study's `evidence` is just an array in `src/data/projects.js` — add, remove or reorder entries freely and the layout adapts. There are no empty placeholder tiles: a figure either has a real file or it is not listed.
 
-**Gallery editor (owner mode).** On any case study page, add `?edit` to the URL when running `npm run dev` locally (or `?edit=YOUR_KEY` on the live site, where the key is the `VITE_EDIT_KEY` environment variable set in Vercel). The Visual Gallery becomes a drag-and-drop editor: drag tiles to reorder, drop image/PDF files onto a tile to replace it or onto the "+" tile to add, and click × to remove. Nothing you do there changes the live site — when the arrangement looks right, click **Copy snippet**, paste it over the project's `gallery:` array in `src/data/projects.js` (both `en` and `ko`), drop the listed files into `public/images/` with the shown names, then commit and push as usual. Visitors never see the editor, and even if someone found it, the site can only be changed by pushing to this repository.
+**Evidence editor (owner mode).** On any case study page, add `?edit` to the URL when running `npm run dev` locally (or `?edit=YOUR_KEY` on the live site, where the key is the `VITE_EDIT_KEY` environment variable set in Vercel). The Evidence section becomes a drag-and-drop editor: drag tiles to reorder, drop image/PDF files onto a tile to replace it or onto the "+" tile to add, and click × to remove. Nothing you do there changes the live site — when the arrangement looks right, click **Copy snippet**, paste it over the project's `evidence:` array in `src/data/projects.js` (both `en` and `ko`), drop the listed files into `public/images/`, add each one to `src/lib/imageMeta.js`, write `alt`, `caption` and `credit` in both languages, then commit and push as usual. Visitors never see the editor, and even if someone found it, the site can only be changed by pushing to this repository.
 
-**Filling a project placeholder — also no code changes.** Every gray "Upload later" box on the site is named. Save your image as `public/images/<that name>.<any supported extension>` and it appears automatically. Current expected names include:
+**Adding a new image — three steps, all required.** There are no "Upload later" placeholders any more: a figure is either real or absent.
 
-- Project 01: `project01_cover`, `project01_dashboard`, `project01_sentiment_distribution`, `project01_brand_ranking_chart`, `project01_winning_score_model_diagram`, `project01_ad_meter_comparison`
-- Project 02: `project02_cover`, `project02_model_pipeline`, `project02_sentiment_over_time`, `project02_feature_importance`, `project02_model_comparison`, `project02_confusion_matrix`
-- Project 03: `project03_cover`, `project03_site_map`, `project03_equity_analysis`, `project03_health_planning_framework`, `project03_recommendation_board`, `project03_before_after_concept`
-- Project 04: `project04_cover`, `project04_score_map`, `project04_buffer_map`, `project04_amenity_map`
+1. Save the file into `public/images/`, named for what it shows.
+2. Add its pixel width and height to `src/lib/imageMeta.js`.
+3. Add an `evidence` entry in `src/data/projects.js` with `file`, `alt`, `caption` and `credit` — in **both** `en` and `ko`.
 
-(Any supported extension — e.g. `public/images/project01_dashboard.png` or `.../project01_dashboard.pdf` both work.)
+Images currently in use are listed in `src/lib/imageMeta.js`.
+
+**Holding an image back.** If a figure is not cleared for publication — a map whose legend still needs checking, a screenshot whose team has not agreed to it — leave it out of `public/images/` entirely and say why in the project's `evidenceNote`. Do not relabel or crop around the problem.
 
 **Referencing a brand-new image in a component** (rare — only for images outside the placeholder system). The real line the site uses for the portrait, in `src/components/Hero.jsx`, is:
 

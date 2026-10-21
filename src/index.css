@@ -1,3 +1,6 @@
+/* Mood: a ledger page, not a landing page. Hairlines instead of boxes,
+   white space instead of dividers, one accent, and nothing that glows. */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,8 +10,10 @@
     scroll-behavior: smooth;
   }
 
+  /* Inherited size is on the scale too, so a wrapper without its own
+     size class never introduces a stray value. */
   body {
-    @apply bg-white font-sans text-ink antialiased;
+    @apply bg-white font-sans text-body text-ink antialiased;
   }
 
   :lang(ko) body,
@@ -64,7 +69,6 @@
     border-radius: 9999px;
     background-color: #b9b4aa;
     border: 2px solid #ffffff;
-    box-shadow: 0 1px 4px rgba(35, 39, 47, 0.18);
     transition: background-color 0.2s ease, transform 0.2s ease;
   }
 
@@ -73,31 +77,22 @@
     transform: scale(1.15);
   }
 
+  /* Map labels need a backing to stay legible over tiles, but it is a
+     square plate, not a pill. */
   .city-marker-label {
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     letter-spacing: 0.02em;
     color: rgba(35, 39, 47, 0.75);
-    background: rgba(255, 255, 255, 0.78);
-    padding: 2px 7px;
-    border-radius: 9999px;
+    background: #ffffff;
+    padding: 2px 6px;
+    border-radius: 2px;
     transition: color 0.2s ease;
   }
 
   .city-marker.is-active .city-marker-label {
     color: #23272f;
     font-weight: 600;
-  }
-
-  /* Soft grid texture for asset placeholders */
-  .placeholder-grid {
-    background-image: linear-gradient(
-        to right,
-        rgba(35, 39, 47, 0.045) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(35, 39, 47, 0.045) 1px, transparent 1px);
-    background-size: 24px 24px;
   }
 
   @media (prefers-reduced-motion: reduce) {

@@ -18,25 +18,23 @@ export default function Education() {
               {i > 0 ? (
                 <span
                   aria-hidden="true"
-                  className="mb-2 block text-sm leading-none text-clay/60"
+                  className="mb-2 block text-body leading-none text-clay"
                 >
                   ↓
                 </span>
               ) : null}
-              <h3 className="text-base font-semibold text-ink">
+              <h3 className="text-lead font-semibold text-ink">
                 {entry.degree}
               </h3>
-              <p className="mt-1 text-xs leading-relaxed text-ink/50">
-                {entry.school}
-              </p>
-              <p className="mt-1.5 text-[11px] font-medium uppercase tracking-label text-ink/35 md:hidden">
+              <p className="mt-2 text-micro text-ink/65">{entry.school}</p>
+              <p className="mt-2 text-micro font-medium uppercase tracking-label text-ink/65 md:hidden">
                 {entry.period}
               </p>
             </div>
-            <p className="text-sm leading-relaxed text-ink/50 md:col-span-5">
+            <p className="text-body text-ink/75 md:col-span-5">
               {entry.detail}
             </p>
-            <p className="hidden text-right text-[11px] font-medium uppercase tracking-label text-ink/35 md:col-span-2 md:block">
+            <p className="hidden text-right text-micro font-medium uppercase tracking-label text-ink/65 md:col-span-2 md:block">
               {entry.period}
             </p>
           </StaggerChild>
